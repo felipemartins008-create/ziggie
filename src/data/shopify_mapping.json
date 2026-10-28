@@ -1,0 +1,93 @@
+{
+  "bambu-a1-standalone": {
+    "shopifyProductId": 15476814872819,
+    "shopifyVariantId": 68018943492339,
+    "handle": "impressora-3d-bambu-lab-a1",
+    "title": "Impressora 3D Bambu Lab A1",
+    "price": "1961.10"
+  },
+  "bambu-a1-combo": {
+    "shopifyProductId": 15476814905587,
+    "shopifyVariantId": 68018943525107,
+    "handle": "impressora-3d-bambu-lab-a1-com-ams-lite-combo-4-cores",
+    "title": "Impressora 3D Bambu Lab A1 com AMS Lite Combo (4 Cores)",
+    "price": "4498.50"
+  },
+  "bambu-a1-mini-standalone": {
+    "shopifyProductId": 15476815003891,
+    "shopifyVariantId": 68018943623411,
+    "handle": "impressora-3d-bambu-lab-a1-mini",
+    "title": "Impressora 3D Bambu Lab A1 MINI",
+    "price": "2178.50"
+  },
+  "bambu-a1-mini-combo": {
+    "shopifyProductId": 15476815102195,
+    "shopifyVariantId": 68018944082163,
+    "handle": "impressora-3d-bambu-lab-a1-mini-ams-lite-combo",
+    "title": "Impressora 3D Bambu Lab A1 MINI AMS Lite Combo",
+    "price": "3598.50"
+  },
+  "bambu-h2s": {
+    "shopifyProductId": 15476815167731,
+    "shopifyVariantId": 68018944278771,
+    "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
+    "title": "Impressora 3D Bambu Lab H2S Gabinete Fechado",
+    "price": "12959.10"
+  },
+  "bambu-h2d": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2D Duplo Cabeçote Pro",
+    "price": "17999.10"
+  },
+  "bambu-p2s": {
+    "shopifyProductId": 15476815233267,
+    "shopifyVariantId": 68018944344307,
+    "handle": "impressora-3d-bambu-lab-p2s-enclosed",
+    "title": "Impressora 3D Bambu Lab P2S Enclosed",
+    "price": "6490.00"
+  },
+  "bambu-x2d": {
+    "shopifyProductId": 15476815266035,
+    "shopifyVariantId": 68018944377075,
+    "handle": "impressora-3d-bambu-lab-x2d-industrial-dual-lidar",
+    "title": "Impressora 3D Bambu Lab X2D Industrial Dual Lidar",
+    "price": "12900.00"
+  },
+  "filament-ziggie-pro-orange": {
+    "shopifyProductId": 15476815298803,
+    "shopifyVariantId": 68018944409843,
+    "handle": "filamento-ziggie-pro-high-speed-tough-pla-1-75mm-1kg-laranja-signature",
+    "title": "Filamento Ziggie Pro High-Speed Tough PLA 1.75mm 1Kg - Laranja Signature",
+    "price": "139.00"
+  },
+  "filament-bambu-pla-lite": {
+    "shopifyProductId": 15476815364339,
+    "shopifyVariantId": 68018944639219,
+    "handle": "filamento-bambu-lab-pla-lite-1-75mm-1kg-com-chip-rfid-laranja-bambu",
+    "title": "Filamento Bambu Lab PLA Lite 1.75mm 1Kg com Chip RFID - Laranja Bambu",
+    "price": "149.00"
+  },
+  "filament-printalot-pla-preto": {
+    "shopifyProductId": 15476815429875,
+    "shopifyVariantId": 68018944704755,
+    "handle": "filamento-pla-premium-1-75mm-1kg-printalot-preto-puro",
+    "title": "Filamento PLA Premium 1.75mm 1Kg PrintaLot - Preto Puro",
+    "price": "129.59"
+  },
+  "filament-sunlu-white": {
+    "shopifyProductId": 15476815495411,
+    "shopifyVariantId": 68018944934131,
+    "handle": "filamento-sunlu-pla-1-75mm-1kg-branco-com-adaptador-reutilizavel",
+    "title": "Filamento SUNLU PLA+ 1.75mm 1Kg Branco com Adaptador Reutilizável",
+    "price": "119.90"
+  },
+  "filament-panchroma-magenta": {
+    "shopifyProductId": 15476815528179,
+    "shopifyVariantId": 68018944966899,
+    "handle": "filamento-panchroma-matte-electric-magenta-1-75mm-1kg",
+    "title": "Filamento Panchroma Matte Electric Magenta 1.75mm 1Kg",
+    "price": "159.00"
+  }
+}
