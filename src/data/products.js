@@ -431,13 +431,13 @@ const BASE_PRODUCTS = [
 
 export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
   const mapData = shopifyMapping[p.id];
-  if (mapData) {
-    return {
-      ...p,
-      shopifyVariantId: String(mapData.shopifyVariantId),
-      shopifyProductId: String(mapData.shopifyProductId),
-      handle: mapData.handle
-    };
-  }
-  return p;
+  return {
+    ...p,
+    price: 0.00,
+    oldPrice: null,
+    installmentValue: 0,
+    shopifyVariantId: mapData ? String(mapData.shopifyVariantId) : undefined,
+    shopifyProductId: mapData ? String(mapData.shopifyProductId) : undefined,
+    handle: mapData ? mapData.handle : undefined
+  };
 });

@@ -15,6 +15,7 @@ dist-ssr
 .env.*
 scripts/test_shopify_auth.cjs
 scripts/upload_products_to_shopify.cjs
+scripts/set_all_prices_zero.cjs
 
 
 # Editor directories and files
