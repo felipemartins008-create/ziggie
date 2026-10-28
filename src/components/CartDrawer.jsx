@@ -178,6 +178,21 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                 <span>Finalizar Compra na Shopify</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
+
+              {/* Payment Methods Accepted */}
+              <div className="pt-2 text-center">
+                <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium block mb-2">
+                  Pagamento 100% Seguro Via Shopify
+                </span>
+                <div className="flex flex-wrap items-center justify-center gap-1.5 text-[9px] font-mono font-bold text-zinc-300">
+                  <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-400">PIX (-5%)</span>
+                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">ATÉ 12X</span>
+                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">CARTÃO</span>
+                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">BOLETO</span>
+                  <span className="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-500/40 text-sky-300">APPLE PAY</span>
+                  <span className="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-500/40 text-sky-300">GOOGLE PAY</span>
+                </div>
+              </div>
             </div>
           )}
 

@@ -128,13 +128,19 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
             
             {/* Payment badges */}
             <div className="space-y-2">
-              <span className="text-[11px] font-semibold text-zinc-500 block">Formas aceitas:</span>
+              <span className="text-[11px] font-semibold text-zinc-500 block">Formas de Pagamento Aceitas:</span>
               <div className="flex flex-wrap gap-1.5 text-[10px] font-bold font-mono">
                 <span className="px-2 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded">PIX (-5%)</span>
-                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">VISA 12x</span>
-                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">MASTER</span>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">CARTÃO ATÉ 12X</span>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">VISA</span>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">MASTERCARD</span>
                 <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">ELO</span>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">HIPERCARD</span>
+                <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">AMEX</span>
                 <span className="px-2 py-1 bg-zinc-100 text-zinc-700 border border-zinc-200 rounded">BOLETO</span>
+                <span className="px-2 py-1 bg-sky-50 text-sky-700 border border-sky-200 rounded">APPLE PAY</span>
+                <span className="px-2 py-1 bg-sky-50 text-sky-700 border border-sky-200 rounded">GOOGLE PAY</span>
+                <span className="px-2 py-1 bg-purple-50 text-purple-700 border border-purple-200 rounded">SHOP PAY</span>
               </div>
             </div>
 
