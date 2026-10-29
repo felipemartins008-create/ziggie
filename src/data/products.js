@@ -291,51 +291,24 @@ const BASE_PRODUCTS = [
     description: 'Inovação radical em impressão multicolorida: 4 ferramentas dedicadas que trocam em milissegundos sem misturar materiais nem desperdiçar filamento.'
   },
 
-  // --- FILAMENTOS PREMIUM ---
-  {
-    id: 'filament-ziggie-pro-orange',
-    name: 'Filamento Ziggie Pro High-Speed Tough PLA 1.75mm 1Kg - Laranja Signature',
-    category: 'Filamentos',
-    subCategory: 'Tough PLA',
-    brand: 'Ziggie 3D',
-    price: 139.00,
-    oldPrice: 159.00,
-    installments: 6,
-    installmentValue: 23.16,
-    pixDiscountPercent: 5,
-    image: '/images/ziggie-filament-spool.png',
-    badge: 'LINHA OFICIAL ZIGGIE',
-    rating: 5.0,
-    reviewsCount: 198,
-    inStock: true,
-    sku: 'ZG-PLA-TOUGH-ORANGE',
-    specs: {
-      material: 'Tough PLA High-Flow',
-      diameter: '1.75 mm (±0.015 mm)',
-      weight: '1.0 kg Líquido',
-      temp: '205 - 235 °C',
-      speed: 'Até 600 mm/s testado'
-    },
-    colors: ['#FF5500', '#1E6F9F', '#111215', '#FFFFFF'],
-    description: 'Filamento oficial da Ziggie 3D desenvolvido especificamente para impressoras CoreXY ultra velozes. Diâmetro calibrado a laser duplo.'
-  },
+  // --- CATÁLOGO OFICIAL DE FILAMENTOS ---
   {
     id: 'filament-bambu-pla-lite',
-    name: 'Filamento Bambu Lab PLA Lite 1.75mm 1Kg com Chip RFID - Laranja Bambu',
+    name: 'Filamento Bambu PLA Lite 1.75mm 1Kg',
     category: 'Filamentos',
-    subCategory: 'PLA com RFID',
+    subCategory: 'PLA Lite (RFID)',
     brand: 'Bambu Lab',
-    price: 149.00,
-    oldPrice: 169.00,
+    price: 120.00,
+    oldPrice: 139.00,
     installments: 6,
-    installmentValue: 24.83,
+    installmentValue: 20.00,
     pixDiscountPercent: 5,
     image: '/images/filament-bambulab-pla-lite.png',
-    badge: 'CHIP RFID AUTOMÁTICO',
+    badge: '7 CORES DISPONÍVEIS',
     rating: 5.0,
-    reviewsCount: 84,
+    reviewsCount: 142,
     inStock: true,
-    sku: 'BL-PLA-LITE-ORANGE',
+    sku: 'BL-PLA-LITE',
     specs: {
       material: 'PLA Lite Original',
       diameter: '1.75 mm (±0.02 mm)',
@@ -343,26 +316,124 @@ const BASE_PRODUCTS = [
       temp: '190 - 220 °C',
       rfid: 'Sim (Auto Reconhecido no AMS)'
     },
-    colors: ['#FF5500', '#111111', '#FFFFFF', '#2B6CB0'],
-    description: 'Filamento original com etiqueta RFID integrada. O alimentador AMS reconhece cor, temperatura e parâmetros de impressão automaticamente.'
+    colors: [
+      { name: 'Branco', hex: '#FFFFFF' },
+      { name: 'Preto', hex: '#111111' },
+      { name: 'Azul Marinho', hex: '#1B294B' },
+      { name: 'Amarelo', hex: '#F6D334' },
+      { name: 'Azul Cyan', hex: '#19B6EC' },
+      { name: 'Cinza', hex: '#7F8388' },
+      { name: 'Laranja', hex: '#EE7B23' }
+    ],
+    description: 'Filamento Bambu PLA Lite original com chip RFID integrado. Enrolamento impecável, alta precisão geométrica e reconhecimento automático no sistema AMS.'
   },
   {
-    id: 'filament-printalot-pla-preto',
-    name: 'Filamento PLA Premium 1.75mm 1Kg PrintaLot - Preto Puro',
+    id: 'filament-bambu-pla-basic',
+    name: 'Filamento Bambu PLA Basic 1.75mm 1Kg',
+    category: 'Filamentos',
+    subCategory: 'PLA Basic (RFID)',
+    brand: 'Bambu Lab',
+    price: 140.00,
+    oldPrice: 159.00,
+    installments: 6,
+    installmentValue: 23.33,
+    pixDiscountPercent: 5,
+    image: '/images/filament-bambulab-pla-lite.png',
+    badge: '3 CORES DISPONÍVEIS',
+    rating: 5.0,
+    reviewsCount: 98,
+    inStock: true,
+    sku: 'BL-PLA-BASIC',
+    specs: {
+      material: 'PLA Basic Original',
+      diameter: '1.75 mm (±0.02 mm)',
+      weight: '1.0 kg Líquido',
+      temp: '190 - 220 °C',
+      rfid: 'Sim (Auto Reconhecido no AMS)'
+    },
+    colors: [
+      { name: 'Marrom Cacau', hex: '#4E3524' },
+      { name: 'Pink', hex: '#E13988' },
+      { name: 'Verde Milestone', hex: '#3C8349' }
+    ],
+    description: 'Filamento Bambu PLA Basic de acabamento brilhante premium com chip RFID integrado. Máxima facilidade de impressão e resistência mecânica superior.'
+  },
+  {
+    id: 'filament-bambu-petg',
+    name: 'Filamento Bambu PETG 1.75mm 1Kg',
+    category: 'Filamentos',
+    subCategory: 'PETG Técnico',
+    brand: 'Bambu Lab',
+    price: 140.00,
+    oldPrice: 159.00,
+    installments: 6,
+    installmentValue: 23.33,
+    pixDiscountPercent: 5,
+    image: '/images/filament-bambulab-pla-lite.png',
+    badge: '1 COR DISPONÍVEL',
+    rating: 4.9,
+    reviewsCount: 64,
+    inStock: true,
+    sku: 'BL-PETG',
+    specs: {
+      material: 'PETG de Engenharia',
+      diameter: '1.75 mm (±0.02 mm)',
+      weight: '1.0 kg Líquido',
+      temp: '220 - 250 °C',
+      resistance: 'Alta Resistência a Impacto e Calor'
+    },
+    colors: [
+      { name: 'Vermelho', hex: '#C62928' }
+    ],
+    description: 'Filamento Bambu PETG com alta resistência a impacto e temperatura, ideal para peças funcionais, utilitárias e protótipos mecânicos de longa durabilidade.'
+  },
+  {
+    id: 'filament-sanlu-pla-plus',
+    name: 'Filamento Sanlu PLA+ 1.75mm 1Kg',
+    category: 'Filamentos',
+    subCategory: 'PLA+',
+    brand: 'Sanlu',
+    price: 110.00,
+    oldPrice: 129.00,
+    installments: 6,
+    installmentValue: 18.33,
+    pixDiscountPercent: 5,
+    image: '/images/filament-sunlu-white.png',
+    badge: '2 CORES DISPONÍVEIS',
+    rating: 4.8,
+    reviewsCount: 115,
+    inStock: true,
+    sku: 'SL-PLA-PLUS',
+    specs: {
+      material: 'PLA+ Alta Tenacidade',
+      diameter: '1.75 mm (±0.02 mm)',
+      weight: '1.0 kg Líquido',
+      temp: '200 - 230 °C',
+      impact: 'Até 10x mais resistente ao impacto'
+    },
+    colors: [
+      { name: 'Amarelo', hex: '#F6D334' },
+      { name: 'Preto', hex: '#111111' }
+    ],
+    description: 'Fórmula enriquecida PLA+ de alta tenacidade e baixo encolhimento. Até 10x mais resistente ao impacto que o PLA convencional com carretel MasterSpool.'
+  },
+  {
+    id: 'filament-printalot-pla',
+    name: 'Filamento Printalot PLA Premium 1.75mm 1Kg',
     category: 'Filamentos',
     subCategory: 'PLA Premium',
-    brand: 'PrintaLot',
-    price: 129.59,
-    oldPrice: 134.99,
+    brand: 'Printalot',
+    price: 129.90,
+    oldPrice: 145.00,
     installments: 6,
-    installmentValue: 22.49,
+    installmentValue: 21.65,
     pixDiscountPercent: 5,
     image: '/images/filament-printalot-pla-preto.png',
-    badge: '100% MATÉRIA VIRGEM',
+    badge: '4 CORES DISPONÍVEIS',
     rating: 4.9,
-    reviewsCount: 112,
+    reviewsCount: 88,
     inStock: true,
-    sku: 'PL-PLA-PREMIUM-BLACK',
+    sku: 'PL-PLA-PREMIUM',
     specs: {
       material: 'PLA Virgem Grau Ingeo',
       diameter: '1.75 mm (±0.02 mm)',
@@ -370,53 +441,31 @@ const BASE_PRODUCTS = [
       temp: '195 - 225 °C',
       spool: 'Carretel de Papelão Reciclável'
     },
-    colors: ['#111111', '#FFFFFF', '#4A5568'],
-    description: 'Polímero virgem NatureWorks Ingeo de alta estabilidade geométrica e excelente aderência de mesa com carretel sustentável.'
+    colors: [
+      { name: 'Vermelho', hex: '#C62928' },
+      { name: 'Chocolate', hex: '#4E3524' },
+      { name: 'Amarelo', hex: '#F6D334' },
+      { name: 'Verde Militar', hex: '#4D5932' }
+    ],
+    description: 'Polímero 100% virgem NatureWorks Ingeo de alta estabilidade geométrica, excelente aderência à mesa e carretel ecológico sustentável.'
   },
   {
-    id: 'filament-sunlu-white',
-    name: 'Filamento SUNLU PLA+ 1.75mm 1Kg Branco com Adaptador Reutilizável',
-    category: 'Filamentos',
-    subCategory: 'PLA+',
-    brand: 'SUNLU',
-    price: 119.90,
-    oldPrice: 139.00,
-    installments: 6,
-    installmentValue: 19.98,
-    pixDiscountPercent: 5,
-    image: '/images/filament-sunlu-white.png',
-    badge: 'CARRETEL REUTILIZÁVEL',
-    rating: 4.8,
-    reviewsCount: 76,
-    inStock: true,
-    sku: 'SL-PLA-PLUS-WHITE',
-    specs: {
-      material: 'PLA+ Alta Tenacidade',
-      diameter: '1.75 mm (±0.02 mm)',
-      weight: '1.0 kg Líquido',
-      temp: '200 - 230 °C',
-      spool: 'Desmontável MasterSpool'
-    },
-    colors: ['#FFFFFF', '#1A202C', '#E53E3E'],
-    description: 'Fórmula enriquecida PLA+ que oferece até 10x mais resistência ao impacto que o PLA comum. Acompanha adaptador reutilizável.'
-  },
-  {
-    id: 'filament-panchroma-magenta',
-    name: 'Filamento Panchroma Matte Electric Magenta 1.75mm 1Kg',
+    id: 'filament-panchona-matte',
+    name: 'Filamento Panchona Matte 1.75mm 1Kg',
     category: 'Filamentos',
     subCategory: 'Matte Fosco',
-    brand: 'Panchroma',
-    price: 159.00,
-    oldPrice: 179.00,
+    brand: 'Panchona',
+    price: 130.00,
+    oldPrice: 149.00,
     installments: 6,
-    installmentValue: 26.50,
+    installmentValue: 21.66,
     pixDiscountPercent: 5,
     image: '/images/filament-panchroma-magenta.png',
-    badge: 'ACABAMENTO AVELUDADO',
+    badge: '2 CORES DISPONÍVEIS',
     rating: 5.0,
-    reviewsCount: 45,
+    reviewsCount: 52,
     inStock: true,
-    sku: 'PC-MATTE-MAGENTA',
+    sku: 'PC-MATTE',
     specs: {
       material: 'Matte PLA Especial',
       diameter: '1.75 mm (±0.02 mm)',
@@ -424,20 +473,28 @@ const BASE_PRODUCTS = [
       temp: '190 - 220 °C',
       effect: 'Disfarça 100% as linhas de camada'
     },
-    colors: ['#D53F8C', '#805AD5', '#00B5D8'],
-    description: 'Visual acetinado espetacular que mascara completamente as linhas de camada. A escolha preferida de designers e artesãos 3D.'
+    colors: [
+      { name: 'Vermelho Mate', hex: '#9D3333' },
+      { name: 'Verde Mate', hex: '#3D624A' }
+    ],
+    description: 'Acabamento acetinado fosco espetacular que mascara completamente as linhas de camada. Textura aveludada preferida por designers e artesãos.'
   }
 ];
 
 export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
   const mapData = shopifyMapping[p.id];
+  const realPrice = mapData?.price ? parseFloat(mapData.price) : p.price;
   return {
     ...p,
-    price: 0.00,
-    oldPrice: null,
-    installmentValue: 0,
+    price: realPrice,
+    oldPrice: p.oldPrice,
+    installmentValue: p.installments ? +(realPrice / p.installments).toFixed(2) : 0,
     shopifyVariantId: mapData ? String(mapData.shopifyVariantId) : undefined,
     shopifyProductId: mapData ? String(mapData.shopifyProductId) : undefined,
+    colorVariants: mapData?.colorVariants || [],
     handle: mapData ? mapData.handle : undefined
   };
 });
+
+export const FILAMENTS = ALL_PRODUCTS.filter(p => p.category === 'Filamentos');
+export const PRINTERS = ALL_PRODUCTS.filter(p => p.category === 'Impressoras 3D');

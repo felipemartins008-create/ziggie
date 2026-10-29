@@ -69,7 +69,19 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
   // Helper to extract clean model and 3 spec metrics
   const getProductDisplayData = (product) => {
-    // Brand & Model title logic
+    if (product.category === 'Filamentos') {
+      const brandPrefix = 'Filamento ' + (product.brand || '');
+      const modelHighlight = product.subCategory ? product.subCategory.replace(' (RFID)', '') : 'PLA';
+      const colorCount = product.colors ? product.colors.length : 1;
+      const specs = [
+        { val: `${colorCount} ${colorCount === 1 ? 'Cor' : 'Cores'}`, label: 'Disponíveis' },
+        { val: '1.75 mm', label: 'Diâmetro' },
+        { val: '1.0 kg', label: 'Carretel' }
+      ];
+      return { brandPrefix, modelHighlight, specs };
+    }
+
+    // Brand & Model title logic for printers
     let brandPrefix = product.shortTitle || '3D ' + (product.brand || 'Bambu Lab');
     let modelHighlight = product.modelAccent;
 
@@ -81,26 +93,17 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
       else if (product.name.includes('X2D')) modelHighlight = 'X2D';
       else if (product.name.includes('P2S')) modelHighlight = 'P2S';
       else if (product.name.includes('U1')) modelHighlight = 'U1 4-Head';
-      else if (product.category === 'Filamentos') modelHighlight = 'Pro';
       else modelHighlight = 'Pro';
     }
 
     // Spec pills logic (matches exact reference layout: 3 columns)
     let specs = product.specPills;
     if (!specs || specs.length < 3) {
-      if (product.category === 'Filamentos') {
-        specs = [
-          { val: '1.75 mm', label: 'Diâmetro' },
-          { val: '±0.02 mm', label: 'Tolerância' },
-          { val: '1.0 kg', label: 'Carretel' }
-        ];
-      } else {
-        specs = [
-          { val: 'Aço', label: 'Chassi' },
-          { val: 'Metal', label: 'Hotend' },
-          { val: '1080p', label: 'Câmera' }
-        ];
-      }
+      specs = [
+        { val: 'Aço', label: 'Chassi' },
+        { val: 'Metal', label: 'Hotend' },
+        { val: '1080p', label: 'Câmera' }
+      ];
     }
 
     return { brandPrefix, modelHighlight, specs };

@@ -12,9 +12,18 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
 
   const pixPrice = product.pixPrice || (product.price * 0.95);
 
+  const getCurrentVariantId = () => {
+    if (product.colorVariants && product.colorVariants.length > 0) {
+      const match = product.colorVariants.find(c => c.hex === selectedColor || c.name === selectedColor);
+      if (match && match.shopifyVariantId) return match.shopifyVariantId;
+    }
+    return product.shopifyVariantId;
+  };
+
   const handleBuyNow = () => {
-    onAddToCart({ ...product, quantity, selectedColor });
-    const directCheckoutUrl = buildShopifyCheckoutUrl([{ ...product, quantity }]);
+    const variantId = getCurrentVariantId();
+    onAddToCart({ ...product, quantity, selectedColor, shopifyVariantId: variantId });
+    const directCheckoutUrl = buildShopifyCheckoutUrl([{ ...product, quantity, shopifyVariantId: variantId }]);
     if (directCheckoutUrl && directCheckoutUrl !== '#') {
       window.open(directCheckoutUrl, '_blank');
     }
@@ -65,24 +74,29 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
               {/* Color Selector */}
               {product.colors && (
                 <div>
-                  <span className="text-[11px] uppercase tracking-wider font-semibold text-zinc-400 block mb-2">
-                    Cores Disponíveis
-                  </span>
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-zinc-400">
+                      Cor Selecionada
+                    </span>
+                    <span className="text-xs font-bold text-white font-mono">
+                      {product.colors.find(c => c.hex === selectedColor)?.name || ''}
+                    </span>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
                     {product.colors.map((c, i) => (
                       <button
                         key={i}
                         onClick={() => setSelectedColor(c.hex)}
-                        className={`w-6 h-6 rounded-full border transition-all cursor-pointer flex items-center justify-center ${
+                        className={`w-7 h-7 rounded-full border transition-all cursor-pointer flex items-center justify-center relative ${
                           selectedColor === c.hex 
-                            ? 'border-[#ff5500] scale-125' 
+                            ? 'border-[#ff5500] scale-110 shadow-md ring-2 ring-[#ff5500]/40' 
                             : 'border-white/20 hover:border-white/60'
                         }`}
                         style={{ backgroundColor: c.hex }}
                         title={c.name}
                       >
                         {selectedColor === c.hex && (
-                          <Check className={`w-3 h-3 ${c.hex === '#FFFFFF' || c.hex === '#FAFAFA' ? 'text-black' : 'text-white'}`} />
+                          <Check className={`w-3.5 h-3.5 ${c.hex === '#FFFFFF' || c.hex === '#FAFAFA' || c.hex === '#F6D334' ? 'text-black' : 'text-white'}`} />
                         )}
                       </button>
                     ))}
@@ -138,7 +152,15 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
 
                 <button
                   onClick={() => {
-                    onAddToCart({ ...product, quantity, selectedColor });
+                    const variantId = getCurrentVariantId();
+                    const colorName = product.colors?.find(c => c.hex === selectedColor)?.name;
+                    onAddToCart({ 
+                      ...product, 
+                      quantity, 
+                      selectedColor, 
+                      selectedColorName: colorName,
+                      shopifyVariantId: variantId 
+                    });
                     onClose();
                   }}
                   className="flex-1 py-3 px-5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-xs border border-white/[0.1] transition-colors cursor-pointer"

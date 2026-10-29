@@ -90,6 +90,18 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                     <h4 className="text-xs font-semibold text-white truncate font-['Space_Grotesk']">
                       {item.name}
                     </h4>
+
+                    {item.selectedColorName && (
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span 
+                          className="w-2.5 h-2.5 rounded-full border border-white/20 inline-block"
+                          style={{ backgroundColor: item.selectedColor }}
+                        />
+                        <span className="text-[11px] text-zinc-400 font-mono">
+                          Cor: {item.selectedColorName}
+                        </span>
+                      </div>
+                    )}
                     
                     <div className="text-xs text-zinc-400 mt-0.5">
                       R$ {item.price.toFixed(2)}

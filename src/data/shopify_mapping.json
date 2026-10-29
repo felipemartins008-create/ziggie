@@ -63,11 +63,55 @@
     "price": "139.00"
   },
   "filament-bambu-pla-lite": {
-    "shopifyProductId": 15476815364339,
-    "shopifyVariantId": 68018944639219,
-    "handle": "filamento-bambu-lab-pla-lite-1-75mm-1kg-com-chip-rfid-laranja-bambu",
-    "title": "Filamento Bambu Lab PLA Lite 1.75mm 1Kg com Chip RFID - Laranja Bambu",
-    "price": "149.00"
+    "shopifyProductId": 15478663577843,
+    "shopifyVariantId": "68035700523251",
+    "handle": "filamento-bambu-pla-lite-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Lite 1.75mm 1Kg",
+    "price": "120.00",
+    "colorVariants": [
+      {
+        "name": "Branco",
+        "hex": "#FFFFFF",
+        "shopifyVariantId": "68035700523251",
+        "price": "120.00"
+      },
+      {
+        "name": "Preto",
+        "hex": "#111111",
+        "shopifyVariantId": "68035700556019",
+        "price": "120.00"
+      },
+      {
+        "name": "Azul Marinho",
+        "hex": "#1B294B",
+        "shopifyVariantId": "68035700588787",
+        "price": "120.00"
+      },
+      {
+        "name": "Amarelo",
+        "hex": "#F6D334",
+        "shopifyVariantId": "68035700621555",
+        "price": "120.00"
+      },
+      {
+        "name": "Azul Cyan",
+        "hex": "#19B6EC",
+        "shopifyVariantId": "68035700654323",
+        "price": "120.00"
+      },
+      {
+        "name": "Cinza",
+        "hex": "#7F8388",
+        "shopifyVariantId": "68035700687091",
+        "price": "120.00"
+      },
+      {
+        "name": "Laranja",
+        "hex": "#EE7B23",
+        "shopifyVariantId": "68035700719859",
+        "price": "120.00"
+      }
+    ]
   },
   "filament-printalot-pla-preto": {
     "shopifyProductId": 15476815429875,
@@ -89,5 +133,122 @@
     "handle": "filamento-panchroma-matte-electric-magenta-1-75mm-1kg",
     "title": "Filamento Panchroma Matte Electric Magenta 1.75mm 1Kg",
     "price": "159.00"
+  },
+  "filament-bambu-pla-basic": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": "68035701768435",
+    "handle": "filamento-bambu-pla-basic-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Basic 1.75mm 1Kg",
+    "price": "140.00",
+    "colorVariants": [
+      {
+        "name": "Marrom Cacau",
+        "hex": "#4E3524",
+        "shopifyVariantId": "68035701768435",
+        "price": "140.00"
+      },
+      {
+        "name": "Pink",
+        "hex": "#E13988",
+        "shopifyVariantId": "68035701801203",
+        "price": "140.00"
+      },
+      {
+        "name": "Verde Milestone",
+        "hex": "#3C8349",
+        "shopifyVariantId": "68035701833971",
+        "price": "140.00"
+      }
+    ]
+  },
+  "filament-bambu-petg": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": "68035702882547",
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamento Bambu PETG 1.75mm 1Kg",
+    "price": "140.00",
+    "colorVariants": [
+      {
+        "name": "Vermelho",
+        "hex": "#C62928",
+        "shopifyVariantId": "68035702882547",
+        "price": "140.00"
+      }
+    ]
+  },
+  "filament-sanlu-pla-plus": {
+    "shopifyProductId": 15478664462579,
+    "shopifyVariantId": "68035703734515",
+    "handle": "filamento-sanlu-pla-1-75mm-1kg",
+    "title": "Filamento Sanlu PLA+ 1.75mm 1Kg",
+    "price": "110.00",
+    "colorVariants": [
+      {
+        "name": "Amarelo",
+        "hex": "#F6D334",
+        "shopifyVariantId": "68035703734515",
+        "price": "110.00"
+      },
+      {
+        "name": "Preto",
+        "hex": "#111111",
+        "shopifyVariantId": "68035703767283",
+        "price": "110.00"
+      }
+    ]
+  },
+  "filament-printalot-pla": {
+    "shopifyProductId": 15478664790259,
+    "shopifyVariantId": "68035704848627",
+    "handle": "filamento-printalot-pla-premium-1-75mm-1kg",
+    "title": "Filamento Printalot PLA Premium 1.75mm 1Kg",
+    "price": "129.90",
+    "colorVariants": [
+      {
+        "name": "Vermelho",
+        "hex": "#C62928",
+        "shopifyVariantId": "68035704848627",
+        "price": "129.90"
+      },
+      {
+        "name": "Chocolate",
+        "hex": "#4E3524",
+        "shopifyVariantId": "68035704881395",
+        "price": "129.90"
+      },
+      {
+        "name": "Amarelo",
+        "hex": "#F6D334",
+        "shopifyVariantId": "68035704914163",
+        "price": "129.90"
+      },
+      {
+        "name": "Verde Militar",
+        "hex": "#4D5932",
+        "shopifyVariantId": "68035704946931",
+        "price": "129.90"
+      }
+    ]
+  },
+  "filament-panchona-matte": {
+    "shopifyProductId": 15478665052403,
+    "shopifyVariantId": "68035705798899",
+    "handle": "filamento-panchona-matte-1-75mm-1kg",
+    "title": "Filamento Panchona Matte 1.75mm 1Kg",
+    "price": "130.00",
+    "colorVariants": [
+      {
+        "name": "Vermelho Mate",
+        "hex": "#9D3333",
+        "shopifyVariantId": "68035705798899",
+        "price": "130.00"
+      },
+      {
+        "name": "Verde Mate",
+        "hex": "#3D624A",
+        "shopifyVariantId": "68035705831667",
+        "price": "130.00"
+      }
+    ]
   }
 }
