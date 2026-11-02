@@ -21,20 +21,25 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
   const filteredProducts = useMemo(() => {
     let list = [...ALL_PRODUCTS];
 
-    // Priority ordering so the favorites from the screenshot appear right at the top:
-    // A1, H2S, H2D, X2D, A1 Mini, Snapmaker U1, Combos, Filamentos
+    // Priority ordering with the 4 featured Black Friday cards from the banner up top:
+    // A1 Combo, P2S Combo, Snapmaker U1, X2D Combo, followed by A1, A1 Mini, H2S, H2D, etc.
     const priorityOrder = [
+      'bambu-a1-combo',
+      'bambu-p2s',
+      'snapmaker-u1',
+      'bambu-x2d',
       'bambu-a1-standalone',
+      'bambu-a1-mini-combo',
+      'bambu-a1-mini-standalone',
       'bambu-h2s',
       'bambu-h2d',
-      'bambu-x2d',
-      'bambu-a1-combo',
-      'bambu-a1-mini-standalone',
-      'snapmaker-u1',
-      'bambu-p2s',
-      'ziggie-tough-pla-preto',
-      'filament-printalot-pla-preto',
-      'filament-bambulab-pla-lite'
+      'bambu-a2l',
+      'filament-bambu-pla-lite',
+      'filament-bambu-pla-basic',
+      'filament-bambu-petg',
+      'filament-sanlu-pla-plus',
+      'filament-printalot-pla',
+      'filament-panchona-matte'
     ];
 
     list.sort((a, b) => {
@@ -58,6 +63,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
       // Category
       if (selectedCategory !== 'all') {
+        if (selectedCategory === 'black-friday' && !product.badge?.includes('BLACK') && !product.promoTag) return false;
         if (selectedCategory === 'Impressoras 3D' && product.category !== 'Impressoras 3D') return false;
         if (selectedCategory === 'Filamentos' && product.category !== 'Filamentos') return false;
         if (selectedCategory === 'Combos' && !product.name.includes('Combo')) return false;
@@ -110,28 +116,29 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
   };
 
   return (
-    <section className="bg-white text-zinc-900 py-16 sm:py-24 font-sans min-h-screen">
+    <section id="ofertas" className="bg-white text-zinc-900 py-16 sm:py-24 font-sans min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================= 1. MINIMALIST CENTERED HEADER (MATCHES REFERENCE) ================= */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#8B5CF6] uppercase block mb-3 font-sans">
-            Mais Populares
+          <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-3 font-sans">
+            🔥 Especial Black Friday & Black November
           </span>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
             Os Favoritos da Comunidade Maker
           </h1>
           <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-xl mx-auto">
-            Seleção exclusiva de equipamentos de alta precisão e materiais técnicos homologados pela Ziggie 3D.
+            Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
           </p>
 
           {/* Minimalist Pill Filter Bar */}
           <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
             {[
               { id: 'all', label: 'Todos os Modelos' },
+              { id: 'black-friday', label: '🔥 Ofertas Black Friday' },
               { id: 'Impressoras 3D', label: 'Impressoras 3D' },
               { id: 'Combos', label: 'Combos Multicolor AMS' },
-              { id: 'Filamentos', label: 'Filamentos Premium' }
+              { id: 'Filamentos', label: 'Filamentos Técnicos' }
             ].map(tab => (
               <button
                 key={tab.id}
@@ -164,6 +171,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
             {filteredProducts.map((product) => {
               const { brandPrefix, modelHighlight, specs } = getProductDisplayData(product);
               const formattedPrice = product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+              const formattedPix = product.pixPrice ? product.pixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : null;
 
               return (
                 <div
@@ -174,6 +182,13 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   
                   {/* Inner White Product Canvas Card (Reference card-within-card) */}
                   <div className="bg-white rounded-2xl p-6 mb-6 h-64 sm:h-72 flex items-center justify-center shadow-xs group-hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden">
+                    {/* Promo Badge Tag */}
+                    {product.badge && (
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-red-600 text-white shadow-xs z-10 font-mono">
+                        {product.badge}
+                      </span>
+                    )}
+
                     <img
                       src={product.image}
                       alt={product.name}
@@ -187,7 +202,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                         e.stopPropagation();
                         onAddToCart(product);
                       }}
-                      className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-zinc-900 hover:bg-[#8B5CF6] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
+                      className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-zinc-900 hover:bg-[#ff5500] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
                       title="Adicionar ao carrinho"
                     >
                       <ShoppingCart className="w-4 h-4" />
@@ -201,9 +216,21 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                       <span className="text-[#8B5CF6] font-extrabold">{modelHighlight}</span>
                     </h2>
 
-                    <p className="text-xs sm:text-sm text-zinc-500 font-medium mt-1">
-                      A partir de R$ {formattedPrice}
-                    </p>
+                    <div className="mt-2 flex flex-col items-center justify-center">
+                      {product.oldPrice && (
+                        <span className="text-[11px] text-zinc-400 line-through font-mono">
+                          R$ {product.oldPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </span>
+                      )}
+                      <p className="text-sm sm:text-base text-zinc-900 font-extrabold font-['Space_Grotesk']">
+                        R$ {formattedPrice}
+                      </p>
+                      {formattedPix && (
+                        <p className="text-xs text-emerald-600 font-bold mt-0.5 font-mono">
+                          ou R$ {formattedPix} no PIX (-10%)
+                        </p>
+                      )}
+                    </div>
                   </div>
 
                   {/* Minimalist 3-Column Specs Divider (Exact Reference Layout) */}

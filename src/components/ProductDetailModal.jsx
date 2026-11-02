@@ -58,9 +58,16 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
             {/* Right: Info, Specs & Actions */}
             <div className="md:col-span-7 space-y-5">
               <div>
-                <span className="text-xs uppercase tracking-wider font-semibold text-zinc-400 block mb-1">
-                  {product.brand} • {product.category}
-                </span>
+                <div className="flex items-center gap-2 mb-1.5 flex-wrap">
+                  <span className="text-xs uppercase tracking-wider font-semibold text-zinc-400">
+                    {product.brand} • {product.category}
+                  </span>
+                  {product.badge && (
+                    <span className="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full bg-red-600 text-white tracking-wide shadow-xs">
+                      {product.badge}
+                    </span>
+                  )}
+                </div>
 
                 <h2 className="text-2xl sm:text-3xl font-bold text-white font-['Space_Grotesk'] tracking-tight">
                   {product.name}
@@ -119,13 +126,22 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
                 </div>
               </div>
 
-              {/* Price */}
+              {/* Price & Discounts */}
               <div className="pt-2">
-                <div className="text-2xl font-bold text-white font-['Space_Grotesk']">
-                  R$ {pixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                  <span className="text-xs font-normal text-[#ff5500] ml-2">no Pix</span>
+                {product.oldPrice && (
+                  <div className="text-xs text-zinc-500 line-through font-mono">
+                    R$ {product.oldPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </div>
+                )}
+                <div className="flex items-baseline gap-2">
+                  <div className="text-2xl font-bold text-white font-['Space_Grotesk']">
+                    R$ {pixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                  </div>
+                  <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2 py-0.5 rounded">
+                    10% OFF NO PIX
+                  </span>
                 </div>
-                <div className="text-xs text-zinc-400 mt-0.5">
+                <div className="text-xs text-zinc-400 mt-1">
                   ou R$ {product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} em até 12x
                 </div>
               </div>

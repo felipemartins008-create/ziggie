@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EcommerceHeader } from './components/EcommerceHeader';
+import { BlackFridayBanner } from './components/BlackFridayBanner';
 import { EcommerceStore } from './components/EcommerceStore';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { EcommerceFooter } from './components/EcommerceFooter';
@@ -115,7 +116,16 @@ export function App() {
         onSelectCategory={setActiveCategory}
       />
 
-      {/* 2. Main E-Commerce Catalog & Store Experience */}
+      {/* 2. Official Black Friday & Black November Banner (Directly below header) */}
+      <BlackFridayBanner
+        onBannerClick={() => {
+          setActiveCategory('black-friday');
+          const el = document.getElementById('ofertas');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
+
+      {/* 3. Main E-Commerce Catalog & Store Experience */}
       <main>
         <EcommerceStore
           onAddToCart={handleAddToCart}
