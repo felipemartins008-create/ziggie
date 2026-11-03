@@ -1,21 +1,9 @@
 import React from 'react';
-import { Sparkles, ArrowDown, Tag } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 
 export function BlackFridayBanner({ onBannerClick }) {
   return (
     <section className="w-full bg-[#08080a] border-b border-white/[0.08] relative overflow-hidden">
-      {/* Top micro-ticker */}
-      <div className="bg-gradient-to-r from-purple-950/80 via-black to-red-950/80 border-b border-purple-500/20 py-2 px-4 text-center">
-        <div className="flex items-center justify-center gap-2 text-[11px] sm:text-xs font-bold tracking-wider uppercase text-amber-300 font-['Space_Grotesk']">
-          <Tag className="w-3.5 h-3.5 text-red-500 animate-pulse" />
-          <span>BLACK FRIDAY & BLACK NOVEMBER OFICIAL</span>
-          <span className="text-zinc-500">•</span>
-          <span className="text-white">ATÉ 20% OFF EM IMPRESSORAS E FILAMENTOS</span>
-          <span className="text-zinc-500">•</span>
-          <span className="text-emerald-400 font-mono">+10% DE DESCONTO NO PIX</span>
-        </div>
-      </div>
-
       {/* Main Banner Visual Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-5">
         <div 
