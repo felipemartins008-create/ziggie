@@ -17,6 +17,10 @@
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
   }
+
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
 }
 
 /* Subtle luxury ambient glows - soft and unobtrusive */
