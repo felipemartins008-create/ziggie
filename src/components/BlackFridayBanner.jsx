@@ -8,7 +8,7 @@ export function BlackFridayBanner({ onBannerClick }) {
       title="Conferir Ofertas da Black Friday"
     >
       <img 
-        src="/images/black-friday-banner.png" 
+        src="/images/black-friday-banner.png?v=2" 
         alt="Black Friday + Black November Ziggie 3D" 
         className="w-full h-auto block object-cover transition-transform duration-700 group-hover:scale-[1.008]"
       />
