@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { X, Trash2, ArrowRight } from 'lucide-react';
 import { buildShopifyCheckoutUrl } from '../services/shopify';
+import { 
+  PixLogo, 
+  VisaLogo, 
+  MastercardLogo, 
+  EloLogo, 
+  ApplePayLogo, 
+  GooglePayLogo,
+  NubankLogo,
+  ItauLogo,
+  BradescoLogo
+} from './PaymentBadges';
 
 export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRemoveItem, onClearCart }) {
   if (!isOpen) return null;
@@ -13,7 +24,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
   const discountRate = appliedCoupon ? 0.10 : 0;
   const discountValue = subtotal * discountRate;
   const total = subtotal - discountValue;
-  const pixTotal = total * 0.95;
+  const pixTotal = total * 0.90;
 
   const freeShippingThreshold = 499;
   const missingForFreeShipping = Math.max(0, freeShippingThreshold - total);
@@ -178,7 +189,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                   <span className="font-mono font-['Space_Grotesk']">R$ {total.toFixed(2)}</span>
                 </div>
                 <div className="text-right text-[11px] text-[#ff5500]">
-                  R$ {pixTotal.toFixed(2)} no Pix (-5%)
+                  R$ {pixTotal.toFixed(2)} no Pix (-10%)
                 </div>
               </div>
 
@@ -196,13 +207,16 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                 <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium block mb-2">
                   Pagamento 100% Seguro Via Shopify
                 </span>
-                <div className="flex flex-wrap items-center justify-center gap-1.5 text-[9px] font-mono font-bold text-zinc-300">
-                  <span className="px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-500/40 text-emerald-400">PIX (-5%)</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">ATÉ 12X</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">CARTÃO</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">BOLETO</span>
-                  <span className="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-500/40 text-sky-300">APPLE PAY</span>
-                  <span className="px-2 py-0.5 rounded bg-sky-950/60 border border-sky-500/40 text-sky-300">GOOGLE PAY</span>
+                <div className="flex flex-wrap items-center justify-center gap-1.5">
+                  <div title="Pix (-10% OFF)"><PixLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Visa"><VisaLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Mastercard"><MastercardLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Elo"><EloLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Apple Pay"><ApplePayLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Google Pay"><GooglePayLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Nubank"><NubankLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Itaú"><ItauLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Bradesco"><BradescoLogo className="w-8 h-5 rounded" /></div>
                 </div>
               </div>
             </div>

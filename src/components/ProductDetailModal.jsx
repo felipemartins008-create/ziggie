@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import { X, ArrowRight, Check } from 'lucide-react';
 import { buildShopifyCheckoutUrl } from '../services/shopify';
+import { 
+  PixLogo, 
+  VisaLogo, 
+  MastercardLogo, 
+  EloLogo, 
+  ApplePayLogo, 
+  GooglePayLogo,
+  NubankLogo,
+  ItauLogo,
+  BradescoLogo
+} from './PaymentBadges';
 
 export function ProductDetailModal({ product, onClose, onAddToCart }) {
   if (!product) return null;
@@ -195,16 +206,23 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
 
               {/* Payment Methods Strip */}
               <div className="pt-2 border-t border-white/[0.06] text-center sm:text-left">
-                <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-medium block mb-1.5">
-                  Formas de Pagamento Automáticas:
-                </span>
-                <div className="flex flex-wrap items-center gap-1.5 text-[9px] font-mono font-bold text-zinc-300">
-                  <span className="px-2 py-0.5 rounded bg-emerald-950/70 border border-emerald-500/40 text-emerald-400">PIX (-5%)</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">ATÉ 12X</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">VISA / MASTER / ELO</span>
-                  <span className="px-2 py-0.5 rounded bg-white/[0.06] border border-white/[0.1]">BOLETO</span>
-                  <span className="px-2 py-0.5 rounded bg-sky-950/70 border border-sky-500/40 text-sky-300">APPLE PAY</span>
-                  <span className="px-2 py-0.5 rounded bg-sky-950/70 border border-sky-500/40 text-sky-300">GOOGLE PAY</span>
+                <div className="flex items-center justify-between mb-1.5">
+                  <span className="text-[10px] uppercase tracking-wider text-zinc-400 font-medium">
+                    Formas de Pagamento & Bancos:
+                  </span>
+                  <span className="text-[10px] text-emerald-400 font-mono font-bold">PIX 10% OFF</span>
+                </div>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <div title="Pix (-10% OFF)"><PixLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Visa"><VisaLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Mastercard"><MastercardLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Elo"><EloLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Apple Pay"><ApplePayLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Google Pay"><GooglePayLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Nubank"><NubankLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Itaú"><ItauLogo className="w-8 h-5 rounded" /></div>
+                  <div title="Bradesco"><BradescoLogo className="w-8 h-5 rounded" /></div>
+                  <span className="text-[10px] text-zinc-400 font-medium pl-1">em até 12x</span>
                 </div>
               </div>
 
