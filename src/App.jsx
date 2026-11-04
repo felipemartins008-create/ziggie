@@ -118,8 +118,15 @@ export function App() {
 
       {/* 2. Official Black Friday & Black November Banner (Directly below header) */}
       <BlackFridayBanner
-        onBannerClick={() => {
+        onBannerClick={(targetId) => {
           setActiveCategory('black-friday');
+          if (targetId && targetId !== 'all') {
+            const found = products.find((p) => p.id === targetId);
+            if (found) {
+              setSelectedProductDetail(found);
+              return;
+            }
+          }
           const el = document.getElementById('ofertas');
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
