@@ -8,10 +8,13 @@ function notifyListeners() {
   listeners.forEach(fn => fn([...globalProductsCache]));
 }
 
-// Function to fetch live prices from /api/prices
+// Function to fetch live prices and products from /api/products
 export async function refreshLivePrices() {
   try {
-    const res = await fetch('/api/prices?_t=' + Date.now());
+    let res = await fetch('/api/products?_t=' + Date.now());
+    if (!res.ok) {
+      res = await fetch('/api/prices?_t=' + Date.now());
+    }
     if (!res.ok) return null;
     const data = await res.json();
     if (!data || !data.success || !data.prices) return null;
