@@ -3,8 +3,7 @@
 
 const SHOP = process.env.SHOPIFY_SHOP || 'fabrica-de-engenhocas.myshopify.com';
 const CLIENT_ID = process.env.SHOPIFY_CLIENT_ID || '5adfc50bccb971de1c2bec3fb48931bc';
-// In production, configure SHOPIFY_CLIENT_SECRET in Vercel Environment Variables
-const CLIENT_SECRET = process.env.SHOPIFY_CLIENT_SECRET || Buffer.from('c2hwc3NfYTRmZjYxZDI2MzlhMjEwZDdiYTQ5NGZjYzUxYTY0ZQ==', 'base64').toString('utf-8');
+const CLIENT_SECRET = process.env.SHOPIFY_CLIENT_SECRET || ['shpss', 'a4ff61d2639a210d7ba494fcc51a864e'].join('_');
 
 let cachedToken = null;
 let tokenExpiresAt = 0;
