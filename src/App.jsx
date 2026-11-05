@@ -8,9 +8,11 @@ import { ProductDetailModal } from './components/ProductDetailModal';
 import { CartDrawer } from './components/CartDrawer';
 import { ShopifySettingsModal } from './components/ShopifySettingsModal';
 import { getShopifyConfig } from './services/shopify';
+import { useLiveProducts } from './services/livePrices';
 import { CheckCircle2 } from 'lucide-react';
 
 export function App() {
+  const products = useLiveProducts();
   // Cart state persisted to localStorage
   const [cart, setCart] = useState(() => {
     try {

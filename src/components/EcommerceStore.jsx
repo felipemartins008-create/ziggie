@@ -1,5 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
-import { ALL_PRODUCTS } from '../data/products';
+import { useLiveProducts } from '../services/livePrices';
 import { 
   ShoppingCart, 
   Eye, 
@@ -11,6 +11,7 @@ import {
 
 export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', activeCategory = 'all' }) {
   const [selectedCategory, setSelectedCategory] = useState(activeCategory);
+  const products = useLiveProducts();
 
   // Sync when activeCategory changes from header navigation
   useEffect(() => {
@@ -19,7 +20,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
   // Filter products cleanly without cluttered sidebar
   const filteredProducts = useMemo(() => {
-    let list = [...ALL_PRODUCTS];
+    let list = [...products];
 
     // Priority ordering with the 4 featured Black Friday cards from the banner up top:
     // A1 Combo, P2S Combo, Snapmaker U1, X2D Combo, followed by A1, A1 Mini, H2S, H2D, etc.
