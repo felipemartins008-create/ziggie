@@ -47,31 +47,54 @@ export default async function handler(req, res) {
   try {
     const token = await getAccessToken();
 
-    let shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/collections/${HOMEPAGE_COLLECTION_ID}/products.json?limit=250`, {
+    // 1. Fetch full products list (contains all variants, prices, inventory)
+    const prodRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': token
       }
     });
 
-    let data = shopifyRes.ok ? await shopifyRes.json() : null;
-    let products = data && data.products && data.products.length > 0 ? data.products : null;
+    if (!prodRes.ok) {
+      throw new Error(`Shopify Admin API falhou: ${prodRes.status}`);
+    }
 
-    if (!products || products.length === 0) {
-      shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
+    const prodData = await prodRes.json();
+    const allProducts = prodData.products || [];
+
+    // 2. Fetch Homepage Collection products to get the exact manual sort order from Shopify
+    let orderedIds = [];
+    try {
+      const colRes = await fetch(`https://${SHOP}/admin/api/2024-10/collections/${HOMEPAGE_COLLECTION_ID}/products.json?limit=250`, {
         headers: {
           'Content-Type': 'application/json',
           'X-Shopify-Access-Token': token
         }
       });
-      data = await shopifyRes.json();
-      products = data.products || [];
+      if (colRes.ok) {
+        const colData = await colRes.json();
+        orderedIds = (colData.products || []).map(p => String(p.id));
+      }
+    } catch (e) {
+      // Fallback silently if collection not found
+    }
+
+    // Sort products based on collection order
+    if (orderedIds.length > 0) {
+      allProducts.sort((a, b) => {
+        const idxA = orderedIds.indexOf(String(a.id));
+        const idxB = orderedIds.indexOf(String(b.id));
+        if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+        if (idxA !== -1) return -1;
+        if (idxB !== -1) return 1;
+        return 0;
+      });
     }
 
     const pricesMap = {};
-    const rawProductsList = [];
+    const formattedProducts = [];
 
-    products.forEach((p, index) => {
+    allProducts.forEach((p, index) => {
       const variants = p.variants || [];
       if (variants.length === 0) return;
 
@@ -88,7 +111,7 @@ export default async function handler(req, res) {
           minCompareAt = compareAtPrice;
         }
 
-        const variantObj = {
+        pricesMap[String(v.id)] = {
           title: p.title,
           variantTitle: v.title,
           handle: p.handle,
@@ -99,8 +122,6 @@ export default async function handler(req, res) {
           pixPrice: pixPrice,
           sortOrder: index
         };
-
-        pricesMap[String(v.id)] = variantObj;
       }
 
       const basePrice = minPrice === Infinity ? parseFloat(variants[0].price) || 0 : minPrice;
@@ -118,7 +139,7 @@ export default async function handler(req, res) {
       pricesMap[String(p.id)] = baseObj;
       pricesMap[p.handle] = baseObj;
 
-      const rawProduct = {
+      formattedProducts.push({
         shopifyProductId: String(p.id),
         shopifyVariantId: String(variants[0].id),
         handle: p.handle,
@@ -147,16 +168,14 @@ export default async function handler(req, res) {
           oldPrice: v.compare_at_price ? parseFloat(v.compare_at_price) : null,
           pixPrice: +((parseFloat(v.price) || 0) * 0.90).toFixed(2)
         }))
-      };
-
-      rawProductsList.push(rawProduct);
+      });
     });
 
     return res.status(200).json({
       success: true,
       timestamp: Date.now(),
       prices: pricesMap,
-      products: rawProductsList
+      products: formattedProducts
     });
   } catch (error) {
     console.error('Erro ao buscar produtos Shopify:', error);
