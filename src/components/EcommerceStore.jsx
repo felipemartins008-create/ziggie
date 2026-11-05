@@ -76,6 +76,37 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
   // Helper to extract clean model and 3 spec metrics
   const getProductDisplayData = (product) => {
+    // Dynamic products created on Shopify Admin by the store owner
+    if (product.id?.startsWith('shopify-')) {
+      const parts = (product.name || product.title || '').trim().split(' ');
+      let brandPrefix = '';
+      let modelHighlight = '';
+      if (parts.length > 1) {
+        modelHighlight = parts.pop();
+        brandPrefix = parts.join(' ');
+      } else {
+        brandPrefix = parts[0] || product.name;
+        modelHighlight = '';
+      }
+
+      let specs = [
+        { val: 'Pronta', label: 'Entrega' },
+        { val: '100%', label: 'Garantia' },
+        { val: 'Oficial', label: 'Ziggie' }
+      ];
+
+      if (product.category === 'Filamentos') {
+        const colorCount = product.colors ? product.colors.length : (product.colorVariants ? product.colorVariants.length : 1);
+        specs = [
+          { val: `${colorCount} ${colorCount === 1 ? 'Cor' : 'Cores'}`, label: 'Disponíveis' },
+          { val: '1.75 mm', label: 'Diâmetro' },
+          { val: '1.0 kg', label: 'Carretel' }
+        ];
+      }
+
+      return { brandPrefix, modelHighlight, specs };
+    }
+
     if (product.category === 'Filamentos') {
       const brandPrefix = 'Filamento ' + (product.brand || '');
       const modelHighlight = product.subCategory ? product.subCategory.replace(' (RFID)', '') : 'PLA';
