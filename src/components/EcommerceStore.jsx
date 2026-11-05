@@ -52,11 +52,13 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
       if (isFeaturedA && !isFeaturedB) return -1;
       if (!isFeaturedA && isFeaturedB) return 1;
 
-      const idxA = priorityOrder.indexOf(a.id);
-      const idxB = priorityOrder.indexOf(b.id);
-      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
-      if (idxA !== -1) return -1;
-      if (idxB !== -1) return 1;
+      // 2. Sort according to Shopify Collection Order (drag & drop from admin)
+      const orderA = typeof a.sortOrder === 'number' ? a.sortOrder : priorityOrder.indexOf(a.id);
+      const orderB = typeof b.sortOrder === 'number' ? b.sortOrder : priorityOrder.indexOf(b.id);
+
+      if (orderA !== -1 && orderB !== -1) return orderA - orderB;
+      if (orderA !== -1) return -1;
+      if (orderB !== -1) return 1;
       return 0;
     });
 

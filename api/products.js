@@ -1,9 +1,10 @@
-// Vercel Serverless Function - Full Shopify Products Feed
+// Vercel Serverless Function - Full Shopify Products Feed with Exact Collection Ordering
 // Endpoint: https://ziggie-emjt.vercel.app/api/products
 
 const SHOP = process.env.SHOPIFY_SHOP || 'fabrica-de-engenhocas.myshopify.com';
 const CLIENT_ID = process.env.SHOPIFY_CLIENT_ID || '5adfc50bccb971de1c2bec3fb48931bc';
 const CLIENT_SECRET = process.env.SHOPIFY_CLIENT_SECRET || ['shpss', 'a4ff61d2639a210d7ba494fcc51a864e'].join('_');
+const HOMEPAGE_COLLECTION_ID = '473807585523';
 
 let cachedToken = null;
 let tokenExpiresAt = 0;
@@ -45,26 +46,36 @@ export default async function handler(req, res) {
 
   try {
     const token = await getAccessToken();
-    const shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
+
+    // 1. Fetch products from the Homepage Collection to get the exact manual sort order from Shopify
+    let shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/collections/${HOMEPAGE_COLLECTION_ID}/products.json?limit=250`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': token
       }
     });
 
-    if (!shopifyRes.ok) {
-      throw new Error(`Shopify Admin API falhou: ${shopifyRes.status}`);
-    }
+    let data = shopifyRes.ok ? await shopifyRes.json() : null;
+    let products = data && data.products && data.products.length > 0 ? data.products : null;
 
-    const data = await shopifyRes.json();
-    const products = data.products || [];
+    // Fallback to all products if collection query returns empty
+    if (!products || products.length === 0) {
+      shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Access-Token': token
+        }
+      });
+      data = await shopifyRes.json();
+      products = data.products || [];
+    }
 
     const pricesMap = {};
     const formattedProducts = [];
 
-    for (const p of products) {
+    products.forEach((p, index) => {
       const variants = p.variants || [];
-      if (variants.length === 0) continue;
+      if (variants.length === 0) return;
 
       let minPrice = Infinity;
       let minCompareAt = null;
@@ -87,7 +98,8 @@ export default async function handler(req, res) {
           variantId: String(v.id),
           price: price,
           oldPrice: compareAtPrice,
-          pixPrice: pixPrice
+          pixPrice: pixPrice,
+          sortOrder: index
         };
       }
 
@@ -99,7 +111,8 @@ export default async function handler(req, res) {
         variantId: String(variants[0].id),
         price: basePrice,
         oldPrice: minCompareAt,
-        pixPrice: +(basePrice * 0.90).toFixed(2)
+        pixPrice: +(basePrice * 0.90).toFixed(2),
+        sortOrder: index
       };
 
       pricesMap[String(p.id)] = baseObj;
@@ -121,6 +134,7 @@ export default async function handler(req, res) {
         image: p.images && p.images[0] ? p.images[0].src : '/images/printer-bambu-a1.png',
         images: (p.images || []).map(img => img.src),
         tags: p.tags || '',
+        sortOrder: index,
         badge: (p.tags && (p.tags.toLowerCase().includes('destaque') || p.tags.toLowerCase().includes('topo'))) 
           ? 'DESTAQUE' 
           : (minCompareAt ? 'PROMOÇÃO' : null),
@@ -134,7 +148,7 @@ export default async function handler(req, res) {
           pixPrice: +((parseFloat(v.price) || 0) * 0.90).toFixed(2)
         }))
       });
-    }
+    });
 
     return res.status(200).json({
       success: true,

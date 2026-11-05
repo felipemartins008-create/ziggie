@@ -1,9 +1,10 @@
-// Vercel Serverless Function - Live Shopify Price Fetcher with Full Product & Variant Support
+// Vercel Serverless Function - Live Shopify Price Fetcher with Exact Collection Ordering
 // Endpoint: https://ziggie-emjt.vercel.app/api/prices
 
 const SHOP = process.env.SHOPIFY_SHOP || 'fabrica-de-engenhocas.myshopify.com';
 const CLIENT_ID = process.env.SHOPIFY_CLIENT_ID || '5adfc50bccb971de1c2bec3fb48931bc';
 const CLIENT_SECRET = process.env.SHOPIFY_CLIENT_SECRET || ['shpss', 'a4ff61d2639a210d7ba494fcc51a864e'].join('_');
+const HOMEPAGE_COLLECTION_ID = '473807585523';
 
 let cachedToken = null;
 let tokenExpiresAt = 0;
@@ -37,7 +38,7 @@ async function getAccessToken() {
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=60');
+  res.setHeader('Cache-Control', 'public, s-maxage=5, stale-while-revalidate=30');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -45,31 +46,38 @@ export default async function handler(req, res) {
 
   try {
     const token = await getAccessToken();
-    const shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
+
+    let shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/collections/${HOMEPAGE_COLLECTION_ID}/products.json?limit=250`, {
       headers: {
         'Content-Type': 'application/json',
         'X-Shopify-Access-Token': token
       }
     });
 
-    if (!shopifyRes.ok) {
-      throw new Error(`Shopify Admin API falhou: ${shopifyRes.status}`);
-    }
+    let data = shopifyRes.ok ? await shopifyRes.json() : null;
+    let products = data && data.products && data.products.length > 0 ? data.products : null;
 
-    const data = await shopifyRes.json();
-    const products = data.products || [];
+    if (!products || products.length === 0) {
+      shopifyRes = await fetch(`https://${SHOP}/admin/api/2024-10/products.json?limit=250`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'X-Shopify-Access-Token': token
+        }
+      });
+      data = await shopifyRes.json();
+      products = data.products || [];
+    }
 
     const pricesMap = {};
     const rawProductsList = [];
 
-    for (const p of products) {
+    products.forEach((p, index) => {
       const variants = p.variants || [];
-      if (variants.length === 0) continue;
+      if (variants.length === 0) return;
 
       let minPrice = Infinity;
       let minCompareAt = null;
 
-      // Index every variant individually by its Variant ID
       for (const v of variants) {
         const price = parseFloat(v.price) || 0;
         const compareAtPrice = v.compare_at_price ? parseFloat(v.compare_at_price) : null;
@@ -88,13 +96,13 @@ export default async function handler(req, res) {
           variantId: String(v.id),
           price: price,
           oldPrice: compareAtPrice,
-          pixPrice: pixPrice
+          pixPrice: pixPrice,
+          sortOrder: index
         };
 
         pricesMap[String(v.id)] = variantObj;
       }
 
-      // Index product by Product ID and Handle (uses lowest variant price so cards show the best entry price)
       const basePrice = minPrice === Infinity ? parseFloat(variants[0].price) || 0 : minPrice;
       const baseObj = {
         title: p.title,
@@ -103,13 +111,13 @@ export default async function handler(req, res) {
         variantId: String(variants[0].id),
         price: basePrice,
         oldPrice: minCompareAt,
-        pixPrice: +(basePrice * 0.90).toFixed(2)
+        pixPrice: +(basePrice * 0.90).toFixed(2),
+        sortOrder: index
       };
 
       pricesMap[String(p.id)] = baseObj;
       pricesMap[p.handle] = baseObj;
 
-      // Full Shopify product model for dynamic catalog ingestion
       const rawProduct = {
         shopifyProductId: String(p.id),
         shopifyVariantId: String(variants[0].id),
@@ -126,6 +134,7 @@ export default async function handler(req, res) {
         image: p.images && p.images[0] ? p.images[0].src : '/images/printer-bambu-a1.png',
         images: (p.images || []).map(img => img.src),
         tags: p.tags || '',
+        sortOrder: index,
         badge: (p.tags && (p.tags.toLowerCase().includes('destaque') || p.tags.toLowerCase().includes('topo'))) 
           ? 'DESTAQUE' 
           : (minCompareAt ? 'PROMOÇÃO' : null),
@@ -141,7 +150,7 @@ export default async function handler(req, res) {
       };
 
       rawProductsList.push(rawProduct);
-    }
+    });
 
     return res.status(200).json({
       success: true,

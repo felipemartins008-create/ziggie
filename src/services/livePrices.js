@@ -83,19 +83,26 @@ export async function refreshLivePrices() {
         }
       }
 
-      // Check if product has updated tags in Shopify
+      // Check if product has updated tags or sortOrder in Shopify
       let updatedTags = p.tags || '';
       let updatedBadge = p.badge;
+      let updatedSortOrder = p.sortOrder;
       const spMatch = data.products?.find(
         x => String(x.shopifyProductId) === String(p.shopifyProductId) || x.handle === p.handle
       );
-      if (spMatch && spMatch.tags) {
-        updatedTags = spMatch.tags;
-        if (updatedTags.toLowerCase().includes('destaque') || updatedTags.toLowerCase().includes('topo')) {
-          updatedBadge = 'DESTAQUE';
-        }
-        if (p.tags !== updatedTags || p.badge !== updatedBadge) {
+      if (spMatch) {
+        if (typeof spMatch.sortOrder === 'number' && p.sortOrder !== spMatch.sortOrder) {
+          updatedSortOrder = spMatch.sortOrder;
           productChanged = true;
+        }
+        if (spMatch.tags) {
+          updatedTags = spMatch.tags;
+          if (updatedTags.toLowerCase().includes('destaque') || updatedTags.toLowerCase().includes('topo')) {
+            updatedBadge = 'DESTAQUE';
+          }
+          if (p.tags !== updatedTags || p.badge !== updatedBadge) {
+            productChanged = true;
+          }
         }
       }
 
@@ -109,7 +116,8 @@ export async function refreshLivePrices() {
           installmentValue: newInstallment,
           colorVariants: updatedColorVariants,
           tags: updatedTags,
-          badge: updatedBadge
+          badge: updatedBadge,
+          sortOrder: updatedSortOrder
         };
       }
       return p;
@@ -145,6 +153,7 @@ export async function refreshLivePrices() {
             installmentValue: +(sp.price / 12).toFixed(2),
             image: sp.image,
             tags: sp.tags || '',
+            sortOrder: sp.sortOrder,
             badge: isDestaque ? 'DESTAQUE' : (sp.badge || 'NOVO'),
             rating: 5.0,
             reviewsCount: 1,
