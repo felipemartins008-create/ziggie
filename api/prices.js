@@ -1,4 +1,4 @@
-// Vercel Serverless Function - Live Shopify Price Fetcher with Full Variant Support
+// Vercel Serverless Function - Live Shopify Price Fetcher with Full Product & Variant Support
 // Endpoint: https://ziggie-emjt.vercel.app/api/prices
 
 const SHOP = process.env.SHOPIFY_SHOP || 'fabrica-de-engenhocas.myshopify.com';
@@ -60,6 +60,7 @@ export default async function handler(req, res) {
     const products = data.products || [];
 
     const pricesMap = {};
+    const rawProductsList = [];
 
     for (const p of products) {
       const variants = p.variants || [];
@@ -107,15 +108,46 @@ export default async function handler(req, res) {
 
       pricesMap[String(p.id)] = baseObj;
       pricesMap[p.handle] = baseObj;
+
+      // Full Shopify product model for dynamic catalog ingestion
+      const rawProduct = {
+        shopifyProductId: String(p.id),
+        shopifyVariantId: String(variants[0].id),
+        handle: p.handle,
+        title: p.title,
+        name: p.title,
+        description: p.body_html ? p.body_html.replace(/<[^>]+>/g, '').trim() : '',
+        category: p.product_type || (p.tags && p.tags.toLowerCase().includes('filamento') ? 'Filamentos' : 'Impressoras 3D'),
+        vendor: p.vendor || 'Ziggie 3D',
+        brand: p.vendor || 'Ziggie 3D',
+        price: basePrice,
+        oldPrice: minCompareAt,
+        pixPrice: +(basePrice * 0.90).toFixed(2),
+        image: p.images && p.images[0] ? p.images[0].src : '/images/printer-bambu-a1.png',
+        images: (p.images || []).map(img => img.src),
+        badge: minCompareAt ? 'PROMOÇÃO' : null,
+        variants: variants.map(v => ({
+          id: String(v.id),
+          shopifyVariantId: String(v.id),
+          title: v.title,
+          name: v.title,
+          price: parseFloat(v.price) || 0,
+          oldPrice: v.compare_at_price ? parseFloat(v.compare_at_price) : null,
+          pixPrice: +((parseFloat(v.price) || 0) * 0.90).toFixed(2)
+        }))
+      };
+
+      rawProductsList.push(rawProduct);
     }
 
     return res.status(200).json({
       success: true,
       timestamp: Date.now(),
-      prices: pricesMap
+      prices: pricesMap,
+      products: rawProductsList
     });
   } catch (error) {
-    console.error('Erro ao buscar preços Shopify:', error);
+    console.error('Erro ao buscar produtos Shopify:', error);
     return res.status(500).json({
       success: false,
       error: error.message
