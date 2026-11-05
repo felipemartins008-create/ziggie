@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Flame, ArrowRight, Zap, ShieldCheck } from 'lucide-react';
+import { useLiveProducts } from '../services/livePrices';
 
 const FEATURED_MACHINES = [
   {
@@ -46,6 +47,18 @@ const FEATURED_MACHINES = [
 ];
 
 export function BlackFridayBanner({ onBannerClick }) {
+  const liveProducts = useLiveProducts();
+
+  const featuredMachines = FEATURED_MACHINES.map(machine => {
+    const live = liveProducts.find(p => p.id === machine.id);
+    if (!live) return machine;
+    return {
+      ...machine,
+      price: 'R$ ' + Number(live.price).toLocaleString('pt-BR', { minimumFractionDigits: 2 }),
+      oldPrice: live.oldPrice ? 'R$ ' + Number(live.oldPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : machine.oldPrice
+    };
+  });
+
   const handleClick = (e, targetId) => {
     e.stopPropagation();
     if (onBannerClick) {
@@ -173,7 +186,7 @@ export function BlackFridayBanner({ onBannerClick }) {
             
             {/* Grid of 4 Featured Machines with Floating Price Cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 items-end">
-              {FEATURED_MACHINES.map((machine) => (
+              {featuredMachines.map((machine) => (
                 <div
                   key={machine.id}
                   onClick={(e) => handleClick(e, machine.id)}

@@ -72,7 +72,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
       return true;
     });
-  }, [searchQuery, selectedCategory]);
+  }, [products, searchQuery, selectedCategory]);
 
   // Helper to extract clean model and 3 spec metrics
   const getProductDisplayData = (product) => {
