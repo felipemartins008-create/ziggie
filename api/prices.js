@@ -1,4 +1,4 @@
-// Vercel Serverless Function - Live Shopify Price Fetcher
+// Vercel Serverless Function - Live Shopify Price Fetcher with Full Variant Support
 // Endpoint: https://ziggie-emjt.vercel.app/api/prices
 
 const SHOP = process.env.SHOPIFY_SHOP || 'fabrica-de-engenhocas.myshopify.com';
@@ -30,16 +30,14 @@ async function getAccessToken() {
 
   const data = await res.json();
   cachedToken = data.access_token;
-  // Expire token cache in 12 hours
   tokenExpiresAt = now + 12 * 60 * 60 * 1000;
   return cachedToken;
 }
 
 export default async function handler(req, res) {
-  // CORS & CDN Caching (cache on Vercel CDN for 30s, serve stale while revalidating for 2min)
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=120');
+  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=60');
 
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -61,29 +59,54 @@ export default async function handler(req, res) {
     const data = await shopifyRes.json();
     const products = data.products || [];
 
-    // Map by variant ID, product ID, and handle for instant lookup
     const pricesMap = {};
+
     for (const p of products) {
-      const v = p.variants && p.variants[0];
-      if (!v) continue;
+      const variants = p.variants || [];
+      if (variants.length === 0) continue;
 
-      const price = parseFloat(v.price) || 0;
-      const compareAtPrice = v.compare_at_price ? parseFloat(v.compare_at_price) : null;
-      const pixPrice = +(price * 0.90).toFixed(2);
+      let minPrice = Infinity;
+      let minCompareAt = null;
 
-      const priceObj = {
+      // Index every variant individually by its Variant ID
+      for (const v of variants) {
+        const price = parseFloat(v.price) || 0;
+        const compareAtPrice = v.compare_at_price ? parseFloat(v.compare_at_price) : null;
+        const pixPrice = +(price * 0.90).toFixed(2);
+
+        if (price < minPrice) {
+          minPrice = price;
+          minCompareAt = compareAtPrice;
+        }
+
+        const variantObj = {
+          title: p.title,
+          variantTitle: v.title,
+          handle: p.handle,
+          productId: String(p.id),
+          variantId: String(v.id),
+          price: price,
+          oldPrice: compareAtPrice,
+          pixPrice: pixPrice
+        };
+
+        pricesMap[String(v.id)] = variantObj;
+      }
+
+      // Index product by Product ID and Handle (uses lowest variant price so cards show the best entry price)
+      const basePrice = minPrice === Infinity ? parseFloat(variants[0].price) || 0 : minPrice;
+      const baseObj = {
         title: p.title,
         handle: p.handle,
         productId: String(p.id),
-        variantId: String(v.id),
-        price: price,
-        oldPrice: compareAtPrice,
-        pixPrice: pixPrice
+        variantId: String(variants[0].id),
+        price: basePrice,
+        oldPrice: minCompareAt,
+        pixPrice: +(basePrice * 0.90).toFixed(2)
       };
 
-      pricesMap[String(p.id)] = priceObj;
-      pricesMap[String(v.id)] = priceObj;
-      pricesMap[p.handle] = priceObj;
+      pricesMap[String(p.id)] = baseObj;
+      pricesMap[p.handle] = baseObj;
     }
 
     return res.status(200).json({

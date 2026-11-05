@@ -21,20 +21,39 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
     product.colors ? product.colors[0]?.hex : null
   );
 
-  const pixPrice = product.pixPrice || (product.price * 0.95);
+  // Get active variant based on selected color for dynamic price reflection
+  const selectedVariant = product.colorVariants?.find(
+    c => c.hex === selectedColor || c.name === selectedColor
+  );
+
+  const activePrice = typeof selectedVariant?.price === 'number' ? selectedVariant.price : product.price;
+  const activeOldPrice = selectedVariant?.oldPrice ?? product.oldPrice;
+  const activePixPrice = typeof selectedVariant?.pixPrice === 'number' 
+    ? selectedVariant.pixPrice 
+    : (product.pixPrice || +(activePrice * 0.90).toFixed(2));
 
   const getCurrentVariantId = () => {
-    if (product.colorVariants && product.colorVariants.length > 0) {
-      const match = product.colorVariants.find(c => c.hex === selectedColor || c.name === selectedColor);
-      if (match && match.shopifyVariantId) return match.shopifyVariantId;
+    if (selectedVariant && selectedVariant.shopifyVariantId) {
+      return selectedVariant.shopifyVariantId;
     }
     return product.shopifyVariantId;
   };
 
   const handleBuyNow = () => {
     const variantId = getCurrentVariantId();
-    onAddToCart({ ...product, quantity, selectedColor, shopifyVariantId: variantId });
-    const directCheckoutUrl = buildShopifyCheckoutUrl([{ ...product, quantity, shopifyVariantId: variantId }]);
+    const colorName = product.colors?.find(c => c.hex === selectedColor)?.name;
+    const checkoutProduct = { 
+      ...product, 
+      price: activePrice,
+      oldPrice: activeOldPrice,
+      pixPrice: activePixPrice,
+      quantity, 
+      selectedColor, 
+      selectedColorName: colorName,
+      shopifyVariantId: variantId 
+    };
+    onAddToCart(checkoutProduct);
+    const directCheckoutUrl = buildShopifyCheckoutUrl([checkoutProduct]);
     if (directCheckoutUrl && directCheckoutUrl !== '#') {
       window.open(directCheckoutUrl, '_blank');
     }
@@ -139,21 +158,21 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
 
               {/* Price & Discounts */}
               <div className="pt-2">
-                {product.oldPrice && (
+                {activeOldPrice && (
                   <div className="text-xs text-zinc-500 line-through font-mono">
-                    R$ {product.oldPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    R$ {Number(activeOldPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </div>
                 )}
                 <div className="flex items-baseline gap-2">
                   <div className="text-2xl font-bold text-white font-['Space_Grotesk']">
-                    R$ {pixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    R$ {Number(activePixPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </div>
                   <span className="text-xs font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-500/40 px-2 py-0.5 rounded">
                     10% OFF NO PIX
                   </span>
                 </div>
                 <div className="text-xs text-zinc-400 mt-1">
-                  ou R$ {product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} em até 12x
+                  ou R$ {Number(activePrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })} em até 12x
                 </div>
               </div>
 
@@ -183,6 +202,9 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
                     const colorName = product.colors?.find(c => c.hex === selectedColor)?.name;
                     onAddToCart({ 
                       ...product, 
+                      price: activePrice,
+                      oldPrice: activeOldPrice,
+                      pixPrice: activePixPrice,
                       quantity, 
                       selectedColor, 
                       selectedColorName: colorName,
