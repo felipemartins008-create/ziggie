@@ -86,7 +86,7 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#ff5500] flex-shrink-0" />
-                <span>atendimento@ziggie3d.com.br</span>
+                <a href="mailto:contato@ziggie.com.br" className="hover:text-[#ff5500] transition-colors">contato@ziggie.com.br</a>
               </div>
             </div>
           </div>

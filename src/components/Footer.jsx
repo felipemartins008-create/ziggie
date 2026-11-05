@@ -73,7 +73,7 @@ export function Footer({ onOpenShopifyConfig }) {
               Ziggie 3D Printing. Distribuidor oficial e manufatura aditiva com inspeção dimensional a laser duplo em circuito fechado.
             </p>
             <div className="text-[11px] text-zinc-500 font-mono space-y-1">
-              <div>SAC & ENGENHARIA: CONTATO@ZIGGIE3D.COM.BR</div>
+              <div>SAC & ENGENHARIA: CONTATO@ZIGGIE.COM.BR</div>
               <div>HUB LOGÍSTICO: SÃO PAULO, BRASIL</div>
             </div>
           </div>
