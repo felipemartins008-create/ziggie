@@ -77,16 +77,8 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
             </p>
             <div className="pt-2 text-xs space-y-2 text-zinc-600">
               <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-[#ff5500] flex-shrink-0" />
-                <span>Av. Paulista, 1000 - Bela Vista, São Paulo - SP</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-[#ff5500] flex-shrink-0" />
-                <span>(11) 4003-3D3D / WhatsApp (11) 9999-9999</span>
-              </div>
-              <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-[#ff5500] flex-shrink-0" />
-                <a href="mailto:contato@ziggie.com.br" className="hover:text-[#ff5500] transition-colors">contato@ziggie.com.br</a>
+                <a href="mailto:contato@ziggie.com.br" className="hover:text-[#ff5500] transition-colors font-medium">contato@ziggie.com.br</a>
               </div>
             </div>
           </div>
@@ -131,19 +123,6 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
             {/* Premium Payment & Bank Badges Block */}
             <PremiumPaymentMethods />
 
-            {/* Shopify Storefront Direct Integration */}
-            <div className="pt-2">
-              <button
-                onClick={onOpenShopifyConfig}
-                className="w-full text-left py-2 px-3 bg-zinc-100 hover:bg-zinc-200/90 border border-zinc-200/80 rounded-xl text-[11px] font-mono text-zinc-700 flex items-center justify-between cursor-pointer transition-colors"
-              >
-                <span className="flex items-center gap-1.5 font-sans font-medium text-xs">
-                  <span>Conexão Shopify Storefront</span>
-                </span>
-                <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
-              </button>
-            </div>
-
           </div>
 
         </div>
@@ -153,7 +132,7 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
       <div className="bg-zinc-100 border-t border-zinc-200 text-zinc-500 text-[11px] py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <div>
-            © {new Date().getFullYear()} Ziggie 3D Comércio de Tecnologia Ltda. CNPJ: 45.123.890/0001-44. Todos os direitos reservados.
+            © {new Date().getFullYear()} Ziggie 3D Printing. Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-4 text-zinc-600 font-medium">
             <a href="#terms" className="hover:underline">Termos e Condições</a>

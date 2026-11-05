@@ -86,11 +86,11 @@ export function FloatingWhatsApp() {
       <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
         {showTooltip && (
           <div className="hidden sm:flex items-center gap-2 bg-white text-zinc-800 text-xs font-semibold py-2 px-3.5 rounded-2xl shadow-xl border border-zinc-200 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
             <span>Dúvidas? Fale com nosso consultor</span>
             <button 
               onClick={() => setShowTooltip(false)}
-              className="text-zinc-400 hover:text-zinc-600 ml-1"
+              className="text-zinc-400 hover:text-zinc-600 ml-1 cursor-pointer"
               aria-label="Fechar dica"
             >
               <X className="w-3 h-3" />
@@ -102,11 +102,9 @@ export function FloatingWhatsApp() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="relative w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 group"
+          className="relative w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 group cursor-pointer"
           title="Conversar pelo WhatsApp"
         >
-          {/* Pulsing ring */}
-          <span className="absolute inset-0 rounded-full bg-emerald-500 opacity-40 animate-ping pointer-events-none group-hover:hidden"></span>
           <MessageCircle className="w-7 h-7 stroke-[2.2]" />
         </a>
       </div>

@@ -111,14 +111,7 @@ export function Footer({ onOpenShopifyConfig }) {
               E-commerce & Suporte
             </h4>
             <ul className="space-y-2.5 text-zinc-400">
-              <li>
-                <button 
-                  onClick={onOpenShopifyConfig}
-                  className="hover:text-white transition-colors cursor-pointer text-left"
-                >
-                  Conexão Shopify Storefront
-                </button>
-              </li>
+              <li><a href="mailto:contato@ziggie.com.br" className="hover:text-white transition-colors">contato@ziggie.com.br</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Prazos e Frete Blindado</a></li>
               <li><a href="#" className="hover:text-white transition-colors">Garantia Nacional 12 Meses</a></li>
               <li><a href="#calculator" className="hover:text-white transition-colors">Calculadora de Custos 3D</a></li>
@@ -130,7 +123,7 @@ export function Footer({ onOpenShopifyConfig }) {
         {/* Bottom */}
         <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-zinc-600">
           <div>
-            © {new Date().getFullYear()} Ziggie 3D Printing. Todos os direitos reservados. CNPJ: 00.000.000/0001-00.
+            © {new Date().getFullYear()} Ziggie 3D Printing. Todos os direitos reservados.
           </div>
           <div className="flex items-center gap-3 font-mono text-[10px] text-zinc-500">
             <span>PIX DIRETO (-5%)</span>
