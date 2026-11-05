@@ -44,6 +44,14 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     ];
 
     list.sort((a, b) => {
+      // 1. Tag or badge priority: 'destaque', 'topo', or badge 'DESTAQUE' always appear at the top!
+      const isFeaturedA = (a.tags && (a.tags.toLowerCase().includes('destaque') || a.tags.toLowerCase().includes('topo'))) || 
+                          (a.badge && a.badge.toLowerCase().includes('destaque'));
+      const isFeaturedB = (b.tags && (b.tags.toLowerCase().includes('destaque') || b.tags.toLowerCase().includes('topo'))) || 
+                          (b.badge && b.badge.toLowerCase().includes('destaque'));
+      if (isFeaturedA && !isFeaturedB) return -1;
+      if (!isFeaturedA && isFeaturedB) return 1;
+
       const idxA = priorityOrder.indexOf(a.id);
       const idxB = priorityOrder.indexOf(b.id);
       if (idxA !== -1 && idxB !== -1) return idxA - idxB;

@@ -120,7 +120,10 @@ export default async function handler(req, res) {
         pixPrice: +(basePrice * 0.90).toFixed(2),
         image: p.images && p.images[0] ? p.images[0].src : '/images/printer-bambu-a1.png',
         images: (p.images || []).map(img => img.src),
-        badge: minCompareAt ? 'PROMOÇÃO' : null,
+        tags: p.tags || '',
+        badge: (p.tags && (p.tags.toLowerCase().includes('destaque') || p.tags.toLowerCase().includes('topo'))) 
+          ? 'DESTAQUE' 
+          : (minCompareAt ? 'PROMOÇÃO' : null),
         variants: variants.map(v => ({
           id: String(v.id),
           shopifyVariantId: String(v.id),
