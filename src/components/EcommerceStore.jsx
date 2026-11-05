@@ -64,10 +64,11 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
       // Category
       if (selectedCategory !== 'all') {
-        if (selectedCategory === 'black-friday' && !product.badge?.includes('BLACK') && !product.promoTag) return false;
-        if (selectedCategory === 'Impressoras 3D' && product.category !== 'Impressoras 3D') return false;
+        if (selectedCategory === 'black-friday' && !product.badge?.includes('BLACK') && !product.promoTag && !product.badge?.includes('PROMO') && !product.badge?.includes('OFERTA')) return false;
+        if (selectedCategory === 'Impressoras 3D' && product.category !== 'Impressoras 3D' && !product.category?.includes('Combo')) return false;
         if (selectedCategory === 'Filamentos' && product.category !== 'Filamentos') return false;
-        if (selectedCategory === 'Combos' && !product.name.includes('Combo')) return false;
+        if (selectedCategory === 'Combos' && !product.name.includes('Combo') && !product.category?.includes('Combo')) return false;
+        if (selectedCategory === 'Peças e Acessórios' && product.category !== 'Peças e Acessórios' && product.category !== 'Acessórios') return false;
       }
 
       return true;
@@ -180,7 +181,8 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
               { id: 'black-friday', label: '🔥 Ofertas Black Friday' },
               { id: 'Impressoras 3D', label: 'Impressoras 3D' },
               { id: 'Combos', label: 'Combos Multicolor AMS' },
-              { id: 'Filamentos', label: 'Filamentos Técnicos' }
+              { id: 'Filamentos', label: 'Filamentos Técnicos' },
+              { id: 'Peças e Acessórios', label: 'Peças & Acessórios' }
             ].map(tab => (
               <button
                 key={tab.id}
