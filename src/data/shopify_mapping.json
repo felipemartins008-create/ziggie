@@ -72,7 +72,7 @@
   },
   "filament-bambu-pla-lite": {
     "shopifyProductId": 15478663577843,
-    "shopifyVariantId": "68035700523251",
+    "shopifyVariantId": 68035700523251,
     "handle": "filamento-bambu-pla-lite-1-75mm-1kg",
     "title": "Filamento Bambu PLA Lite 1.75mm 1Kg",
     "price": "119.00",
@@ -152,7 +152,7 @@
   },
   "filament-bambu-pla-basic": {
     "shopifyProductId": 15478663872755,
-    "shopifyVariantId": "68035701768435",
+    "shopifyVariantId": 68035701768435,
     "handle": "filamento-bambu-pla-basic-1-75mm-1kg",
     "title": "Filamento Bambu PLA Basic 1.75mm 1Kg",
     "price": "152.10",
@@ -183,7 +183,7 @@
   },
   "filament-bambu-petg": {
     "shopifyProductId": 15478664200435,
-    "shopifyVariantId": "68035702882547",
+    "shopifyVariantId": 68035702882547,
     "handle": "filamento-bambu-petg-1-75mm-1kg",
     "title": "Filamento Bambu PETG 1.75mm 1Kg",
     "price": "152.10",
@@ -200,7 +200,7 @@
   },
   "filament-sanlu-pla-plus": {
     "shopifyProductId": 15478664462579,
-    "shopifyVariantId": "68035703734515",
+    "shopifyVariantId": 68035703734515,
     "handle": "filamento-sanlu-pla-1-75mm-1kg",
     "title": "Filamento Sanlu PLA+ 1.75mm 1Kg",
     "price": "93.58",
@@ -224,7 +224,7 @@
   },
   "filament-printalot-pla": {
     "shopifyProductId": 15478664790259,
-    "shopifyVariantId": "68035704848627",
+    "shopifyVariantId": 68035704848627,
     "handle": "filamento-printalot-pla-premium-1-75mm-1kg",
     "title": "Filamento Printalot PLA Premium 1.75mm 1Kg",
     "price": "129.90",
@@ -262,7 +262,7 @@
   },
   "filament-panchona-matte": {
     "shopifyProductId": 15478665052403,
-    "shopifyVariantId": "68035705798899",
+    "shopifyVariantId": 68035705798899,
     "handle": "filamento-panchona-matte-1-75mm-1kg",
     "title": "Filamento Panchona Matte 1.75mm 1Kg",
     "price": "99.59",
@@ -286,7 +286,7 @@
   },
   "bambu-a2l": {
     "shopifyProductId": 15488231932147,
-    "shopifyVariantId": "68269644579059",
+    "shopifyVariantId": 68269644579059,
     "handle": "impressora-3d-bambu-lab-a2l-combo-corexy",
     "title": "Impressora 3D Bambu Lab A2L Combo CoreXY",
     "price": "6899.00",
@@ -294,7 +294,7 @@
   },
   "snapmaker-u1": {
     "shopifyProductId": 15488231997683,
-    "shopifyVariantId": "68269644939507",
+    "shopifyVariantId": 68269644939507,
     "handle": "impressora-3d-snapmaker-u1-multi-toolhead-4-bicos",
     "title": "Impressora 3D Snapmaker U1 Multi-Toolhead 4 Bicos",
     "price": "10990.00",

@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "sync-prices": "node scripts/sync_shopify_prices.cjs",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"

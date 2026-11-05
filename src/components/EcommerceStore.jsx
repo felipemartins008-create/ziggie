@@ -92,12 +92,14 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     let modelHighlight = product.modelAccent;
 
     if (!modelHighlight) {
-      if (product.name.includes('A1 MINI')) modelHighlight = 'A1 Mini';
+      if (product.name.includes('A1 MINI') && product.name.includes('Combo')) modelHighlight = 'A1 Mini Combo';
+      else if (product.name.includes('A1 MINI')) modelHighlight = 'A1 Mini';
+      else if (product.name.includes('A1') && product.name.includes('Combo')) modelHighlight = 'A1 Combo';
       else if (product.name.includes('A1')) modelHighlight = 'A1';
       else if (product.name.includes('H2S')) modelHighlight = 'H2S';
       else if (product.name.includes('H2D')) modelHighlight = 'H2D';
       else if (product.name.includes('X2D')) modelHighlight = 'X2D';
-      else if (product.name.includes('P2S')) modelHighlight = 'P2S';
+      else if (product.name.includes('P2S')) modelHighlight = 'P2S Combo';
       else if (product.name.includes('U1')) modelHighlight = 'U1 4-Head';
       else modelHighlight = 'Pro';
     }
@@ -105,11 +107,19 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     // Spec pills logic (matches exact reference layout: 3 columns)
     let specs = product.specPills;
     if (!specs || specs.length < 3) {
-      specs = [
-        { val: 'Aço', label: 'Chassi' },
-        { val: 'Metal', label: 'Hotend' },
-        { val: '1080p', label: 'Câmera' }
-      ];
+      if (product.name.includes('Combo')) {
+        specs = [
+          { val: 'AMS Lite', label: 'Multicolor' },
+          { val: '4 Cores', label: 'Simultâneas' },
+          { val: '1080p', label: 'Câmera' }
+        ];
+      } else {
+        specs = [
+          { val: 'Aço', label: 'Chassi' },
+          { val: 'Metal', label: 'Hotend' },
+          { val: '1080p', label: 'Câmera' }
+        ];
+      }
     }
 
     return { brandPrefix, modelHighlight, specs };
