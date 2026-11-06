@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Trash2, ArrowRight } from 'lucide-react';
 import { buildShopifyCheckoutUrl } from '../services/shopify';
+import { trackBeginCheckout } from '../utils/analytics';
 import { 
   PixLogo, 
   VisaLogo, 
@@ -40,11 +41,12 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
   };
 
   const handleCheckout = () => {
+    trackBeginCheckout(items, total);
     const checkoutUrl = buildShopifyCheckoutUrl(items);
     if (checkoutUrl && checkoutUrl !== '#') {
       window.open(checkoutUrl, '_blank');
     } else {
-      alert('Checkout Shopify acionado! Redirecionando para o ambiente seguro da loja Shopify.');
+      alert('Redirecionando para o ambiente de pagamento 100% seguro.');
     }
   };
 
@@ -198,14 +200,14 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                 onClick={handleCheckout}
                 className="w-full py-3.5 rounded-full bg-[#ff5500] hover:bg-[#e64c00] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#ff5500]/20"
               >
-                <span>Finalizar Compra na Shopify</span>
+                <span>Finalizar Compra Segura</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
 
               {/* Payment Methods Accepted */}
               <div className="pt-2 text-center">
                 <span className="text-[10px] uppercase tracking-wider text-zinc-500 font-medium block mb-2">
-                  Pagamento 100% Seguro Via Shopify
+                  Pagamento 100% Criptografado & Seguro
                 </span>
                 <div className="flex flex-wrap items-center justify-center gap-1.5">
                   <div title="Pix (-10% OFF)"><PixLogo className="w-8 h-5 rounded" /></div>

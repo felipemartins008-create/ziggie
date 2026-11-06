@@ -53,6 +53,8 @@ export function EcommerceHeader({
                 onSelectCategory('all');
                 onSearchChange('');
               }}
+              title="Ziggie 3D Printing - Página Inicial"
+              aria-label="Ziggie 3D Printing"
               className="flex-shrink-0 flex items-center py-1"
             >
               <Logo className="h-10 sm:h-12 md:h-13" variant="light" />

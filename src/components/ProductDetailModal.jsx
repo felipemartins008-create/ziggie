@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, ArrowRight, Check } from 'lucide-react';
 import { buildShopifyCheckoutUrl } from '../services/shopify';
+import { trackBeginCheckout } from '../utils/analytics';
 import { 
   PixLogo, 
   VisaLogo, 
@@ -53,6 +54,7 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
       shopifyVariantId: variantId 
     };
     onAddToCart(checkoutProduct);
+    trackBeginCheckout([checkoutProduct], checkoutProduct.price * checkoutProduct.quantity);
     const directCheckoutUrl = buildShopifyCheckoutUrl([checkoutProduct]);
     if (directCheckoutUrl && directCheckoutUrl !== '#') {
       window.open(directCheckoutUrl, '_blank');

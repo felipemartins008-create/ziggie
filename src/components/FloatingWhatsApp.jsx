@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { MessageCircle, Send, X } from 'lucide-react';
+import { trackWhatsAppLead } from '../utils/analytics';
 
 function InstagramIcon({ className = "w-4 h-4" }) {
   return (
@@ -75,6 +76,7 @@ export function FloatingWhatsApp() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppLead('side_rail')}
           className="w-9 h-9 rounded-xl flex items-center justify-center text-zinc-600 hover:text-white hover:bg-emerald-500 transition-all duration-200"
           title="Fale no WhatsApp"
         >
@@ -102,6 +104,7 @@ export function FloatingWhatsApp() {
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackWhatsAppLead('floating_button')}
           className="relative w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200 group cursor-pointer"
           title="Conversar pelo WhatsApp"
         >

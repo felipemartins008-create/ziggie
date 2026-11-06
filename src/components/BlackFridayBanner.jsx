@@ -125,6 +125,9 @@ export function BlackFridayBanner({ onBannerClick }) {
           {/* Left Column: 100% Vector Crisp Typography & CTA (5 cols on large) */}
           <div className="lg:col-span-5 flex flex-col items-start justify-center">
             
+            {/* Semantic H1 for Google SEO & Google Ads Landing Page Quality Score */}
+            <h1 className="sr-only">Ziggie 3D | Loja Oficial de Impressoras 3D Bambu Lab, Snapmaker e Filamentos no Brasil</h1>
+
             {/* Top Amber Pill Badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-amber-400 text-black font-extrabold text-[11px] sm:text-xs tracking-wider uppercase shadow-md shadow-amber-400/20">
               <Sparkles className="w-3.5 h-3.5 fill-black stroke-none" />

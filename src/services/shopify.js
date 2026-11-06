@@ -57,7 +57,7 @@ export async function shopifyFetch({ query, variables = {} }) {
 }
 
 /**
- * Cria ou recupera link direto de Checkout da Shopify
+ * Cria ou recupera link direto de Checkout da Shopify preservando parâmetros do Google Ads (UTMs & GCLID)
  */
 export function buildShopifyCheckoutUrl(cartItems) {
   const config = getShopifyConfig();
@@ -69,5 +69,23 @@ export function buildShopifyCheckoutUrl(cartItems) {
     .map(item => `${item.shopifyVariantId || item.id}:${item.quantity}`)
     .join(',');
 
-  return `https://${config.shopDomain}/cart/${lineItems}`;
+  let url = `https://${config.shopDomain}/cart/${lineItems}`;
+
+  // Preservação de parâmetros Google Ads e UTMs para atribuição de tráfego pago
+  try {
+    const rawTraffic = sessionStorage.getItem('ziggie_traffic_source');
+    if (rawTraffic) {
+      const traffic = JSON.parse(rawTraffic);
+      const searchParams = new URLSearchParams();
+      Object.keys(traffic).forEach(k => {
+        if (traffic[k]) searchParams.set(k, traffic[k]);
+      });
+      const qs = searchParams.toString();
+      if (qs) {
+        url += `?${qs}`;
+      }
+    }
+  } catch (e) {}
+
+  return url;
 }

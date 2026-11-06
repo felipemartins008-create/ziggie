@@ -2,14 +2,214 @@
 <html lang="pt-BR" class="dark scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/ziggie-icon-zi.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ziggie 3D Printing | Impressoras 3D & Filamentos de Alta Precisão</title>
-    <meta name="description" content="E-commerce especializado em Impressoras 3D Bambu Lab, Snapmaker e Filamentos Premium. Distribuidor oficial no Brasil com garantia nacional e integração Shopify." />
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- 1. SEO Primário & Título de Alto CTR -->
+    <title>Ziggie 3D | Loja Oficial de Impressoras 3D Bambu Lab, Snapmaker e Filamentos no Brasil</title>
+    <meta name="title" content="Ziggie 3D | Loja Oficial de Impressoras 3D Bambu Lab, Snapmaker e Filamentos no Brasil" />
+    <meta name="description" content="Compre Impressoras 3D de alta performance Bambu Lab (A1, P2S, X2D), Snapmaker U1 Multi-Toolhead e Filamentos Técnicos no Brasil. Pronta Entrega, Envio 24h, 12x Sem Juros e 10% OFF no Pix." />
+    <meta name="keywords" content="impressora 3d, impressora 3d bambu lab, bambu lab brasil, snapmaker u1, bambu lab a1 combo, bambu p2s, bambu x2d, filamento pla, filamento petg, filamento tough, impressão 3d pronta entrega, distribuidor bambu lab brasil" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://ziggie-emjt.vercel.app/" />
+    <meta name="author" content="Ziggie 3D Printing" />
+    <meta name="theme-color" content="#ff5500" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- 2. Geo & Idioma para Google Brasil -->
+    <meta name="geo.region" content="BR-SP" />
+    <meta name="geo.placename" content="São Paulo, Brasil" />
+    <meta name="language" content="Portuguese" />
+
+    <!-- 3. Open Graph / Facebook / WhatsApp / Google Discover -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ziggie-emjt.vercel.app/" />
+    <meta property="og:site_name" content="Ziggie 3D Printing" />
+    <meta property="og:title" content="Ziggie 3D | Impressoras 3D Bambu Lab, Snapmaker e Filamentos Premium" />
+    <meta property="og:description" content="Distribuidor oficial de impressoras 3D e filamentos técnicos. Pronta entrega com estoque nacional, até 12x sem juros e 10% OFF no Pix." />
+    <meta property="og:image" content="https://ziggie-emjt.vercel.app/images/snapmaker-u1-banner.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:alt" content="Ziggie 3D Printing - Catálogo de Impressoras 3D e Filamentos" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- 4. Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ziggie-emjt.vercel.app/" />
+    <meta name="twitter:title" content="Ziggie 3D | Impressoras 3D Bambu Lab, Snapmaker e Filamentos" />
+    <meta name="twitter:description" content="Pronta entrega no Brasil, garantia nacional de 1 ano, 12x sem juros e 10% OFF no Pix imediato." />
+    <meta name="twitter:image" content="https://ziggie-emjt.vercel.app/images/snapmaker-u1-banner.png" />
+
+    <!-- 5. Favicon & Web Icons -->
+    <link rel="icon" type="image/png" href="/images/ziggie-icon-zi.png" />
+    <link rel="apple-touch-icon" href="/images/ziggie-icon-zi.png" />
+
+    <!-- 6. Pré-conexões de Performance (Core Web Vitals) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.shopify.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- 7. Google DataLayer & Google Ads Conversion Readiness -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      
+      // Captura automática de parâmetros de campanha (UTM e GCLID do Google Ads)
+      (function() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          var trackedParams = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+          var campaignData = {};
+          var hasTracked = false;
+          trackedParams.forEach(function(key) {
+            if (params.has(key)) {
+              campaignData[key] = params.get(key);
+              hasTracked = true;
+            }
+          });
+          if (hasTracked) {
+            sessionStorage.setItem('ziggie_traffic_source', JSON.stringify(campaignData));
+            window.dataLayer.push({
+              event: 'traffic_attribution',
+              traffic_source: campaignData
+            });
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- 8. Schema.org / Dados Estruturados JSON-LD (Loja, Organização e Catálogo) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://ziggie-emjt.vercel.app/#organization",
+          "name": "Ziggie 3D Printing",
+          "url": "https://ziggie-emjt.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://ziggie-emjt.vercel.app/images/ziggie-icon-zi.png",
+            "width": 512,
+            "height": 512
+          },
+          "email": "contato@ziggie.com.br",
+          "description": "Distribuidora oficial de impressoras 3D de alta performance Bambu Lab, Snapmaker e filamentos técnicos certificados no Brasil.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "BR"
+          }
+        },
+        {
+          "@type": "Store",
+          "@id": "https://ziggie-emjt.vercel.app/#store",
+          "name": "Ziggie 3D Printing Store",
+          "url": "https://ziggie-emjt.vercel.app/",
+          "parentOrganization": { "@id": "https://ziggie-emjt.vercel.app/#organization" },
+          "currenciesAccepted": "BRL",
+          "paymentAccepted": "PIX, Cartão de Crédito em até 12x, Boleto Bancário",
+          "priceRange": "R$ 90 - R$ 25.000",
+          "openingHours": "Mo-Su 00:00-24:00"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://ziggie-emjt.vercel.app/#website",
+          "url": "https://ziggie-emjt.vercel.app/",
+          "name": "Ziggie 3D",
+          "publisher": { "@id": "https://ziggie-emjt.vercel.app/#organization" },
+          "inLanguage": "pt-BR",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ziggie-emjt.vercel.app/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://ziggie-emjt.vercel.app/#featured_products",
+          "name": "Principais Impressoras 3D e Filamentos",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Product",
+                "name": "Impressora 3D Bambu Lab A1 com AMS Lite Combo",
+                "image": "https://ziggie-emjt.vercel.app/images/printer-bambu-a1.png",
+                "description": "Impressora 3D multicolorida com alimentador automático AMS Lite para até 4 filamentos simultâneos.",
+                "brand": { "@type": "Brand", "name": "Bambu Lab" },
+                "sku": "PF002-A+SA005-EU2",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "BRL",
+                  "price": "4499.00",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://ziggie-emjt.vercel.app/#ofertas",
+                  "itemCondition": "https://schema.org/NewCondition"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "184"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Product",
+                "name": "Impressora 3D Snapmaker U1 Multi-Toolhead 4 Bicos",
+                "image": "https://ziggie-emjt.vercel.app/images/printer-snapmaker-u1.png",
+                "description": "Inovação em impressão multicolorida: 4 cabeçotes dedicados sem torre de purga.",
+                "brand": { "@type": "Brand", "name": "Snapmaker" },
+                "sku": "SM-U1-MULTITOOL",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "BRL",
+                  "price": "10990.00",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://ziggie-emjt.vercel.app/#ofertas",
+                  "itemCondition": "https://schema.org/NewCondition"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "54"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Product",
+                "name": "Impressora 3D Bambu Lab P2S Combo Enclosed",
+                "image": "https://ziggie-emjt.vercel.app/images/printer-bambu-p2s.png",
+                "description": "Máquina com gabinete fechado ideal para polímeros técnicos como ABS, ASA e PETG-CF.",
+                "brand": { "@type": "Brand", "name": "Bambu Lab" },
+                "sku": "PF004-U+SA007-EU1",
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "BRL",
+                  "price": "9399.00",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://ziggie-emjt.vercel.app/#ofertas",
+                  "itemCondition": "https://schema.org/NewCondition"
+                },
+                "aggregateRating": {
+                  "@type": "AggregateRating",
+                  "ratingValue": "5.0",
+                  "reviewCount": "168"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body class="bg-[#0b0c0e] text-[#f1f3f5] antialiased selection:bg-[#ff5500] selection:text-white min-h-screen overflow-x-hidden font-sans">
     <div id="root"></div>

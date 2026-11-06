@@ -177,9 +177,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
           <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-3 font-sans">
             🔥 Especial Black Friday & Black November
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
             Os Favoritos da Comunidade Maker
-          </h1>
+          </h2>
           <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-xl mx-auto">
             Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
           </p>
@@ -265,10 +265,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
                   {/* Title & Price Section */}
                   <div className="text-center mb-6">
-                    <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight font-['Space_Grotesk'] leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight font-['Space_Grotesk'] leading-snug">
                       {brandPrefix}{' '}
                       <span className="text-[#8B5CF6] font-extrabold">{modelHighlight}</span>
-                    </h2>
+                    </h3>
 
                     <div className="mt-2 flex flex-col items-center justify-center">
                       {product.oldPrice && (

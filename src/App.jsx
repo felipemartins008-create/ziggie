@@ -9,6 +9,7 @@ import { CartDrawer } from './components/CartDrawer';
 import { ShopifySettingsModal } from './components/ShopifySettingsModal';
 import { getShopifyConfig } from './services/shopify';
 import { useLiveProducts } from './services/livePrices';
+import { trackAddToCart, trackViewItem } from './utils/analytics';
 import { CheckCircle2 } from 'lucide-react';
 
 export function App() {
@@ -43,6 +44,7 @@ export function App() {
 
   const handleAddToCart = (product) => {
     const qty = product.quantity || 1;
+    trackAddToCart(product, qty);
     setCart((prevCart) => {
       const existingIndex = prevCart.findIndex(
         (item) => item.id === product.id && item.selectedColor === product.selectedColor
@@ -125,6 +127,7 @@ export function App() {
           if (targetId && targetId !== 'all') {
             const found = products.find((p) => p.id === targetId);
             if (found) {
+              trackViewItem(found);
               setSelectedProductDetail(found);
               return;
             }
@@ -138,7 +141,10 @@ export function App() {
       <main>
         <EcommerceStore
           onAddToCart={handleAddToCart}
-          onOpenDetail={(product) => setSelectedProductDetail(product)}
+          onOpenDetail={(product) => {
+            trackViewItem(product);
+            setSelectedProductDetail(product);
+          }}
           searchQuery={searchQuery}
           activeCategory={activeCategory}
         />
