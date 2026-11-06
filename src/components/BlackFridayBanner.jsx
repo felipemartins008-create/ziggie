@@ -20,7 +20,7 @@ const FEATURED_MACHINES = [
     discount: '-15%',
     oldPrice: 'R$ 12.990,00',
     price: 'R$ 10.990,00',
-    image: '/images/snapmaker-u1-banner.png',
+    image: '/images/snapmaker-u1-banner.png?v=ultrahd',
     neonColor: 'rgba(234, 179, 8, 0.9)',
     neonBorder: '#eab308',
   },
