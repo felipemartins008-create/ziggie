@@ -77,7 +77,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
         if (selectedCategory === 'black-friday' && !product.badge?.includes('BLACK') && !product.promoTag && !product.badge?.includes('PROMO') && !product.badge?.includes('OFERTA')) return false;
         if (selectedCategory === 'Impressoras 3D' && product.category !== 'Impressoras 3D' && !product.category?.includes('Combo')) return false;
         if (selectedCategory === 'Filamentos' && product.category !== 'Filamentos') return false;
-        if (selectedCategory === 'Combos' && !product.name.includes('Combo') && !product.category?.includes('Combo')) return false;
+        if (selectedCategory === 'Combos' && !product.name.toLowerCase().includes('combo') && !product.category?.toLowerCase().includes('combo')) return false;
         if (selectedCategory === 'Peças e Acessórios' && product.category !== 'Peças e Acessórios' && product.category !== 'Acessórios') return false;
       }
 
@@ -131,32 +131,64 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     }
 
     // Brand & Model title logic for printers
-    let brandPrefix = product.shortTitle || '3D ' + (product.brand || 'Bambu Lab');
+    let brandPrefix = product.shortTitle || (product.brand === 'Snapmaker' ? '3D Snapmaker' : '3D Bambu Lab');
     let modelHighlight = product.modelAccent;
 
     if (!modelHighlight) {
-      if (product.name.includes('A1 MINI') && product.name.includes('Combo')) modelHighlight = 'A1 Mini Combo';
-      else if (product.name.includes('A1 MINI')) modelHighlight = 'A1 Mini';
-      else if (product.name.includes('A1') && product.name.includes('Combo')) modelHighlight = 'A1 Combo';
-      else if (product.name.includes('A1')) modelHighlight = 'A1';
-      else if (product.name.includes('H2S') && product.name.includes('Laser')) modelHighlight = 'H2S Laser';
-      else if (product.name.includes('H2S')) modelHighlight = 'H2S';
-      else if (product.name.includes('H2D') && product.name.includes('Laser')) modelHighlight = 'H2D Laser';
-      else if (product.name.includes('H2D')) modelHighlight = 'H2D';
-      else if (product.name.includes('H2C') && product.name.includes('Laser')) modelHighlight = 'H2C Laser';
-      else if (product.name.includes('H2C')) modelHighlight = 'H2C Combo';
-      else if (product.name.includes('X1E')) modelHighlight = 'X1E Enterprise';
-      else if (product.name.includes('X2D')) modelHighlight = 'X2D';
-      else if (product.name.includes('P2S')) modelHighlight = 'P2S Combo';
-      else if (product.name.includes('U1')) modelHighlight = 'U1 4-Head';
-      else if (product.name.includes('Recondicionada')) modelHighlight = 'Recondicionada';
-      else modelHighlight = 'Pro';
+      const isRefurb = product.name.includes('REFURBISHED') || product.subCategory === 'Recondicionada';
+      const isLaser10W = product.name.includes('10W');
+      const isLaser40W = product.name.includes('40W');
+      const voltTag = product.name.includes('220V') || product.name.includes('HV') ? ' 220V' : (product.name.includes('110V') || product.name.includes('127V') || product.name.includes('LV') ? ' 110V' : '');
+      const laserTag = isLaser40W ? ' Laser 40W' : (isLaser10W ? ' Laser 10W' : '');
+      const refurbTag = isRefurb ? ' (Recond.)' : '';
+
+      if (product.name.includes('A1 MINI') && (product.name.includes('COMBO') || product.name.includes('Combo'))) {
+        modelHighlight = `A1 Mini Combo${voltTag}${refurbTag}`;
+      } else if (product.name.includes('A1 MINI')) {
+        modelHighlight = `A1 Mini${voltTag}${refurbTag}`;
+      } else if (product.name.includes('A1') && (product.name.includes('COMBO') || product.name.includes('Combo'))) {
+        modelHighlight = `A1 Combo${voltTag}${refurbTag}`;
+      } else if (product.name.includes('A1')) {
+        modelHighlight = `A1${voltTag}${refurbTag}`;
+      } else if (product.name.includes('A2L')) {
+        modelHighlight = `A2L Combo${voltTag}`;
+      } else if (product.name.includes('H2S')) {
+        modelHighlight = `H2S${laserTag || ' Combo'}${voltTag}`;
+      } else if (product.name.includes('H2D')) {
+        modelHighlight = `H2D${laserTag || ' Combo'}${voltTag}`;
+      } else if (product.name.includes('H2C')) {
+        modelHighlight = `H2C${laserTag || ' Combo'}${voltTag}`;
+      } else if (product.name.includes('X1E')) {
+        modelHighlight = 'X1E Enterprise Combo';
+      } else if (product.name.includes('X2D')) {
+        modelHighlight = `X2D Combo${voltTag}`;
+      } else if (product.name.includes('P2S')) {
+        modelHighlight = `P2S Combo${voltTag}`;
+      } else if (product.name.includes('U1') || product.brand === 'Snapmaker') {
+        brandPrefix = '3D Snapmaker';
+        modelHighlight = 'U1 4-Head';
+      } else {
+        modelHighlight = product.modelAccent || 'Pro';
+      }
     }
 
     // Spec pills logic (matches exact reference layout: 3 columns)
     let specs = product.specPills;
     if (!specs || specs.length < 3) {
-      if (product.name.includes('Combo')) {
+      if (product.category === 'Impressoras 3D') {
+        const volt = product.specs?.voltage 
+          ? (product.specs.voltage.includes('220V') ? '220V' : product.specs.voltage.includes('110V') || product.specs.voltage.includes('127V') ? '110V' : 'Bivolt') 
+          : 'Bivolt';
+        const ams = product.specs?.ams 
+          ? (product.specs.ams.includes('Com AMS') || product.specs.ams.includes('incluso') ? 'Com AMS' : product.specs.ams.includes('4 Cabeçotes') ? '4 Heads' : 'Sem AMS') 
+          : (product.name.includes('COMBO') || product.name.includes('Combo') ? 'Com AMS' : 'Sem AMS');
+        const cond = product.specs?.condition?.includes('Recondicionada') ? 'Revisada' : 'Oficial 1 Ano';
+        specs = [
+          { val: volt, label: 'Voltagem' },
+          { val: ams, label: 'Alimentador' },
+          { val: cond, label: 'Garantia' }
+        ];
+      } else if (product.name.includes('Combo')) {
         specs = [
           { val: 'AMS Lite', label: 'Multicolor' },
           { val: '4 Cores', label: 'Simultâneas' },

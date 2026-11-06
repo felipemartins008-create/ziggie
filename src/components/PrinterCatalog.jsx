@@ -15,7 +15,7 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
       return printer.id.includes('h2');
     }
     if (activeTab === 'closed') {
-      return printer.id.includes('x2') || printer.id.includes('p2s');
+      return printer.id.includes('x2') || printer.id.includes('p2s') || printer.id.includes('x1e') || printer.id.includes('u1');
     }
     return true;
   });
@@ -30,13 +30,13 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
             <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.25em] text-[#ff5500] mb-2">
               <span>02</span>
               <span className="text-zinc-600">/</span>
-              <span>VITRINE FLAGSHIP COREXY</span>
+              <span>VITRINE FLAGSHIP COREXY & MULTICORES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
-              Impressoras 3D Bambu Lab
+              Impressoras 3D Oficiais (30 Modelos)
             </h2>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-xl font-normal leading-relaxed">
-              Equipamentos CoreXY de alta velocidade com calibração automática por IA e ecossistema multicolorido.
+              Catálogo completo com todas as voltagens (110V / 220V / Bivolt), opções com alimentador AMS, gravação a laser e linhas recondicionadas.
             </p>
           </div>
 
@@ -70,7 +70,7 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
                   : 'text-zinc-400 hover:text-white'
               }`}
             >
-              Série H (Dual / Farm)
+              Série H (Dual / Farm / Laser)
             </button>
             <button
               onClick={() => setActiveTab('closed')}
@@ -80,7 +80,7 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
                   : 'text-zinc-400 hover:text-white'
               }`}
             >
-              Gabinete Fechado (P2S / X2D)
+              Gabinete Fechado (P2S / X2D / X1E / U1)
             </button>
           </div>
         </div>
@@ -99,12 +99,21 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
                   
                   {/* Subtle technical tag at top left */}
                   <div className="absolute top-4 left-4 flex items-center gap-2">
-                    <span className="text-[10px] font-mono tracking-wider font-semibold text-zinc-600 uppercase bg-black/[0.04] px-2 py-0.5 rounded">
-                      {printer.specs.volume.split('x')[0]}³
-                    </span>
-                    <span className="text-[10px] font-mono tracking-wider font-semibold text-zinc-600 uppercase bg-black/[0.04] px-2 py-0.5 rounded">
-                      {printer.specs.speed}
-                    </span>
+                    {printer.specs?.volume && (
+                      <span className="text-[10px] font-mono tracking-wider font-semibold text-zinc-600 uppercase bg-black/[0.04] px-2 py-0.5 rounded">
+                        {printer.specs.volume.split('x')[0].trim()}³
+                      </span>
+                    )}
+                    {printer.specs?.speed && (
+                      <span className="text-[10px] font-mono tracking-wider font-semibold text-zinc-600 uppercase bg-black/[0.04] px-2 py-0.5 rounded">
+                        {printer.specs.speed}
+                      </span>
+                    )}
+                    {printer.specs?.voltage && (
+                      <span className="text-[10px] font-mono tracking-wider font-semibold text-zinc-800 uppercase bg-amber-400/20 px-2 py-0.5 rounded">
+                        {printer.specs.voltage.includes('220V') ? '220V' : printer.specs.voltage.includes('110V') || printer.specs.voltage.includes('127V') ? '110V' : 'Bivolt'}
+                      </span>
+                    )}
                   </div>
 
                   <img
