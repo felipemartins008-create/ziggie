@@ -132,6 +132,12 @@ export async function refreshLivePrices() {
       }
 
       for (const sp of data.products) {
+        // Do not inject duplicate printers: the catalog is strictly the 30 official models
+        const isPrinter = sp.category === 'Impressoras 3D' || sp.category === 'Combos Multicolor' || /bambu|snapmaker/i.test(sp.name || '');
+        if (isPrinter) {
+          continue;
+        }
+
         if (!existingIds.has(String(sp.shopifyProductId)) && !existingIds.has(sp.handle)) {
           const colors = (sp.variants || []).map(v => ({
             name: v.title,

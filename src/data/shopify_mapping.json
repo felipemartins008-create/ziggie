@@ -299,5 +299,158 @@
     "title": "Impressora 3D Snapmaker U1 Multi-Toolhead 4 Bicos",
     "price": "10990.00",
     "oldPrice": "12990.00"
+  },
+  "bambu-h2s-combo-hv-220v": {
+    "shopifyProductId": 15476815167731,
+    "shopifyVariantId": 68018944278771,
+    "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
+    "title": "Impressora 3D Bambu Lab H2S Gabinete Fechado",
+    "price": "16999.00",
+    "oldPrice": "19299.00"
+  },
+  "bambu-h2s-combo-lv-127v": {
+    "shopifyProductId": 15476815167731,
+    "shopifyVariantId": 68018944278771,
+    "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
+    "title": "Impressora 3D Bambu Lab H2S Gabinete Fechado",
+    "price": "16999.00",
+    "oldPrice": "19299.00"
+  },
+  "bambu-h2d-combo-hv-220v": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2D Duplo Cabeçote Pro",
+    "price": "22999.00",
+    "oldPrice": "25899.00"
+  },
+  "bambu-h2d-combo-lv-127v": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2D Duplo Cabeçote Pro",
+    "price": "22999.00",
+    "oldPrice": "25899.00"
+  },
+  "bambu-p2s-combo-eu-220v": {
+    "shopifyProductId": 15476815233267,
+    "shopifyVariantId": 68018944344307,
+    "handle": "impressora-3d-bambu-lab-p2s-enclosed",
+    "title": "Impressora 3D Bambu Lab P2S Enclosed",
+    "price": "9399.00",
+    "oldPrice": "10999.00"
+  },
+  "bambu-p2s-combo-us-110v": {
+    "shopifyProductId": 15476815233267,
+    "shopifyVariantId": 68018944344307,
+    "handle": "impressora-3d-bambu-lab-p2s-enclosed",
+    "title": "Impressora 3D Bambu Lab P2S Enclosed",
+    "price": "9399.00",
+    "oldPrice": "10999.00"
+  },
+  "bambu-p2s-combo-hv-220v-alt": {
+    "shopifyProductId": 15476815233267,
+    "shopifyVariantId": 68018944344307,
+    "handle": "impressora-3d-bambu-lab-p2s-enclosed",
+    "title": "Impressora 3D Bambu Lab P2S Enclosed",
+    "price": "9399.00",
+    "oldPrice": "10999.00"
+  },
+  "bambu-x2d-combo-hv-220v": {
+    "shopifyProductId": 15476815266035,
+    "shopifyVariantId": 68018944377075,
+    "handle": "impressora-3d-bambu-lab-x2d-industrial-dual-lidar",
+    "title": "Impressora 3D Bambu Lab X2D Industrial Dual Lidar",
+    "price": "11699.00",
+    "oldPrice": "13999.00"
+  },
+  "bambu-x2d-combo-lv-110v": {
+    "shopifyProductId": 15476815266035,
+    "shopifyVariantId": 68018944377075,
+    "handle": "impressora-3d-bambu-lab-x2d-industrial-dual-lidar",
+    "title": "Impressora 3D Bambu Lab X2D Industrial Dual Lidar",
+    "price": "11699.00",
+    "oldPrice": "13999.00"
+  },
+  "bambu-x2d-combo-us-110v": {
+    "shopifyProductId": 15476815266035,
+    "shopifyVariantId": 68018944377075,
+    "handle": "impressora-3d-bambu-lab-x2d-industrial-dual-lidar",
+    "title": "Impressora 3D Bambu Lab X2D Industrial Dual Lidar",
+    "price": "11699.00",
+    "oldPrice": "13999.00"
+  },
+  "bambu-a2l-lv-110v": {
+    "shopifyProductId": 15488231932147,
+    "shopifyVariantId": 68269644579059,
+    "handle": "impressora-3d-bambu-lab-a2l-combo-corexy",
+    "title": "Impressora 3D Bambu Lab A2L Combo CoreXY",
+    "price": "6899.00",
+    "oldPrice": null
+  },
+  "filament-bambu-petg-hf": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": 68035702882547,
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamento Bambu PETG 1.75mm 1Kg",
+    "price": "152.10",
+    "colorVariants": [
+      {
+        "name": "Vermelho",
+        "hex": "#C62928",
+        "shopifyVariantId": "68035702882547",
+        "price": "152.10",
+        "oldPrice": "169.00"
+      }
+    ],
+    "oldPrice": "169.00"
+  },
+  "filament-sunlu-high-speed-matte": {
+    "shopifyProductId": 15478664462579,
+    "shopifyVariantId": 68035703734515,
+    "handle": "filamento-sanlu-pla-1-75mm-1kg",
+    "title": "Filamento Sanlu PLA+ 1.75mm 1Kg",
+    "price": "93.58",
+    "colorVariants": [
+      {
+        "name": "Amarelo",
+        "hex": "#F6D334",
+        "shopifyVariantId": "68035703734515",
+        "price": "93.58",
+        "oldPrice": "110.09"
+      },
+      {
+        "name": "Preto",
+        "hex": "#111111",
+        "shopifyVariantId": "68035703767283",
+        "price": "93.58",
+        "oldPrice": "110.09"
+      }
+    ],
+    "oldPrice": "110.09"
+  },
+  "filament-polymaker-panchroma": {
+    "shopifyProductId": 15478665052403,
+    "shopifyVariantId": 68035705798899,
+    "handle": "filamento-panchona-matte-1-75mm-1kg",
+    "title": "Filamento Panchona Matte 1.75mm 1Kg",
+    "price": "99.59",
+    "colorVariants": [
+      {
+        "name": "Vermelho Mate",
+        "hex": "#9D3333",
+        "shopifyVariantId": "68035705798899",
+        "price": "99.59",
+        "oldPrice": "117.17"
+      },
+      {
+        "name": "Verde Mate",
+        "hex": "#3D624A",
+        "shopifyVariantId": "68035705831667",
+        "price": "99.59",
+        "oldPrice": "117.17"
+      }
+    ],
+    "oldPrice": "117.17"
   }
 }
