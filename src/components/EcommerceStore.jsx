@@ -139,11 +139,17 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
       else if (product.name.includes('A1 MINI')) modelHighlight = 'A1 Mini';
       else if (product.name.includes('A1') && product.name.includes('Combo')) modelHighlight = 'A1 Combo';
       else if (product.name.includes('A1')) modelHighlight = 'A1';
+      else if (product.name.includes('H2S') && product.name.includes('Laser')) modelHighlight = 'H2S Laser';
       else if (product.name.includes('H2S')) modelHighlight = 'H2S';
+      else if (product.name.includes('H2D') && product.name.includes('Laser')) modelHighlight = 'H2D Laser';
       else if (product.name.includes('H2D')) modelHighlight = 'H2D';
+      else if (product.name.includes('H2C') && product.name.includes('Laser')) modelHighlight = 'H2C Laser';
+      else if (product.name.includes('H2C')) modelHighlight = 'H2C Combo';
+      else if (product.name.includes('X1E')) modelHighlight = 'X1E Enterprise';
       else if (product.name.includes('X2D')) modelHighlight = 'X2D';
       else if (product.name.includes('P2S')) modelHighlight = 'P2S Combo';
       else if (product.name.includes('U1')) modelHighlight = 'U1 4-Head';
+      else if (product.name.includes('Recondicionada')) modelHighlight = 'Recondicionada';
       else modelHighlight = 'Pro';
     }
 
