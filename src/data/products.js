@@ -294,7 +294,7 @@ const BASE_PRODUCTS = [
     installmentValue: 915.83,
     pixDiscountPercent: 10,
     pixPrice: 9891.00,
-    image: '/images/snapmaker-u1-banner.png?v=ultrahd',
+    image: '/images/printer-snapmaker-u1.png?v=card1',
     badge: 'BLACK NOVEMBER −15%',
     promoTag: 'black-november',
     rating: 5.0,
