@@ -47,7 +47,10 @@ export function App() {
     trackAddToCart(product, qty);
     setCart((prevCart) => {
       const existingIndex = prevCart.findIndex(
-        (item) => item.id === product.id && item.selectedColor === product.selectedColor
+        (item) => 
+          item.id === product.id && 
+          item.selectedColor === product.selectedColor &&
+          item.selectedVoltage === product.selectedVoltage
       );
 
       if (existingIndex > -1) {
@@ -59,26 +62,27 @@ export function App() {
       }
     });
 
-    showToast(`"${product.name}" adicionado ao carrinho!`);
+    const voltInfo = product.selectedVoltage ? ` (${product.selectedVoltage})` : '';
+    showToast(`"${product.name}${voltInfo}" adicionado ao carrinho!`);
   };
 
-  const handleUpdateQuantity = (id, newQty, color) => {
+  const handleUpdateQuantity = (id, newQty, color, voltage) => {
     if (newQty <= 0) {
-      handleRemoveItem(id, color);
+      handleRemoveItem(id, color, voltage);
       return;
     }
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id && item.selectedColor === color
+        item.id === id && item.selectedColor === color && item.selectedVoltage === voltage
           ? { ...item, quantity: newQty }
           : item
       )
     );
   };
 
-  const handleRemoveItem = (id, color) => {
+  const handleRemoveItem = (id, color, voltage) => {
     setCart((prevCart) =>
-      prevCart.filter((item) => !(item.id === id && item.selectedColor === color))
+      prevCart.filter((item) => !(item.id === id && item.selectedColor === color && item.selectedVoltage === voltage))
     );
   };
 

@@ -33,10 +33,10 @@ export function PrinterCatalog({ onAddToCart, onOpenDetail, selectedBrandFilter 
               <span>VITRINE FLAGSHIP COREXY & MULTICORES</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-['Space_Grotesk']">
-              Impressoras 3D Oficiais (30 Modelos)
+              Impressoras 3D Oficiais ({PRINTERS.length} Modelos)
             </h2>
             <p className="text-xs sm:text-sm text-zinc-400 mt-1 max-w-xl font-normal leading-relaxed">
-              Catálogo completo com todas as voltagens (110V / 220V / Bivolt), opções com alimentador AMS, gravação a laser e linhas recondicionadas.
+              Modelos consolidados com seletor integrado de voltagem (110V / 220V / Bivolt), opções com alimentador AMS e ecossistema multicolorido.
             </p>
           </div>
 

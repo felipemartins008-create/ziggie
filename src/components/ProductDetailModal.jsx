@@ -21,19 +21,36 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
   const [selectedColor, setSelectedColor] = useState(
     product.colors ? product.colors[0]?.hex : null
   );
+  const [selectedVoltage, setSelectedVoltage] = useState(
+    product.selectedVoltage || product.defaultVoltage || product.voltageVariants?.[0]?.voltage || null
+  );
+
+  // Active voltage variant (for printers with 110V/220V or laser options)
+  const activeVoltageVariant = product.voltageVariants?.find(
+    v => v.voltage === selectedVoltage
+  );
 
   // Get active variant based on selected color for dynamic price reflection
   const selectedVariant = product.colorVariants?.find(
     c => c.hex === selectedColor || c.name === selectedColor
   );
 
-  const activePrice = typeof selectedVariant?.price === 'number' ? selectedVariant.price : product.price;
-  const activeOldPrice = selectedVariant?.oldPrice ?? product.oldPrice;
-  const activePixPrice = typeof selectedVariant?.pixPrice === 'number' 
-    ? selectedVariant.pixPrice 
-    : (product.pixPrice || +(activePrice * 0.90).toFixed(2));
+  const basePrice = typeof activeVoltageVariant?.price === 'number'
+    ? activeVoltageVariant.price
+    : (typeof selectedVariant?.price === 'number' ? selectedVariant.price : product.price);
+
+  const activePrice = basePrice;
+  const activeOldPrice = activeVoltageVariant?.oldPrice ?? (selectedVariant?.oldPrice ?? product.oldPrice);
+  const activePixPrice = typeof activeVoltageVariant?.pixPrice === 'number'
+    ? activeVoltageVariant.pixPrice
+    : (typeof selectedVariant?.pixPrice === 'number' 
+        ? selectedVariant.pixPrice 
+        : +(activePrice * 0.90).toFixed(2));
 
   const getCurrentVariantId = () => {
+    if (activeVoltageVariant && activeVoltageVariant.shopifyVariantId) {
+      return activeVoltageVariant.shopifyVariantId;
+    }
     if (selectedVariant && selectedVariant.shopifyVariantId) {
       return selectedVariant.shopifyVariantId;
     }
@@ -51,6 +68,8 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
       quantity, 
       selectedColor, 
       selectedColorName: colorName,
+      selectedVoltage,
+      sku: activeVoltageVariant?.sku || product.sku,
       shopifyVariantId: variantId 
     };
     onAddToCart(checkoutProduct);
@@ -143,13 +162,53 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
                 </div>
               )}
 
+              {/* Voltage Selector for Printers */}
+              {product.voltageVariants && product.voltageVariants.length > 0 && (
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] uppercase tracking-wider font-semibold text-zinc-400">
+                      Voltagem Residencial
+                    </span>
+                    <span className="text-xs font-bold text-amber-400 font-mono">
+                      {selectedVoltage || product.voltageVariants[0]?.voltage}
+                    </span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {product.voltageVariants.map((v, i) => {
+                      const isSel = (selectedVoltage || product.voltageVariants[0]?.voltage) === v.voltage;
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => setSelectedVoltage(v.voltage)}
+                          className={`px-3.5 py-2.5 rounded-xl border text-xs font-bold transition-all cursor-pointer flex items-center justify-between ${
+                            isSel
+                              ? 'border-amber-400 bg-amber-400/15 text-white ring-2 ring-amber-400/30 shadow-md'
+                              : 'border-white/10 bg-zinc-900/60 text-zinc-300 hover:border-white/30 hover:bg-zinc-900'
+                          }`}
+                        >
+                          <span className="font-mono">{v.voltage}</span>
+                          {isSel && <Check className="w-4 h-4 text-amber-400" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
               {/* Technical Specifications */}
               <div className="bg-black/50 border border-white/[0.06] rounded-2xl p-4">
                 <span className="text-[10px] uppercase tracking-widest font-mono text-zinc-500 block mb-2">
                   Especificações Técnicas
                 </span>
                 <div className="grid grid-cols-2 gap-2 text-xs">
-                  {Object.entries(product.specs || {}).map(([key, val]) => (
+                  {selectedVoltage && (
+                    <div>
+                      <span className="text-zinc-500 text-[10px] uppercase font-mono block">Voltagem Selecionada</span>
+                      <span className="text-amber-400 font-bold font-mono">{selectedVoltage}</span>
+                    </div>
+                  )}
+                  {Object.entries(product.specs || {}).filter(([k]) => k !== 'voltage' || !selectedVoltage).map(([key, val]) => (
                     <div key={key}>
                       <span className="text-zinc-500 text-[10px] uppercase font-mono block">{key}</span>
                       <span className="text-zinc-200 font-medium">{val}</span>
@@ -210,6 +269,8 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
                       quantity, 
                       selectedColor, 
                       selectedColorName: colorName,
+                      selectedVoltage,
+                      sku: activeVoltageVariant?.sku || product.sku,
                       shopifyVariantId: variantId 
                     });
                     onClose();

@@ -88,7 +88,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
             ) : (
               items.map((item) => (
                 <div 
-                  key={`${item.id}-${item.selectedColor || ''}`}
+                  key={`${item.id}-${item.selectedColor || ''}-${item.selectedVoltage || ''}`}
                   className="flex gap-4 p-3 rounded-2xl bg-[#111114] border border-white/[0.06] items-center"
                 >
                   <div className="w-16 h-16 bg-white rounded-xl p-1 flex-shrink-0 flex items-center justify-center">
@@ -103,6 +103,14 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                     <h4 className="text-xs font-semibold text-white truncate font-['Space_Grotesk']">
                       {item.name}
                     </h4>
+
+                    {item.selectedVoltage && (
+                      <div className="flex items-center gap-1.5 mt-0.5">
+                        <span className="px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+                          {item.selectedVoltage}
+                        </span>
+                      </div>
+                    )}
 
                     {item.selectedColorName && (
                       <div className="flex items-center gap-1.5 mt-0.5">
@@ -123,7 +131,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                     <div className="flex items-center gap-3 mt-2">
                       <div className="flex items-center bg-black/60 border border-white/[0.08] rounded-full px-2 py-0.5">
                         <button
-                          onClick={() => onUpdateQuantity(item.id, item.quantity - 1, item.selectedColor)}
+                          onClick={() => onUpdateQuantity(item.id, item.quantity - 1, item.selectedColor, item.selectedVoltage)}
                           className="text-zinc-400 hover:text-white px-1 text-xs"
                         >
                           -
@@ -132,7 +140,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                           {item.quantity}
                         </span>
                         <button
-                          onClick={() => onUpdateQuantity(item.id, item.quantity + 1, item.selectedColor)}
+                          onClick={() => onUpdateQuantity(item.id, item.quantity + 1, item.selectedColor, item.selectedVoltage)}
                           className="text-zinc-400 hover:text-white px-1 text-xs"
                         >
                           +
@@ -140,7 +148,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                       </div>
 
                       <button
-                        onClick={() => onRemoveItem(item.id, item.selectedColor)}
+                        onClick={() => onRemoveItem(item.id, item.selectedColor, item.selectedVoltage)}
                         className="text-zinc-500 hover:text-red-400 p-1 ml-auto"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

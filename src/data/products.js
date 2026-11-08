@@ -2,806 +2,682 @@ import shopifyMapping from './shopify_mapping.json' with { type: 'json' };
 
 const BASE_PRODUCTS = [
   // =========================================================================
-  // 1. AS 30 IMPRESSORAS 3D DO CATÁLOGO OFICIAL (PÁGINAS 2 E 3)
+  // 1. IMPRESSORAS 3D CONSOLIDADAS COM SELETOR DE VOLTAGEM (110V / 220V)
   // =========================================================================
   {
-    id: 'bambu-a1-refurbished',
-    name: 'BAMBU A1 100-240V REFURBISHED',
-    category: 'Impressoras 3D',
-    subCategory: 'Recondicionada',
-    brand: 'Bambu Lab',
-    price: 1999.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 166.58,
-    pixDiscountPercent: 10,
-    pixPrice: 1799.10,
-    image: '/images/printer-bambu-a1.png',
-    badge: 'CONSULTE',
-    promoTag: 'black-friday',
-    rating: 4.8,
-    reviewsCount: 38,
-    inStock: true,
-    sku: 'PF002-A',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Sem AMS',
-      condition: 'Recondicionada Certificada de Fábrica',
-      warranty: 'Garantia Nacional Revisada'
+    "id": "bambu-a1-standalone",
+    "name": "BAMBU A1 BRA 100-240V",
+    "category": "Impressoras 3D",
+    "subCategory": "Bedslinger",
+    "brand": "Bambu Lab",
+    "price": 2999,
+    "oldPrice": 3529,
+    "installments": 12,
+    "installmentValue": 249.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 2699.1,
+    "image": "/images/printer-bambu-a1.png",
+    "badge": "BLACK FRIDAY −15%",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 112,
+    "inStock": true,
+    "sku": "PF002-A-US2",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-A-US2"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Sem AMS (Compatível com AMS Lite)",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Impressora 3D Bambu A1 100-240V Recondicionada oficial de fábrica. Sem alimentador AMS. Alto custo-benefício com certificação de bancada.'
+    "description": "Impressora 3D Bambu A1 BRA 100-240V padrão Brasil. Máxima velocidade com cancelamento ativo de ruído dos motores e calibração de fluxo em tempo real."
   },
+
   {
-    id: 'bambu-a1-standalone',
-    name: 'BAMBU A1 BRA 100-240V',
-    category: 'Impressoras 3D',
-    subCategory: 'Bedslinger',
-    brand: 'Bambu Lab',
-    price: 2999.00,
-    oldPrice: 3529.00,
-    installments: 12,
-    installmentValue: 249.92,
-    pixDiscountPercent: 10,
-    pixPrice: 2699.10,
-    image: '/images/printer-bambu-a1.png',
-    badge: 'BLACK FRIDAY −15%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 112,
-    inStock: true,
-    sku: 'PF002-A-US2',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Sem AMS (Compatível com AMS Lite)',
-      volume: '256 x 256 x 256 mm',
-      speed: '500 mm/s'
+    "id": "bambu-a1-combo",
+    "name": "BAMBU A1 COMBO EU 100-240V",
+    "category": "Impressoras 3D",
+    "subCategory": "Multimaterial",
+    "brand": "Bambu Lab",
+    "price": 4499,
+    "oldPrice": 5299,
+    "installments": 12,
+    "installmentValue": 374.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 4049.1,
+    "image": "/images/printer-bambu-a1.png",
+    "badge": "BLACK FRIDAY −15%",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 184,
+    "inStock": true,
+    "sku": "PF002-A+SA005-EU2",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-A+SA005-EU2"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Com AMS lite incluso (4 cores)",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Impressora 3D Bambu A1 BRA 100-240V padrão Brasil. Máxima velocidade com cancelamento ativo de ruído dos motores e calibração de fluxo em tempo real.'
+    "description": "A impressora 3D multicolorida mais vendida do Brasil. Acompanha o alimentador automático AMS Lite para até 4 filamentos simultâneos."
   },
+
   {
-    id: 'bambu-a1-combo',
-    name: 'BAMBU A1 COMBO EU 100-240V',
-    category: 'Impressoras 3D',
-    subCategory: 'Multimaterial',
-    brand: 'Bambu Lab',
-    price: 4499.00,
-    oldPrice: 5299.00,
-    installments: 12,
-    installmentValue: 374.92,
-    pixDiscountPercent: 10,
-    pixPrice: 4049.10,
-    image: '/images/printer-bambu-a1.png',
-    badge: 'BLACK FRIDAY −15%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 184,
-    inStock: true,
-    sku: 'PF002-A+SA005-EU2',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Com AMS lite incluso (4 cores)',
-      volume: '256 x 256 x 256 mm',
-      speed: '500 mm/s'
+    "id": "bambu-a1-mini-standalone",
+    "name": "BAMBU A1 MINI",
+    "category": "Impressoras 3D",
+    "subCategory": "Bedslinger Compacta",
+    "brand": "Bambu Lab",
+    "price": 2179,
+    "oldPrice": 2319,
+    "installments": 12,
+    "installmentValue": 181.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 1961.1,
+    "image": "/images/printer-bambu-a1-mini.png",
+    "badge": "OFERTA",
+    "promoTag": "black-friday",
+    "rating": 4.9,
+    "reviewsCount": 96,
+    "inStock": true,
+    "sku": "PF002-M-EU",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (Padrão EU)",
+        "sku": "PF002-M-EU"
+      },
+      {
+        "voltage": "110V / 127V (LV)",
+        "sku": "PF002-M-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Sem AMS (Compatível com AMS Lite)",
+      "volume": "180 x 180 x 180 mm",
+      "speed": "500 mm/s"
     },
-    description: 'A impressora 3D multicolorida mais vendida do Brasil. Acompanha o alimentador automático AMS Lite para até 4 filamentos simultâneos.'
+    "description": "Bambu A1 Mini com calibração totalmente automatizada, sensor de fluxo tangencial e operação ultra silenciosa (<48 dB)."
   },
+
   {
-    id: 'bambu-a1-combo-refurbished',
-    name: 'BAMBU A1 COMBO EU 100-240V REFURBISHED',
-    category: 'Impressoras 3D',
-    subCategory: 'Recondicionada',
-    brand: 'Bambu Lab',
-    price: 3899.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 324.92,
-    pixDiscountPercent: 10,
-    pixPrice: 3509.10,
-    image: '/images/printer-bambu-a1.png',
-    badge: 'CONSULTE',
-    promoTag: 'black-friday',
-    rating: 4.8,
-    reviewsCount: 29,
-    inStock: true,
-    sku: 'PF002-A-EU2',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Com AMS lite incluso',
-      condition: 'Recondicionada Certificada'
+    "id": "bambu-a1-mini-combo",
+    "name": "BAMBU A1 MINI COMBO EU 100-240V",
+    "category": "Impressoras 3D",
+    "subCategory": "Multimaterial Compacta",
+    "brand": "Bambu Lab",
+    "price": 3599,
+    "oldPrice": 4159,
+    "installments": 12,
+    "installmentValue": 299.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 3239.1,
+    "image": "/images/printer-bambu-a1-mini.png",
+    "badge": "BLACK FRIDAY −15%",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 142,
+    "inStock": true,
+    "sku": "PF002-M+SA005-EU",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-M+SA005-EU"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Com AMS lite incluso (4 cores)",
+      "volume": "180 x 180 x 180 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Combo Bambu A1 com AMS lite recondicionado oficial de fábrica. Testada, calibrada e com garantia nacional.'
+    "description": "Bambu A1 Mini Combo com alimentador AMS Lite incluso. O ponto de entrada ideal e confiável no ecossistema de impressão 3D multicor."
   },
+
   {
-    id: 'bambu-a1-mini-refurbished',
-    name: 'BAMBU A1 MINI 100-240V REFURBISHED',
-    category: 'Impressoras 3D',
-    subCategory: 'Recondicionada',
-    brand: 'Bambu Lab',
-    price: 1699.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 141.58,
-    pixDiscountPercent: 10,
-    pixPrice: 1529.10,
-    image: '/images/printer-bambu-a1-mini.png',
-    badge: 'CONSULTE',
-    promoTag: 'black-friday',
-    rating: 4.8,
-    reviewsCount: 23,
-    inStock: true,
-    sku: 'PF002-M EURF',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Sem AMS',
-      condition: 'Recondicionada Certificada'
+    "id": "bambu-a2l",
+    "name": "BAMBU A2L COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "CoreXY Industrial",
+    "brand": "Bambu Lab",
+    "price": 6899,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 574.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 6209.1,
+    "image": "/images/printer-bambu-a2l.png",
+    "badge": "LANÇAMENTO COMBO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 29,
+    "inStock": true,
+    "sku": "PF005-HV+SA005",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (BRA-HV)",
+        "sku": "PF005-HV+SA005"
+      },
+      {
+        "voltage": "110V / 127V (BRA-LV)",
+        "sku": "PF005-L+SA005-BRALV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "600 mm/s"
     },
-    description: 'Bambu A1 Mini recondicionada oficial de fábrica. Perfeita para quem busca precisão e baixo ruído com investimento reduzido.'
+    "description": "Bambu A2L Combo de nova geração CoreXY com máxima estabilidade cinemática, sistema de troca de filamento inteligente e chassi blindado."
   },
+
   {
-    id: 'bambu-a1-mini-combo',
-    name: 'BAMBU A1 MINI COMBO EU 100-240V',
-    category: 'Impressoras 3D',
-    subCategory: 'Multimaterial',
-    brand: 'Bambu Lab',
-    price: 3599.00,
-    oldPrice: 4159.00,
-    installments: 12,
-    installmentValue: 299.92,
-    pixDiscountPercent: 10,
-    pixPrice: 3239.10,
-    image: '/images/printer-bambu-a1-mini.png',
-    badge: 'BLACK FRIDAY −13%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 145,
-    inStock: true,
-    sku: 'PF002-M+SA005-EU',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Com AMS lite incluso (4 cores)',
-      volume: '180 x 180 x 180 mm',
-      speed: '500 mm/s'
+    "id": "bambu-h2c-combo-hv-220v",
+    "name": "BAMBU H2C COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "Farm & Produção Contínua",
+    "brand": "Bambu Lab",
+    "price": 28999,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 2416.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 26099.1,
+    "image": "/images/printer-bambu-h2c.png",
+    "badge": "FLAGSHIP FARM",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 16,
+    "inStock": true,
+    "sku": "PF003-C+SA007-HV",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (HV)",
+        "sku": "PF003-C+SA007-HV"
+      },
+      {
+        "voltage": "127V / 110V (LV)",
+        "sku": "PF003-C+SA007-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso (4 cores)",
+      "volume": "350 x 350 x 350 mm",
+      "speed": "700 mm/s"
     },
-    description: 'O combo multicolorido mais acessível do mercado global. A1 Mini acoplada ao sistema AMS Lite de 4 cores.'
+    "description": "Solução máxima para fazendas de impressão e prototipagem industrial contínua com câmara aquecida e controle redundante."
   },
+
   {
-    id: 'bambu-a1-mini-standalone',
-    name: 'BAMBU A1 MINI EU 100-240V',
-    category: 'Impressoras 3D',
-    subCategory: 'Compacta',
-    brand: 'Bambu Lab',
-    price: 2179.00,
-    oldPrice: 2319.00,
-    installments: 12,
-    installmentValue: 181.58,
-    pixDiscountPercent: 10,
-    pixPrice: 1961.10,
-    image: '/images/printer-bambu-a1-mini.png',
-    badge: 'BLACK FRIDAY −6%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 96,
-    inStock: true,
-    sku: 'PF002-M-EU',
-    specs: {
-      voltage: '100-240V Bivolt',
-      ams: 'Sem AMS (Compatível com AMS Lite)',
-      volume: '180 x 180 x 180 mm',
-      speed: '500 mm/s'
+    "id": "bambu-h2c-laser-10w-110v",
+    "name": "BAMBU H2C FULL COMBO LASER (10W / 40W)",
+    "category": "Impressoras 3D",
+    "subCategory": "Híbrida 3D + Laser",
+    "brand": "Bambu Lab",
+    "price": 36999,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 3083.25,
+    "pixDiscountPercent": 10,
+    "pixPrice": 33299.1,
+    "image": "/images/printer-bambu-h2c.png",
+    "badge": "LASER HÍBRIDA",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 12,
+    "inStock": true,
+    "sku": "PF003-N+SA007-US",
+    "defaultVoltage": "110V (Laser 10W)",
+    "voltageVariants": [
+      {
+        "voltage": "110V (Laser 10W)",
+        "sku": "PF003-N+SA007-US",
+        "price": 36999
+      },
+      {
+        "voltage": "110V (Laser 40W Ultra)",
+        "sku": "PF003-N+SA007-US-40W",
+        "price": 42999
+      }
+    ],
+    "specs": {
+      "voltage": "110V / 127V",
+      "ams": "Com AMS Incluso + Kit Laser",
+      "volume": "350 x 350 x 350 mm",
+      "speed": "700 mm/s"
     },
-    description: 'A1 Mini versão EU 100-240V. Silenciosa (<48dB), ultracompacta e pronta para imprimir 20 minutos após sair da caixa.'
+    "description": "Estação industrial completa com impressão 3D de altíssima precisão e módulo laser para corte e gravação profissional."
   },
+
   {
-    id: 'bambu-a1-mini-lv-110v',
-    name: 'BAMBU A1 MINI LV 110V',
-    category: 'Impressoras 3D',
-    subCategory: 'Compacta',
-    brand: 'Bambu Lab',
-    price: 2179.00,
-    oldPrice: 2319.00,
-    installments: 12,
-    installmentValue: 181.58,
-    pixDiscountPercent: 10,
-    pixPrice: 1961.10,
-    image: '/images/printer-bambu-a1-mini.png',
-    badge: 'BLACK FRIDAY −6%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 52,
-    inStock: true,
-    sku: 'PF002-M-LV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Sem AMS',
-      volume: '180 x 180 x 180 mm',
-      speed: '500 mm/s'
+    "id": "bambu-h2d-combo-hv-220v",
+    "name": "BAMBU H2D COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "Dual Extruder CoreXY",
+    "brand": "Bambu Lab",
+    "price": 22999,
+    "oldPrice": 25899,
+    "installments": 12,
+    "installmentValue": 1916.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 20699.1,
+    "image": "/images/printer-bambu-h2d.png",
+    "badge": "DUAL HEAD",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 27,
+    "inStock": true,
+    "sku": "PF003-D+SA007-HV1",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (HV)",
+        "sku": "PF003-D+SA007-HV1"
+      },
+      {
+        "voltage": "127V / 110V (LV)",
+        "sku": "PF003-D+SA007-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso",
+      "volume": "320 x 320 x 320 mm",
+      "speed": "600 mm/s"
     },
-    description: 'Versão dedicada em 110V/127V da Bambu Lab A1 Mini para tomadas de baixa voltagem sem necessidade de transformador.'
+    "description": "Bambu H2D com dois cabeçotes independentes para impressão simultânea de materiais incompatíveis (como PLA + PVA solúvel) sem contaminação."
   },
+
   {
-    id: 'bambu-a2l',
-    name: 'BAMBU A2L COMBO BRA-HV 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'CoreXY',
-    brand: 'Bambu Lab',
-    price: 6899.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 574.92,
-    pixDiscountPercent: 10,
-    pixPrice: 6209.10,
-    image: '/images/printer-bambu-a2l.png',
-    badge: 'LANÇAMENTO COMBO',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 42,
-    inStock: true,
-    sku: 'PF005-HV+SA005',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS lite incluso',
-      volume: '256 x 256 x 256 mm',
-      speed: '500 mm/s'
+    "id": "bambu-h2d-laser-10w-127v",
+    "name": "BAMBU H2D FULL COMBO LASER (10W / 40W)",
+    "category": "Impressoras 3D",
+    "subCategory": "Dual Extruder + Laser",
+    "brand": "Bambu Lab",
+    "price": 30999,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 2583.25,
+    "pixDiscountPercent": 10,
+    "pixPrice": 27899.1,
+    "image": "/images/printer-bambu-h2d.png",
+    "badge": "DUAL + LASER",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 14,
+    "inStock": true,
+    "sku": "PF003-M+SA007-LV1",
+    "defaultVoltage": "127V (Laser 10W)",
+    "voltageVariants": [
+      {
+        "voltage": "127V / 110V (Laser 10W)",
+        "sku": "PF003-M+SA007-LV1",
+        "price": 30999
+      },
+      {
+        "voltage": "127V / 110V (Laser 40W Ultra)",
+        "sku": "PF003-M+SA007-LV1-40W",
+        "price": 36999
+      }
+    ],
+    "specs": {
+      "voltage": "127V / 110V",
+      "ams": "Com AMS Incluso + Kit Laser",
+      "volume": "320 x 320 x 320 mm",
+      "speed": "600 mm/s"
     },
-    description: 'Chassi CoreXY com sensor ativo de ressonância mecânica e estrutura modular de alta rigidez para acabamento superficial espelhado.'
+    "description": "Equipamento topo de linha integrando extrusão dupla de alta precisão com sistema integrado de corte e gravação a laser."
   },
+
   {
-    id: 'bambu-a2l-lv-110v',
-    name: 'BAMBU A2L COMBO BRA-LV 110V',
-    category: 'Impressoras 3D',
-    subCategory: 'CoreXY',
-    brand: 'Bambu Lab',
-    price: 6899.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 574.92,
-    pixDiscountPercent: 10,
-    pixPrice: 6209.10,
-    image: '/images/printer-bambu-a2l.png',
-    badge: 'LANÇAMENTO 110V',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 33,
-    inStock: true,
-    sku: 'PF005-L+SA005-BRALV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS lite incluso',
-      volume: '256 x 256 x 256 mm',
-      speed: '500 mm/s'
+    "id": "bambu-h2s-combo-hv-220v",
+    "name": "BAMBU H2S COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "Gabinete Fechado Alta Performance",
+    "brand": "Bambu Lab",
+    "price": 16999,
+    "oldPrice": 19299,
+    "installments": 12,
+    "installmentValue": 1416.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 15299.1,
+    "image": "/images/printer-bambu-h2s.png",
+    "badge": "COREXY PRO",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 31,
+    "inStock": true,
+    "sku": "PF003-S+SA007-HV1",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (HV)",
+        "sku": "PF003-S+SA007-HV1"
+      },
+      {
+        "voltage": "127V / 110V (LV)",
+        "sku": "PF003-S+SA007-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso",
+      "volume": "300 x 300 x 300 mm",
+      "speed": "600 mm/s"
     },
-    description: 'Versão em 127V/110V da Bambu Lab A2L Combo CoreXY com alimentador AMS Lite incluso.'
+    "description": "Impressora robusta com gabinete totalmente fechado, controle térmico ativo e sistema de alimentação inteligente."
   },
+
   {
-    id: 'bambu-h2c-combo-hv-220v',
-    name: 'BAMBU H2C COMBO HV 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Triplo Cabeçote',
-    brand: 'Bambu Lab',
-    price: 28999.00,
-    oldPrice: 32599.00,
-    installments: 12,
-    installmentValue: 2416.58,
-    pixDiscountPercent: 10,
-    pixPrice: 26099.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 29,
-    inStock: true,
-    sku: 'PF003-C+SA007-HV',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      nozzle: '3x Cabeçotes Ativos Independentes',
-      speed: '600 mm/s'
+    "id": "bambu-h2s-laser-10w-220v",
+    "name": "BAMBU H2S FULL COMBO LASER 10W",
+    "category": "Impressoras 3D",
+    "subCategory": "CoreXY + Laser",
+    "brand": "Bambu Lab",
+    "price": 24999,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 2083.25,
+    "pixDiscountPercent": 10,
+    "pixPrice": 22499.1,
+    "image": "/images/printer-bambu-h2s.png",
+    "badge": "COMBO LASER 10W",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 19,
+    "inStock": true,
+    "sku": "PF003-L+SA007-EU",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (Padrão EU)",
+        "sku": "PF003-L+SA007-EU"
+      },
+      {
+        "voltage": "127V / 110V (LV)",
+        "sku": "PF003-L+SA007-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso + Kit Laser 10W",
+      "volume": "300 x 300 x 300 mm",
+      "speed": "600 mm/s"
     },
-    description: 'Tecnologia de ponta com 3 cabeçotes independentes para produção industrial de peças multimateriais ultra complexas em 220V.'
+    "description": "Combo completo Bambu H2S com módulo laser oficial de 10W e sistema multimaterial automático."
   },
+
   {
-    id: 'bambu-h2c-combo-lv-127v',
-    name: 'BAMBU H2C COMBO LV 127V',
-    category: 'Impressoras 3D',
-    subCategory: 'Triplo Cabeçote',
-    brand: 'Bambu Lab',
-    price: 28999.00,
-    oldPrice: 32599.00,
-    installments: 12,
-    installmentValue: 2416.58,
-    pixDiscountPercent: 10,
-    pixPrice: 26099.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 21,
-    inStock: true,
-    sku: 'PF003-C+SA007-LV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso',
-      nozzle: '3x Cabeçotes Ativos Independentes',
-      speed: '600 mm/s'
+    "id": "bambu-p2s-combo-eu-220v",
+    "name": "BAMBU P2S COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "Gabinete Fechado CoreXY",
+    "brand": "Bambu Lab",
+    "price": 9399,
+    "oldPrice": 10999,
+    "installments": 12,
+    "installmentValue": 783.25,
+    "pixDiscountPercent": 10,
+    "pixPrice": 8459.1,
+    "image": "/images/printer-bambu-p2s.png",
+    "badge": "BLACK FRIDAY −15%",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 168,
+    "inStock": true,
+    "sku": "PF004-U+SA007-EU1",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (Padrão EU/HV)",
+        "sku": "PF004-U+SA007-EU1"
+      },
+      {
+        "voltage": "110V / 127V (Padrão US)",
+        "sku": "PF004-U+SA007-US1"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso (4 cores)",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Bambu H2C Combo Tri-Extrusão em 127V. 3 cabeçotes independentes com sistema automático AMS.'
+    "description": "O cavalo de batalha da Bambu Lab com gabinete fechado para filamentos técnicos (ABS, ASA, PETG-CF) e alimentador AMS de 4 cores."
   },
+
   {
-    id: 'bambu-h2c-laser-10w-110v',
-    name: 'BAMBU H2C FULL COMBO LASER US 110V (10W)',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 36999.00,
-    oldPrice: 39699.00,
-    installments: 12,
-    installmentValue: 3083.25,
-    pixDiscountPercent: 10,
-    pixPrice: 33299.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −7%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 19,
-    inStock: true,
-    sku: 'PF003-N+SA007-US',
-    specs: {
-      voltage: '127V / 110V',
-      ams: 'Com AMS incluso',
-      laser: 'Kit Laser 10W Diodo',
-      volume: '300 x 300 x 300 mm'
+    "id": "bambu-x1e-combo",
+    "name": "BAMBU X1E COMBO ENTERPRISE",
+    "category": "Impressoras 3D",
+    "subCategory": "Corporativa & Engenharia",
+    "brand": "Bambu Lab",
+    "price": 22490,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 1874.17,
+    "pixDiscountPercent": 10,
+    "pixPrice": 20241,
+    "image": "/images/printer-bambu-x2d.png",
+    "badge": "ENTERPRISE",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 22,
+    "inStock": true,
+    "sku": "PF001-E+SA001",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF001-E+SA001"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Com AMS Incluso",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Estação industrial completa 2 em 1 em 110V: Impressora 3D de alta performance + Gravadora Laser de 10W com AMS.'
+    "description": "Modelo Enterprise com conexão Ethernet dedicada, controle de rede seguro WPA2-Enterprise, câmara ativamente aquecida até 60°C e filtragem de ar G3."
   },
+
   {
-    id: 'bambu-h2c-laser-40w-110v',
-    name: 'BAMBU H2C FULL COMBO LASER US 110V (40W)',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 42999.00,
-    oldPrice: 46699.00,
-    installments: 12,
-    installmentValue: 3583.25,
-    pixDiscountPercent: 10,
-    pixPrice: 38699.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −8%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 14,
-    inStock: true,
-    sku: 'PF003-N+SA007-US-40W',
-    specs: {
-      voltage: '127V / 110V',
-      ams: 'Com AMS incluso',
-      laser: 'Kit Laser 40W Alta Potência para Corte e Gravação Profunda',
-      volume: '300 x 300 x 300 mm'
+    "id": "bambu-x2d-combo-hv-220v",
+    "name": "BAMBU X2D COMBO",
+    "category": "Impressoras 3D",
+    "subCategory": "Dual LiDAR Industrial",
+    "brand": "Bambu Lab",
+    "price": 11699,
+    "oldPrice": 13999,
+    "installments": 12,
+    "installmentValue": 974.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 10529.1,
+    "image": "/images/printer-bambu-x2d.png",
+    "badge": "BLACK FRIDAY −16%",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 204,
+    "inStock": true,
+    "sku": "PF004-P+SA007-HV",
+    "defaultVoltage": "220V",
+    "voltageVariants": [
+      {
+        "voltage": "220V (HV)",
+        "sku": "PF004-P+SA007-HV"
+      },
+      {
+        "voltage": "110V / 127V (LV/US)",
+        "sku": "PF004-P+SA007-LV"
+      }
+    ],
+    "specs": {
+      "voltage": "110V ou 220V",
+      "ams": "Com AMS Incluso (4 cores)",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'A configuração máxima da série H2C. Módulo Laser de 40W capaz de cortar madeira, acrílico e gravar metais com extrema rapidez.'
+    "description": "Topo de linha com sistema de calibração dupla por sensor LiDAR, IA para detecção precoce de espaguete e gabinete em liga aeroespacial."
   },
+
   {
-    id: 'bambu-h2d-combo-hv-220v',
-    name: 'BAMBU H2D COMBO HV 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Duplo Cabeçote',
-    brand: 'Bambu Lab',
-    price: 22999.00,
-    oldPrice: 25899.00,
-    installments: 12,
-    installmentValue: 1916.58,
-    pixDiscountPercent: 10,
-    pixPrice: 20699.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 38,
-    inStock: true,
-    sku: 'PF003-D+SA007-HV1',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      nozzle: 'Dual 0.4mm Aço Endurecido',
-      volume: '280 x 280 x 280 mm'
+    "id": "snapmaker-u1",
+    "name": "SNAPMAKER U1 4-HEAD",
+    "category": "Impressoras 3D",
+    "subCategory": "Multi-Toolhead 4 Cabeçotes",
+    "brand": "Snapmaker",
+    "price": 10990,
+    "oldPrice": 12990,
+    "installments": 12,
+    "installmentValue": 915.83,
+    "pixDiscountPercent": 10,
+    "pixPrice": 9891,
+    "image": "/images/printer-snapmaker-u1.png?v=card3",
+    "badge": "BLACK NOVEMBER −15%",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 54,
+    "inStock": true,
+    "sku": "SM-U1-MULTITOOL",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt Automático",
+        "sku": "SM-U1-MULTITOOL"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt Automático",
+      "ams": "4 Cabeçotes Independentes",
+      "volume": "300 x 300 x 330 mm",
+      "speed": "600 mm/s",
+      "accel": "20.000 mm/s²",
+      "waste": "Sem torre de purga (-90% desperdício)"
     },
-    description: 'Dois extrusores independentes em 220V para impressão combinada de material estrutural + suporte solúvel com zero contaminação.'
+    "description": "Inovação radical em impressão multicolorida: 4 ferramentas dedicadas que trocam em milissegundos sem misturar materiais nem desperdiçar filamento."
   },
+
   {
-    id: 'bambu-h2d-combo-lv-127v',
-    name: 'BAMBU H2D COMBO LV 127V',
-    category: 'Impressoras 3D',
-    subCategory: 'Duplo Cabeçote',
-    brand: 'Bambu Lab',
-    price: 22999.00,
-    oldPrice: 25899.00,
-    installments: 12,
-    installmentValue: 1916.58,
-    pixDiscountPercent: 10,
-    pixPrice: 20699.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 31,
-    inStock: true,
-    sku: 'PF003-D+SA007-LV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso',
-      nozzle: 'Dual 0.4mm Aço Endurecido',
-      volume: '280 x 280 x 280 mm'
+    "id": "bambu-a1-refurbished",
+    "name": "BAMBU A1 100-240V (RECONDICIONADA)",
+    "category": "Impressoras 3D",
+    "subCategory": "Recondicionada Oficial",
+    "brand": "Bambu Lab",
+    "price": 1999,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 166.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 1799.1,
+    "image": "/images/printer-bambu-a1.png",
+    "badge": "RECONDICIONADA",
+    "promoTag": "black-friday",
+    "rating": 4.8,
+    "reviewsCount": 38,
+    "inStock": true,
+    "sku": "PF002-A",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-A"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Sem AMS",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Versão em 127V da Bambu H2D Combo Pro Duplo Cabeçote com sistema multimaterial AMS incluso.'
+    "description": "Impressora 3D Bambu A1 100-240V Recondicionada oficial de fábrica. Sem alimentador AMS. Alto custo-benefício com certificação e garantia de bancada."
   },
+
   {
-    id: 'bambu-h2d-laser-10w-127v',
-    name: 'BAMBU H2D FULL COMBO LASER LV 127V (10W)',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 30999.00,
-    oldPrice: 32999.00,
-    installments: 12,
-    installmentValue: 2583.25,
-    pixDiscountPercent: 10,
-    pixPrice: 27899.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −6%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 22,
-    inStock: true,
-    sku: 'PF003-M+SA007-LV1',
-    specs: {
-      voltage: '127V / 110V',
-      laser: 'Kit Laser 10W incluso',
-      ams: 'Com AMS incluso'
+    "id": "bambu-a1-combo-refurbished",
+    "name": "BAMBU A1 COMBO EU 100-240V (RECONDICIONADA)",
+    "category": "Impressoras 3D",
+    "subCategory": "Recondicionada Oficial",
+    "brand": "Bambu Lab",
+    "price": 3899,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 324.92,
+    "pixDiscountPercent": 10,
+    "pixPrice": 3509.1,
+    "image": "/images/printer-bambu-a1.png",
+    "badge": "RECONDICIONADA",
+    "promoTag": "black-friday",
+    "rating": 4.9,
+    "reviewsCount": 45,
+    "inStock": true,
+    "sku": "PF002-A-EU2",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-A-EU2"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Com AMS lite incluso (4 cores)",
+      "volume": "256 x 256 x 256 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Duplo cabeçote combinado com gravação laser de 10W para matrizes industriais e corte técnico em 127V.'
+    "description": "Bambu A1 Combo Recondicionada oficial de fábrica com alimentador AMS Lite incluso. Totalmente inspecionada com garantia nacional."
   },
+
   {
-    id: 'bambu-h2d-laser-40w-127v',
-    name: 'BAMBU H2D FULL COMBO LASER LV 127V (40W)',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 36999.00,
-    oldPrice: 39999.00,
-    installments: 12,
-    installmentValue: 3083.25,
-    pixDiscountPercent: 10,
-    pixPrice: 33299.10,
-    image: '/images/printer-bambu-h2d.png',
-    badge: 'BLACK FRIDAY −8%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 16,
-    inStock: true,
-    sku: 'PF003-M+SA007-LV1-40W',
-    specs: {
-      voltage: '127V / 110V',
-      laser: 'Kit Laser 40W Alta Potência',
-      ams: 'Com AMS incluso'
+    "id": "bambu-a1-mini-refurbished",
+    "name": "BAMBU A1 MINI 100-240V (RECONDICIONADA)",
+    "category": "Impressoras 3D",
+    "subCategory": "Recondicionada Oficial",
+    "brand": "Bambu Lab",
+    "price": 1699,
+    "oldPrice": null,
+    "installments": 12,
+    "installmentValue": 141.58,
+    "pixDiscountPercent": 10,
+    "pixPrice": 1529.1,
+    "image": "/images/printer-bambu-a1-mini.png",
+    "badge": "RECONDICIONADA",
+    "promoTag": "black-friday",
+    "rating": 4.8,
+    "reviewsCount": 33,
+    "inStock": true,
+    "sku": "PF002-M EURF",
+    "defaultVoltage": "100-240V Bivolt",
+    "voltageVariants": [
+      {
+        "voltage": "100-240V Bivolt",
+        "sku": "PF002-M EURF"
+      }
+    ],
+    "specs": {
+      "voltage": "100-240V Bivolt",
+      "ams": "Sem AMS",
+      "volume": "180 x 180 x 180 mm",
+      "speed": "500 mm/s"
     },
-    description: 'Bambu H2D com canhão laser de 40W em 127V. Duplo cabeçote 3D + corte e gravação a laser pesada.'
-  },
-  {
-    id: 'bambu-h2s-combo-hv-220v',
-    name: 'BAMBU H2S COMBO HV 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 16999.00,
-    oldPrice: 19299.00,
-    installments: 12,
-    installmentValue: 1416.58,
-    pixDiscountPercent: 10,
-    pixPrice: 15299.10,
-    image: '/images/printer-bambu-h2s.png',
-    badge: 'BLACK FRIDAY −12%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 42,
-    inStock: true,
-    sku: 'PF003-S+SA007-HV1',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      volume: '280 x 280 x 280 mm'
-    },
-    description: 'Chassi fechado em 220V com alta estabilidade térmica para ABS, ASA, Nylon e peças técnicas de precisão.'
-  },
-  {
-    id: 'bambu-h2s-combo-lv-127v',
-    name: 'BAMBU H2S COMBO LV 127V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 16999.00,
-    oldPrice: 19299.00,
-    installments: 12,
-    installmentValue: 1416.58,
-    pixDiscountPercent: 10,
-    pixPrice: 15299.10,
-    image: '/images/printer-bambu-h2s.png',
-    badge: 'BLACK FRIDAY −12%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 36,
-    inStock: true,
-    sku: 'PF003-S+SA007-LV1',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso',
-      volume: '280 x 280 x 280 mm'
-    },
-    description: 'Versão em 127V da Bambu H2S Combo Gabinete Fechado com sistema multimaterial AMS incluso.'
-  },
-  {
-    id: 'bambu-h2s-laser-10w-220v',
-    name: 'BAMBU H2S FULL COMBO LASER 10W EU 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 24999.00,
-    oldPrice: 27999.00,
-    installments: 12,
-    installmentValue: 2083.25,
-    pixDiscountPercent: 10,
-    pixPrice: 22499.10,
-    image: '/images/printer-bambu-h2s.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 27,
-    inStock: true,
-    sku: 'PF003-L+SA007-EU',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      laser: 'Kit Laser 10W'
-    },
-    description: 'Gabinete fechado com exaustão, módulo laser de 10W e impressora 3D de alta velocidade em 220V.'
-  },
-  {
-    id: 'bambu-h2s-laser-10w-127v',
-    name: 'BAMBU H2S FULL COMBO LASER 10W LV 127V',
-    category: 'Impressoras 3D',
-    subCategory: 'CNC & Laser',
-    brand: 'Bambu Lab',
-    price: 24999.00,
-    oldPrice: 27999.00,
-    installments: 12,
-    installmentValue: 2083.25,
-    pixDiscountPercent: 10,
-    pixPrice: 22499.10,
-    image: '/images/printer-bambu-h2s.png',
-    badge: 'BLACK FRIDAY −11%',
-    promoTag: 'black-friday',
-    rating: 4.9,
-    reviewsCount: 24,
-    inStock: true,
-    sku: 'PF003-L+SA007-LV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso',
-      laser: 'Kit Laser 10W'
-    },
-    description: 'Versão em 127V da H2S Full Combo Laser 10W com sistema fechado de exaustão e AMS.'
-  },
-  {
-    id: 'bambu-p2s-combo-eu-220v',
-    name: 'BAMBU P2S COMBO EU 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 9399.00,
-    oldPrice: 10999.00,
-    installments: 12,
-    installmentValue: 783.25,
-    pixDiscountPercent: 10,
-    pixPrice: 8459.10,
-    image: '/images/printer-bambu-p2s.png',
-    badge: 'BLACK FRIDAY −15%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 168,
-    inStock: true,
-    sku: 'PF004-U+SA007-EU1',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso (4 cores)',
-      volume: '256 x 256 x 256 mm'
-    },
-    description: 'P2S Combo Enclosed em 220V. Gabinete totalmente fechado para polímeros técnicos que exigem retenção térmica.'
-  },
-  {
-    id: 'bambu-p2s-combo-us-110v',
-    name: 'BAMBU P2S COMBO US 110V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 9399.00,
-    oldPrice: 10999.00,
-    installments: 12,
-    installmentValue: 783.25,
-    pixDiscountPercent: 10,
-    pixPrice: 8459.10,
-    image: '/images/printer-bambu-p2s.png',
-    badge: 'BLACK FRIDAY −15%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 120,
-    inStock: true,
-    sku: 'PF004-U+SA007-US1',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso (4 cores)',
-      volume: '256 x 256 x 256 mm'
-    },
-    description: 'Versão em 110V/127V da Bambu P2S Combo Enclosed com alimentador AMS incluso.'
-  },
-  {
-    id: 'bambu-x1e-combo',
-    name: 'BAMBU X1E COMBO EU 100-240V',
-    category: 'Impressoras 3D',
-    subCategory: 'Enterprise Industrial',
-    brand: 'Bambu Lab',
-    price: 22490.00,
-    oldPrice: null,
-    installments: 12,
-    installmentValue: 1874.16,
-    pixDiscountPercent: 10,
-    pixPrice: 20241.00,
-    image: '/images/printer-bambu-x2d.png',
-    badge: 'BLACK FRIDAY OFICIAL',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 31,
-    inStock: true,
-    sku: 'PF001-E+SA001',
-    specs: {
-      voltage: '100-240V Bivolt',
-      security: 'Ethernet RJ45 + Kill Switch Wi-Fi Físico',
-      temp: 'Bico 320°C / Câmara Aquecida Ativa 65°C',
-      ams: 'Com AMS incluso'
-    },
-    description: 'O modelo corporativo da Bambu Lab para redes industriais seguras. Conta com porta Ethernet física, chave de segurança de rede e câmara aquecida.'
-  },
-  {
-    id: 'bambu-x2d-combo-hv-220v',
-    name: 'BAMBU X2D COMBO HV 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 11699.00,
-    oldPrice: 13999.00,
-    installments: 12,
-    installmentValue: 974.92,
-    pixDiscountPercent: 10,
-    pixPrice: 10529.10,
-    image: '/images/printer-bambu-x2d.png',
-    badge: 'BLACK FRIDAY −16%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 38,
-    inStock: true,
-    sku: 'PF004-P+SA007-HV',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      volume: '300 x 300 x 300 mm',
-      inspection: 'Dual Lidar Micro-Dimensional'
-    },
-    description: 'X2D Industrial Dual Lidar em 220V. Câmara aquecida ativa até 65°C, bico a 350°C para PEEK, PA-CF, PC e inspeção micro-dimensional via Dual Lidar.'
-  },
-  {
-    id: 'bambu-x2d-combo-lv-110v',
-    name: 'BAMBU X2D COMBO LV 110V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 11699.00,
-    oldPrice: 13999.00,
-    installments: 12,
-    installmentValue: 974.92,
-    pixDiscountPercent: 10,
-    pixPrice: 10529.10,
-    image: '/images/printer-bambu-x2d.png',
-    badge: 'BLACK FRIDAY −16%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 29,
-    inStock: true,
-    sku: 'PF004-P+SA007-LV',
-    specs: {
-      voltage: '127V / 110V Dedicado',
-      ams: 'Com AMS incluso',
-      volume: '300 x 300 x 300 mm'
-    },
-    description: 'Versão em 110V/127V da Bambu Lab X2D Combo Dual Lidar Industrial com alimentador AMS incluso.'
-  },
-  {
-    id: 'bambu-x2d-combo-us-110v',
-    name: 'BAMBU X2D COMBO US 110V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 11699.00,
-    oldPrice: 13999.00,
-    installments: 12,
-    installmentValue: 974.92,
-    pixDiscountPercent: 10,
-    pixPrice: 10529.10,
-    image: '/images/printer-bambu-x2d.png',
-    badge: 'BLACK FRIDAY −16%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 25,
-    inStock: true,
-    sku: 'PF004-P+SA007-US',
-    specs: {
-      voltage: '127V / 110V Padrão US',
-      ams: 'Com AMS incluso',
-      volume: '300 x 300 x 300 mm'
-    },
-    description: 'X2D Combo Dual Lidar padrão 110V com conector de alimentação padrão US e AMS incluso.'
-  },
-  {
-    id: 'bambu-p2s-combo-hv-220v-alt',
-    name: 'IMPRESSORA P2S-COMBO-HV BAMBULAB 220V',
-    category: 'Impressoras 3D',
-    subCategory: 'Gabinete Fechado',
-    brand: 'Bambu Lab',
-    price: 9399.00,
-    oldPrice: 10999.00,
-    installments: 12,
-    installmentValue: 783.25,
-    pixDiscountPercent: 10,
-    pixPrice: 8459.10,
-    image: '/images/printer-bambu-p2s.png',
-    badge: 'BLACK FRIDAY −15%',
-    promoTag: 'black-friday',
-    rating: 5.0,
-    reviewsCount: 88,
-    inStock: true,
-    sku: 'P2S-COMBO-HV-220V',
-    specs: {
-      voltage: '220V Dedicado',
-      ams: 'Com AMS incluso',
-      volume: '256 x 256 x 256 mm'
-    },
-    description: 'Versão de alta demanda da P2S Combo 220V com fechamento completo em acrílico fumê e bico endurecido.'
-  },
-  {
-    id: 'snapmaker-u1',
-    name: 'IMPRESSORA 3D SNAPMAKER U1',
-    category: 'Impressoras 3D',
-    subCategory: 'Multi-Toolhead',
-    brand: 'Snapmaker',
-    price: 10990.00,
-    oldPrice: 12990.00,
-    installments: 12,
-    installmentValue: 915.83,
-    pixDiscountPercent: 10,
-    pixPrice: 9891.00,
-    image: '/images/printer-snapmaker-u1.png?v=card3',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 54,
-    inStock: true,
-    sku: 'SM-U1-MULTITOOL',
-    specs: {
-      voltage: '100-240V Bivolt Automático',
-      volume: '300 x 300 x 330 mm',
-      speed: '600 mm/s',
-      accel: '20.000 mm/s²',
-      nozzle: '4x Cabeçotes Independentes',
-      waste: 'Sem torre de purga (-90% desperdício)'
-    },
-    description: 'Inovação radical em impressão multicolorida: 4 ferramentas dedicadas que trocam em milissegundos sem misturar materiais nem desperdiçar filamento.'
+    "description": "Bambu A1 Mini Recondicionada de fábrica. Revisão técnica completa, calibração milimétrica e menor custo de entrada para o ecossistema."
   },
 
   // =========================================================================

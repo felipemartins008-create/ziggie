@@ -11,6 +11,7 @@ import {
 
 export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', activeCategory = 'all' }) {
   const [selectedCategory, setSelectedCategory] = useState(activeCategory);
+  const [selectedVoltages, setSelectedVoltages] = useState({});
   const products = useLiveProducts();
 
   // Sync when activeCategory changes from header navigation
@@ -86,7 +87,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
   }, [products, searchQuery, selectedCategory]);
 
   // Helper to extract clean model and 3 spec metrics
-  const getProductDisplayData = (product) => {
+  const getProductDisplayData = (product, currentVoltage) => {
     // Dynamic products created on Shopify Admin by the store owner
     if (product.id?.startsWith('shopify-')) {
       const parts = (product.name || product.title || '').trim().split(' ');
@@ -135,35 +136,34 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     let modelHighlight = product.modelAccent;
 
     if (!modelHighlight) {
-      const isRefurb = product.name.includes('REFURBISHED') || product.subCategory === 'Recondicionada';
+      const isRefurb = product.name.includes('RECONDICIONADA') || product.subCategory === 'Recondicionada Oficial';
       const isLaser10W = product.name.includes('10W');
       const isLaser40W = product.name.includes('40W');
-      const voltTag = product.name.includes('220V') || product.name.includes('HV') ? ' 220V' : (product.name.includes('110V') || product.name.includes('127V') || product.name.includes('LV') ? ' 110V' : '');
       const laserTag = isLaser40W ? ' Laser 40W' : (isLaser10W ? ' Laser 10W' : '');
       const refurbTag = isRefurb ? ' (Recond.)' : '';
 
       if (product.name.includes('A1 MINI') && (product.name.includes('COMBO') || product.name.includes('Combo'))) {
-        modelHighlight = `A1 Mini Combo${voltTag}${refurbTag}`;
+        modelHighlight = `A1 Mini Combo${refurbTag}`;
       } else if (product.name.includes('A1 MINI')) {
-        modelHighlight = `A1 Mini${voltTag}${refurbTag}`;
+        modelHighlight = `A1 Mini${refurbTag}`;
       } else if (product.name.includes('A1') && (product.name.includes('COMBO') || product.name.includes('Combo'))) {
-        modelHighlight = `A1 Combo${voltTag}${refurbTag}`;
+        modelHighlight = `A1 Combo${refurbTag}`;
       } else if (product.name.includes('A1')) {
-        modelHighlight = `A1${voltTag}${refurbTag}`;
+        modelHighlight = `A1${refurbTag}`;
       } else if (product.name.includes('A2L')) {
-        modelHighlight = `A2L Combo${voltTag}`;
+        modelHighlight = 'A2L Combo';
       } else if (product.name.includes('H2S')) {
-        modelHighlight = `H2S${laserTag || ' Combo'}${voltTag}`;
+        modelHighlight = `H2S${laserTag || ' Combo'}`;
       } else if (product.name.includes('H2D')) {
-        modelHighlight = `H2D${laserTag || ' Combo'}${voltTag}`;
+        modelHighlight = `H2D${laserTag || ' Combo'}`;
       } else if (product.name.includes('H2C')) {
-        modelHighlight = `H2C${laserTag || ' Combo'}${voltTag}`;
+        modelHighlight = `H2C${laserTag || ' Combo'}`;
       } else if (product.name.includes('X1E')) {
         modelHighlight = 'X1E Enterprise Combo';
       } else if (product.name.includes('X2D')) {
-        modelHighlight = `X2D Combo${voltTag}`;
+        modelHighlight = 'X2D Combo';
       } else if (product.name.includes('P2S')) {
-        modelHighlight = `P2S Combo${voltTag}`;
+        modelHighlight = 'P2S Combo';
       } else if (product.name.includes('U1') || product.brand === 'Snapmaker') {
         brandPrefix = '3D Snapmaker';
         modelHighlight = 'U1 4-Head';
@@ -176,13 +176,12 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     let specs = product.specPills;
     if (!specs || specs.length < 3) {
       if (product.category === 'Impressoras 3D') {
-        const volt = product.specs?.voltage 
-          ? (product.specs.voltage.includes('220V') ? '220V' : product.specs.voltage.includes('110V') || product.specs.voltage.includes('127V') ? '110V' : 'Bivolt') 
-          : 'Bivolt';
+        const vText = currentVoltage || product.defaultVoltage || product.specs?.voltage || 'Bivolt';
+        const volt = vText.includes('220V') ? '220V' : vText.includes('110V') || vText.includes('127V') ? '110V' : 'Bivolt';
         const ams = product.specs?.ams 
           ? (product.specs.ams.includes('Com AMS') || product.specs.ams.includes('incluso') ? 'Com AMS' : product.specs.ams.includes('4 Cabeçotes') ? '4 Heads' : 'Sem AMS') 
           : (product.name.includes('COMBO') || product.name.includes('Combo') ? 'Com AMS' : 'Sem AMS');
-        const cond = product.specs?.condition?.includes('Recondicionada') ? 'Revisada' : 'Oficial 1 Ano';
+        const cond = product.specs?.condition?.includes('Recondicionada') || product.subCategory?.includes('Recondicionada') ? 'Revisada' : 'Oficial 1 Ano';
         specs = [
           { val: volt, label: 'Voltagem' },
           { val: ams, label: 'Alimentador' },
@@ -261,19 +260,34 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch">
             {filteredProducts.map((product) => {
-              const { brandPrefix, modelHighlight, specs } = getProductDisplayData(product);
-              const formattedPrice = product.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
-              const formattedPix = product.pixPrice ? product.pixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : null;
+              const currentVoltage = selectedVoltages[product.id] || product.defaultVoltage || product.voltageVariants?.[0]?.voltage || 'Bivolt';
+              const activeVoltageVariant = product.voltageVariants?.find(v => v.voltage === currentVoltage);
+              const activePrice = activeVoltageVariant?.price || product.price;
+              const activeOldPrice = activeVoltageVariant?.oldPrice ?? product.oldPrice;
+              const activePixPrice = activeVoltageVariant?.pixPrice || (product.pixPrice ? product.pixPrice : +(activePrice * 0.90).toFixed(2));
+              const formattedPrice = activePrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+              const formattedPix = activePixPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+
+              const { brandPrefix, modelHighlight, specs } = getProductDisplayData(product, currentVoltage);
+
+              const productWithSelected = {
+                ...product,
+                selectedVoltage: currentVoltage,
+                price: activePrice,
+                oldPrice: activeOldPrice,
+                pixPrice: activePixPrice,
+                sku: activeVoltageVariant?.sku || product.sku
+              };
 
               return (
                 <div
                   key={product.id}
-                  onClick={() => onOpenDetail(product)}
+                  onClick={() => onOpenDetail(productWithSelected)}
                   className="bg-[#F8FAFC] rounded-[32px] p-6 sm:p-7 border border-zinc-100/90 hover:border-zinc-200 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group cursor-pointer relative"
                 >
                   
                   {/* Inner White Product Canvas Card (Reference card-within-card) */}
-                  <div className="bg-white rounded-2xl p-6 mb-6 h-64 sm:h-72 flex items-center justify-center shadow-xs group-hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden">
+                  <div className="bg-white rounded-2xl p-6 mb-4 h-64 sm:h-72 flex items-center justify-center shadow-xs group-hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden">
                     {/* Promo Badge Tag */}
                     {product.badge && (
                       <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-red-600 text-white shadow-xs z-10 font-mono">
@@ -292,7 +306,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        onAddToCart(product);
+                        onAddToCart(productWithSelected);
                       }}
                       className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-zinc-900 hover:bg-[#ff5500] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
                       title="Adicionar ao carrinho"
@@ -300,6 +314,34 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                       <ShoppingCart className="w-4 h-4" />
                     </button>
                   </div>
+
+                  {/* Interactive Voltage Selector Pills (For multi-voltage printers) */}
+                  {product.voltageVariants && product.voltageVariants.length > 1 && (
+                    <div className="flex items-center justify-center gap-1.5 mb-2.5" onClick={(e) => e.stopPropagation()}>
+                      <span className="text-[10px] font-semibold text-zinc-400 font-mono uppercase tracking-wider">Voltagem:</span>
+                      {product.voltageVariants.map(v => {
+                        const isSel = currentVoltage === v.voltage;
+                        const label = v.voltage.includes('220V') ? '220V' : v.voltage.includes('110V') || v.voltage.includes('127V') ? '110V' : v.voltage;
+                        return (
+                          <button
+                            key={v.voltage}
+                            type="button"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setSelectedVoltages(prev => ({ ...prev, [product.id]: v.voltage }));
+                            }}
+                            className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold tracking-tight border transition-all cursor-pointer ${
+                              isSel
+                                ? 'bg-zinc-900 text-white border-zinc-900 shadow-xs scale-105 ring-1 ring-zinc-900/20'
+                                : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50'
+                            }`}
+                          >
+                            {label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
 
                   {/* Title & Price Section */}
                   <div className="text-center mb-6">
@@ -309,9 +351,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     </h3>
 
                     <div className="mt-2 flex flex-col items-center justify-center">
-                      {product.oldPrice && (
+                      {activeOldPrice && (
                         <span className="text-[11px] text-zinc-400 line-through font-mono">
-                          R$ {product.oldPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                          R$ {Number(activeOldPrice).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                         </span>
                       )}
                       <p className="text-sm sm:text-base text-zinc-900 font-extrabold font-['Space_Grotesk']">
