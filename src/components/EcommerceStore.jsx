@@ -228,27 +228,55 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
           {/* Filament Polymer Sub-Filters Bar (When Filamentos is selected) */}
           {selectedCategory === 'Filamentos' && (
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-1.5 animate-fade-in">
-              {[
-                { id: 'all', label: 'Todos os Filamentos (19)' },
-                { id: 'PLA', label: '🟢 PLA (Fácil & Visual)' },
-                { id: 'PETG', label: '🔵 PETG (Resistente & Água)' },
-                { id: 'ABS', label: '🟠 ABS & ASA (Calor & Sol)' },
-                { id: 'CARBON_FIBER', label: '⚫ Fibra de Carbono' },
-                { id: 'ESPECIAIS', label: '🟣 Flexíveis (TPU) & Suporte' }
-              ].map(sub => (
-                <button
-                  key={sub.id}
-                  onClick={() => setFilamentFilter(sub.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-[11px] font-bold font-mono transition-all cursor-pointer ${
-                    filamentFilter === sub.id
-                      ? 'bg-amber-400 text-black shadow-sm ring-1 ring-amber-400'
-                      : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 border border-zinc-200'
-                  }`}
-                >
-                  {sub.label}
-                </button>
-              ))}
+            <div className="mt-8 animate-fade-in">
+              {/* Segmented Filter Bar */}
+              <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-xs max-w-full">
+                {[
+                  { id: 'all', label: 'Todos os Filamentos', count: 19 },
+                  { id: 'PLA', label: 'PLA', dot: 'bg-emerald-500 ring-emerald-500/30', count: 11 },
+                  { id: 'PETG', label: 'PETG', dot: 'bg-sky-500 ring-sky-500/30', count: 2 },
+                  { id: 'ABS', label: 'ABS & ASA', dot: 'bg-amber-500 ring-amber-500/30', count: 1 },
+                  { id: 'CARBON_FIBER', label: 'Fibra de Carbono', dot: 'bg-zinc-800 ring-zinc-500/30', count: 2 },
+                  { id: 'ESPECIAIS', label: 'Flexíveis & TPU', dot: 'bg-purple-500 ring-purple-500/30', count: 3 }
+                ].map(sub => {
+                  const isActive = filamentFilter === sub.id;
+                  return (
+                    <button
+                      key={sub.id}
+                      onClick={() => setFilamentFilter(sub.id)}
+                      className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                        isActive
+                          ? 'bg-zinc-950 text-white shadow-sm ring-1 ring-zinc-900'
+                          : 'text-zinc-600 hover:text-zinc-950 hover:bg-white/80'
+                      }`}
+                    >
+                      {sub.dot && (
+                        <span className={`w-2 h-2 rounded-full ring-2 ${sub.dot} shrink-0`} />
+                      )}
+                      <span>{sub.label}</span>
+                      <span
+                        className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full transition-colors ${
+                          isActive
+                            ? 'bg-white/20 text-white font-bold'
+                            : 'bg-zinc-200/80 text-zinc-500'
+                        }`}
+                      >
+                        {sub.count}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Dynamic Context Hint */}
+              <p className="text-xs text-zinc-500 mt-3 max-w-xl mx-auto flex items-center justify-center gap-1.5 font-medium">
+                {filamentFilter === 'all' && 'Exibindo todos os 19 filamentos oficiais compatíveis com sistema AMS.'}
+                {filamentFilter === 'PLA' && 'Fácil de imprimir, zero odor e acabamento estético impecável para qualquer projeto.'}
+                {filamentFilter === 'PETG' && 'Alta resistência mecânica, química e à água para utilidades e peças duráveis.'}
+                {filamentFilter === 'ABS' && 'Resistente a calor até 100°C com proteção solar UV para exteriores.'}
+                {filamentFilter === 'CARBON_FIBER' && 'Reforçado com microfibras de carbono para máxima rigidez estrutural.'}
+                {filamentFilter === 'ESPECIAIS' && 'Filamentos flexíveis emborrachados (TPU) e filamentos de suporte destacável.'}
+              </p>
             </div>
           )}
 
