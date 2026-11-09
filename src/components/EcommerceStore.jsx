@@ -226,30 +226,6 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
             Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
           </p>
 
-          {/* Minimalist Pill Filter Bar */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-8">
-            {[
-              { id: 'all', label: 'Todos os Modelos' },
-              { id: 'black-friday', label: '🔥 Ofertas Black Friday' },
-              { id: 'Impressoras 3D', label: 'Impressoras 3D' },
-              { id: 'Combos', label: 'Combos Multicolor AMS' },
-              { id: 'Filamentos', label: 'Filamentos Técnicos' },
-              { id: 'Peças e Acessórios', label: 'Peças & Acessórios' }
-            ].map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setSelectedCategory(tab.id)}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
-                  selectedCategory === tab.id
-                    ? 'bg-zinc-900 text-white shadow-md'
-                    : 'bg-[#F8FAFC] text-zinc-600 hover:text-zinc-900 hover:bg-zinc-100 border border-zinc-200/60'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
           {/* Filament Polymer Sub-Filters Bar (When Filamentos is selected) */}
           {selectedCategory === 'Filamentos' && (
             <div className="mt-5 flex flex-wrap items-center justify-center gap-1.5 animate-fade-in">
