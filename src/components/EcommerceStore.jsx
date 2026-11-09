@@ -291,9 +291,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   
                   <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
-                      src="/images/filament-bambulab-pla-lite.png" 
+                      src="/images/filaments/bambu-pla-basic.png" 
                       alt="Filamento PLA" 
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
                   </div>
 
@@ -340,9 +340,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   
                   <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
-                      src="/images/filament-panchroma-magenta.png" 
+                      src="/images/filaments/bambu-petg-translucent.webp" 
                       alt="Filamento PETG" 
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
                   </div>
 
@@ -389,9 +389,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   
                   <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
-                      src="/images/filament-printalot-pla-preto.png" 
+                      src="/images/filaments/bambu-abs.webp" 
                       alt="Filamento ABS" 
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
                   </div>
 
@@ -438,9 +438,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   
                   <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
-                      src="/images/ziggie-filament-spool.png" 
+                      src="/images/filaments/bambu-pla-cf.webp" 
                       alt="Filamentos Especiais" 
-                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
                   </div>
 
