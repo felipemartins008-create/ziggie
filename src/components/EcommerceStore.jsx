@@ -6,13 +6,21 @@ import {
   Sparkles, 
   ArrowRight,
   Check,
-  Search
+  Search,
+  ChevronDown,
+  HelpCircle,
+  Layers,
+  ShieldCheck,
+  CheckCircle2,
+  Zap,
+  Info
 } from 'lucide-react';
 
 export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', activeCategory = 'all' }) {
   const [selectedCategory, setSelectedCategory] = useState(activeCategory);
   const [selectedVoltages, setSelectedVoltages] = useState({});
   const [filamentFilter, setFilamentFilter] = useState('all');
+  const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const products = useLiveProducts();
 
   // Sync when activeCategory changes from header navigation
@@ -214,142 +222,304 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
     <section id="ofertas" className="bg-white text-zinc-900 py-16 sm:py-24 font-sans min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* ================= 1. MINIMALIST CENTERED HEADER (MATCHES REFERENCE) ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-3 font-sans">
-            🔥 Especial Black Friday & Black November
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
-            Os Favoritos da Comunidade Maker
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-xl mx-auto">
-            Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
-          </p>
-
-          {/* Filament Polymer Sub-Filters Bar (When Filamentos is selected) */}
-          {selectedCategory === 'Filamentos' && (
-            <div className="mt-8 animate-fade-in">
-              {/* Segmented Filter Bar */}
-              <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-xs max-w-full">
-                {[
-                  { id: 'all', label: 'Todos os Filamentos', count: 19 },
-                  { id: 'PLA', label: 'PLA', dot: 'bg-emerald-500 ring-emerald-500/30', count: 11 },
-                  { id: 'PETG', label: 'PETG', dot: 'bg-sky-500 ring-sky-500/30', count: 2 },
-                  { id: 'ABS', label: 'ABS & ASA', dot: 'bg-amber-500 ring-amber-500/30', count: 1 },
-                  { id: 'CARBON_FIBER', label: 'Fibra de Carbono', dot: 'bg-zinc-800 ring-zinc-500/30', count: 2 },
-                  { id: 'ESPECIAIS', label: 'Flexíveis & TPU', dot: 'bg-purple-500 ring-purple-500/30', count: 3 }
-                ].map(sub => {
-                  const isActive = filamentFilter === sub.id;
-                  return (
-                    <button
-                      key={sub.id}
-                      onClick={() => setFilamentFilter(sub.id)}
-                      className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
-                        isActive
-                          ? 'bg-zinc-950 text-white shadow-sm ring-1 ring-zinc-900'
-                          : 'text-zinc-600 hover:text-zinc-950 hover:bg-white/80'
-                      }`}
-                    >
-                      {sub.dot && (
-                        <span className={`w-2 h-2 rounded-full ring-2 ${sub.dot} shrink-0`} />
-                      )}
-                      <span>{sub.label}</span>
-                      <span
-                        className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full transition-colors ${
-                          isActive
-                            ? 'bg-white/20 text-white font-bold'
-                            : 'bg-zinc-200/80 text-zinc-500'
-                        }`}
-                      >
-                        {sub.count}
-                      </span>
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* Dynamic Context Hint */}
-              <p className="text-xs text-zinc-500 mt-3 max-w-xl mx-auto flex items-center justify-center gap-1.5 font-medium">
-                {filamentFilter === 'all' && 'Exibindo todos os 19 filamentos oficiais compatíveis com sistema AMS.'}
-                {filamentFilter === 'PLA' && 'Fácil de imprimir, zero odor e acabamento estético impecável para qualquer projeto.'}
-                {filamentFilter === 'PETG' && 'Alta resistência mecânica, química e à água para utilidades e peças duráveis.'}
-                {filamentFilter === 'ABS' && 'Resistente a calor até 100°C com proteção solar UV para exteriores.'}
-                {filamentFilter === 'CARBON_FIBER' && 'Reforçado com microfibras de carbono para máxima rigidez estrutural.'}
-                {filamentFilter === 'ESPECIAIS' && 'Filamentos flexíveis emborrachados (TPU) e filamentos de suporte destacável.'}
+        {/* ================= 1. MINIMALIST CENTERED HEADER ================= */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+          {selectedCategory === 'Filamentos' ? (
+            <>
+              <span className="text-xs sm:text-sm font-bold tracking-wider text-emerald-600 uppercase block mb-2 font-mono">
+                ✦ Linha Oficial Bambu Lab, Polymaker & Sunlu
+              </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
+                Filamentos para Impressoras 3D
+              </h1>
+              <p className="text-xs sm:text-sm text-zinc-500 mt-3 font-normal max-w-xl mx-auto leading-relaxed">
+                Confira aqui todos os modelos com chip RFID oficial, alta velocidade e envio imediato com pronta entrega para todo o Brasil.
               </p>
-            </div>
-          )}
-
-          {/* Educational Guide Card: "Qual Filamento Escolher?" */}
-          {selectedCategory === 'Filamentos' && (
-            <div className="mt-8 mb-4 max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-black text-white rounded-3xl p-6 sm:p-8 border border-white/10 shadow-xl text-left">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-white/10 pb-4">
-                <div>
-                  <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold block mb-1">
-                    Guia Didático Maker
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white">
-                    Qual filamento escolher para o seu projeto?
-                  </h3>
-                </div>
-                <div className="flex items-center gap-2 text-xs text-zinc-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 w-fit">
-                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Chip RFID: Leitura automática no AMS</span>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {/* PLA */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">PLA (Iniciantes & Visual)</h4>
-                    </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
-                      O filamento mais fácil de imprimir e sem odor. Perfeito para miniaturas, action figures, vasos, maquetes e acabamentos com textura fosca, seda, mármore ou madeira real.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-emerald-400 font-mono font-semibold">
-                    ✔ Zero empenamento • Fácil de imprimir
-                  </div>
-                </div>
-
-                {/* PETG */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
-                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">PETG (Resistência & Utilidades)</h4>
-                    </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
-                      Une a facilidade do PLA com resistência ao impacto e à umidade. Ideal para suportes de parede, potes, peças do dia a dia, recipientes estanques e peças mecânicas moderadas.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-cyan-400 font-mono font-semibold">
-                    ✔ Resistente a água • Não racha com impacto
-                  </div>
-                </div>
-
-                {/* ABS & ASA */}
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">ABS & ASA (Calor & Uso Externo)</h4>
-                    </div>
-                    <p className="text-xs text-zinc-300 leading-relaxed">
-                      Suporta temperaturas de até 100°C. O ASA oferece proteção total contra raios UV (sol e chuva). Essencial para peças automotivas, maquinários e áreas externas.
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-amber-400 font-mono font-semibold">
-                    ✔ Calor até 100°C • Proteção solar UV
-                  </div>
-                </div>
-              </div>
-            </div>
+            </>
+          ) : (
+            <>
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-3 font-sans">
+                🔥 Especial Black Friday & Black November
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
+                Os Favoritos da Comunidade Maker
+              </h2>
+              <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-xl mx-auto">
+                Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
+              </p>
+            </>
           )}
         </div>
+
+        {/* ================= 1.1 ZYNTRIA-STYLE CATEGORY SHOWCASE CARDS (When Filamentos is active) ================= */}
+        {selectedCategory === 'Filamentos' && (
+          <div className="mb-12 animate-fade-in">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-semibold block">
+                  Navegue por Categoria
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-zinc-900">
+                  Confira aqui todos os modelos
+                </h3>
+              </div>
+              <span className="text-xs text-zinc-500 hidden sm:inline-block">
+                19 opções disponíveis em estoque
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {/* Card 1: PLA */}
+              <div 
+                onClick={() => {
+                  setFilamentFilter('PLA');
+                  document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                  filamentFilter === 'PLA' 
+                    ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-md' 
+                    : 'border-zinc-200/80 hover:border-emerald-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      11 opções
+                    </span>
+                    <span className="text-[11px] text-zinc-400 font-medium">Iniciantes & Visual</span>
+                  </div>
+                  
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                    <img 
+                      src="/images/filament-bambulab-pla-lite.png" 
+                      alt="Filamento PLA" 
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                    Filamentos PLA
+                  </h4>
+                  <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
+                    Fácil de imprimir, zero warping e sem odor. Disponível em Basic, Matte, Silk, Wood e Marble.
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-zinc-100">
+                  <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 93,58</span>
+                    <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 84,22 no PIX</span>
+                  </div>
+                  <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-emerald-600 transition-colors flex items-center justify-center gap-1.5">
+                    <span>Ver opções de PLA</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Card 2: PETG */}
+              <div 
+                onClick={() => {
+                  setFilamentFilter('PETG');
+                  document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                  filamentFilter === 'PETG' 
+                    ? 'border-sky-500 ring-2 ring-sky-500/20 shadow-md' 
+                    : 'border-zinc-200/80 hover:border-sky-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-sky-50 text-sky-700 border border-sky-200">
+                      2 opções
+                    </span>
+                    <span className="text-[11px] text-zinc-400 font-medium">Equilíbrio & Resistência</span>
+                  </div>
+                  
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                    <img 
+                      src="/images/filament-panchroma-magenta.png" 
+                      alt="Filamento PETG" 
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                    Filamentos PETG
+                  </h4>
+                  <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
+                    Resistente ao impacto, atrito e à água. Ideal para peças funcionais, suportes e utilidades.
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-zinc-100">
+                  <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 152,10</span>
+                    <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 136,89 no PIX</span>
+                  </div>
+                  <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-sky-600 transition-colors flex items-center justify-center gap-1.5">
+                    <span>Ver opções de PETG</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Card 3: ABS & ASA */}
+              <div 
+                onClick={() => {
+                  setFilamentFilter('ABS');
+                  document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                  filamentFilter === 'ABS' 
+                    ? 'border-amber-500 ring-2 ring-amber-500/20 shadow-md' 
+                    : 'border-zinc-200/80 hover:border-amber-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-700 border border-amber-200">
+                      Técnico
+                    </span>
+                    <span className="text-[11px] text-zinc-400 font-medium">Calor 100°C & UV</span>
+                  </div>
+                  
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                    <img 
+                      src="/images/filament-printalot-pla-preto.png" 
+                      alt="Filamento ABS" 
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                    Filamentos ABS & ASA
+                  </h4>
+                  <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
+                    Suporta temperaturas até 100°C e radiação solar UV. Indicado para setor automotivo e peças externas.
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-zinc-100">
+                  <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 111,20</span>
+                    <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 100,08 no PIX</span>
+                  </div>
+                  <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-amber-600 transition-colors flex items-center justify-center gap-1.5">
+                    <span>Ver opções de ABS</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Card 4: Fibra de Carbono & Especiais */}
+              <div 
+                onClick={() => {
+                  setFilamentFilter('CARBON_FIBER');
+                  document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                  filamentFilter === 'CARBON_FIBER' || filamentFilter === 'ESPECIAIS'
+                    ? 'border-purple-500 ring-2 ring-purple-500/20 shadow-md' 
+                    : 'border-zinc-200/80 hover:border-purple-300'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-purple-50 text-purple-700 border border-purple-200">
+                      5 especiais
+                    </span>
+                    <span className="text-[11px] text-zinc-400 font-medium">CF, TPU & Solúvel</span>
+                  </div>
+                  
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                    <img 
+                      src="/images/ziggie-filament-spool.png" 
+                      alt="Filamentos Especiais" 
+                      className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                    Fibra de Carbono & Especiais
+                  </h4>
+                  <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
+                    Microfibras de carbono aeroespaciais, TPU flexível emborrachado e suportes solúveis PVA.
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-zinc-100">
+                  <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 124,93</span>
+                    <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 112,43 no PIX</span>
+                  </div>
+                  <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-purple-600 transition-colors flex items-center justify-center gap-1.5">
+                    <span>Ver filamentos especiais</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ================= 1.2 SEGMENTED FILTER BAR ================= */}
+        {selectedCategory === 'Filamentos' && (
+          <div id="produtos-grid" className="mb-10 text-center animate-fade-in scroll-mt-24">
+            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-xs max-w-full">
+              {[
+                { id: 'all', label: 'Todos os Filamentos', count: 19 },
+                { id: 'PLA', label: 'PLA', dot: 'bg-emerald-500 ring-emerald-500/30', count: 11 },
+                { id: 'PETG', label: 'PETG', dot: 'bg-sky-500 ring-sky-500/30', count: 2 },
+                { id: 'ABS', label: 'ABS & ASA', dot: 'bg-amber-500 ring-amber-500/30', count: 1 },
+                { id: 'CARBON_FIBER', label: 'Fibra de Carbono', dot: 'bg-zinc-800 ring-zinc-500/30', count: 2 },
+                { id: 'ESPECIAIS', label: 'Flexíveis & TPU', dot: 'bg-purple-500 ring-purple-500/30', count: 3 }
+              ].map(sub => {
+                const isActive = filamentFilter === sub.id;
+                return (
+                  <button
+                    key={sub.id}
+                    onClick={() => setFilamentFilter(sub.id)}
+                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                      isActive
+                        ? 'bg-zinc-950 text-white shadow-sm ring-1 ring-zinc-900'
+                        : 'text-zinc-600 hover:text-zinc-950 hover:bg-white/80'
+                    }`}
+                  >
+                    {sub.dot && (
+                      <span className={`w-2 h-2 rounded-full ring-2 ${sub.dot} shrink-0`} />
+                    )}
+                    <span>{sub.label}</span>
+                    <span
+                      className={`text-[10px] font-mono px-1.5 py-0.5 rounded-full transition-colors ${
+                        isActive
+                          ? 'bg-white/20 text-white font-bold'
+                          : 'bg-zinc-200/80 text-zinc-500'
+                      }`}
+                    >
+                      {sub.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Dynamic Context Hint */}
+            <p className="text-xs text-zinc-500 mt-3 max-w-xl mx-auto flex items-center justify-center gap-1.5 font-medium">
+              {filamentFilter === 'all' && 'Exibindo todos os 19 filamentos oficiais compatíveis com sistema AMS.'}
+              {filamentFilter === 'PLA' && 'Fácil de imprimir, zero odor e acabamento estético impecável para qualquer projeto.'}
+              {filamentFilter === 'PETG' && 'Alta resistência mecânica, química e à água para utilidades e peças duráveis.'}
+              {filamentFilter === 'ABS' && 'Resistente a calor até 100°C com proteção solar UV para áreas externas.'}
+              {filamentFilter === 'CARBON_FIBER' && 'Reforçado com microfibras de carbono para máxima rigidez estrutural.'}
+              {filamentFilter === 'ESPECIAIS' && 'Filamentos flexíveis emborrachados (TPU) e suportes solúveis em água.'}
+            </p>
+          </div>
+        )}
 
         {/* ================= 2. MINIMALIST PRODUCT GRID (EXACT REFERENCE DESIGN) ================= */}
         {filteredProducts.length === 0 ? (
@@ -505,6 +675,301 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                 </div>
               );
             })}
+          </div>
+        )}
+
+        {/* ================= 3. ZYNTRIA-STYLE EDUCATIONAL GUIDE & FAQ (When Filamentos is active) ================= */}
+        {selectedCategory === 'Filamentos' && (
+          <div className="mt-20 border-t border-zinc-200/80 pt-16">
+            
+            {/* 3.1 Educational Guide: "Qual Filamento Escolher?" */}
+            <div className="max-w-5xl mx-auto mb-20">
+              <div className="text-center max-w-2xl mx-auto mb-12">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-600 font-bold block mb-2">
+                  Guia Didático Maker
+                </span>
+                <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Space_Grotesk'] text-zinc-900 tracking-tight">
+                  Qual Filamento Escolher?
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-500 mt-3 leading-relaxed">
+                  Escolher o filamento ideal depende diretamente do tipo de peça que você deseja imprimir. Abaixo você entende de forma simples qual filamento faz mais sentido para o seu projeto.
+                </p>
+              </div>
+
+              {/* 3 Cards Comparison */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* PLA */}
+                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
+                      <h4 className="text-base font-bold text-zinc-900 font-['Space_Grotesk']">
+                        PLA (Iniciantes e Visual)
+                      </h4>
+                    </div>
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      O PLA é o filamento mais fácil de imprimir e o mais utilizado por iniciantes. Oferece excelente qualidade estética e baixa chance de falhas.
+                    </p>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-zinc-900 block mb-1.5 uppercase tracking-wider font-mono">
+                        Escolha se você quer:
+                      </span>
+                      <ul className="text-xs text-zinc-600 space-y-1">
+                        <li className="flex items-center gap-1.5">• Action figures e decorativas</li>
+                        <li className="flex items-center gap-1.5">• Protótipos visuais e maquetes</li>
+                        <li className="flex items-center gap-1.5">• Impressões com acabamento bonito</li>
+                        <li className="flex items-center gap-1.5">• Facilidade de uso e sem odores</li>
+                      </ul>
+                    </div>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-emerald-700 block mb-1 uppercase tracking-wider font-mono">
+                        Vantagens:
+                      </span>
+                      <p className="text-xs text-zinc-600 leading-relaxed">
+                        Fácil de imprimir, baixo odor, pouco warping e acabamento estético impecável.
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="text-[11px] font-bold text-amber-700 block mb-1 uppercase tracking-wider font-mono">
+                        Pontos de atenção:
+                      </span>
+                      <p className="text-xs text-zinc-500 leading-relaxed">
+                        Menor resistência térmica (acima de 55°C) e não é ideal para esforço mecânico contínuo.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-[11px]">
+                    <span className="text-zinc-500">Dificuldade:</span>
+                    <span className="font-bold text-emerald-600 font-mono">⭐ Muito Fácil</span>
+                  </div>
+                </div>
+
+                {/* PETG */}
+                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-3 h-3 rounded-full bg-sky-500 ring-4 ring-sky-500/20"></span>
+                      <h4 className="text-base font-bold text-zinc-900 font-['Space_Grotesk']">
+                        PETG (Equilíbrio e Resistência)
+                      </h4>
+                    </div>
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      Combina a facilidade do PLA com uma resistência mecânica muito maior. Um dos materiais mais versáteis, ideal para peças funcionais.
+                    </p>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-zinc-900 block mb-1.5 uppercase tracking-wider font-mono">
+                        Escolha se você quer:
+                      </span>
+                      <ul className="text-xs text-zinc-600 space-y-1">
+                        <li className="flex items-center gap-1.5">• Peças funcionais e suportes</li>
+                        <li className="flex items-center gap-1.5">• Organizadores e potes resistentes</li>
+                        <li className="flex items-center gap-1.5">• Uso externo moderado e umidade</li>
+                        <li className="flex items-center gap-1.5">• Maior durabilidade sem trincar</li>
+                      </ul>
+                    </div>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-sky-700 block mb-1 uppercase tracking-wider font-mono">
+                        Vantagens:
+                      </span>
+                      <p className="text-xs text-zinc-600 leading-relaxed">
+                        Alta resistência mecânica, resistente à água e impacto. Muito mais simples de imprimir que o ABS.
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="text-[11px] font-bold text-amber-700 block mb-1 uppercase tracking-wider font-mono">
+                        Pontos de atenção:
+                      </span>
+                      <p className="text-xs text-zinc-500 leading-relaxed">
+                        Pode gerar pequenos fios (stringing) se não calibrado e exige desidratação preventiva.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-[11px]">
+                    <span className="text-zinc-500">Dificuldade:</span>
+                    <span className="font-bold text-sky-600 font-mono">⭐⭐ Médio</span>
+                  </div>
+                </div>
+
+                {/* ABS & ASA */}
+                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-500/20"></span>
+                      <h4 className="text-base font-bold text-zinc-900 font-['Space_Grotesk']">
+                        ABS & ASA (Aplicações Técnicas)
+                      </h4>
+                    </div>
+                    <p className="text-xs text-zinc-600 leading-relaxed mb-4">
+                      Voltado para projetos técnicos exigentes. Alta resistência mecânica e térmica, amplamente utilizado no setor automotivo e industrial.
+                    </p>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-zinc-900 block mb-1.5 uppercase tracking-wider font-mono">
+                        Escolha se você quer:
+                      </span>
+                      <ul className="text-xs text-zinc-600 space-y-1">
+                        <li className="flex items-center gap-1.5">• Peças técnicas e ferramentas</li>
+                        <li className="flex items-center gap-1.5">• Componentes automotivos</li>
+                        <li className="flex items-center gap-1.5">• Proteção solar UV (filamento ASA)</li>
+                        <li className="flex items-center gap-1.5">• Acabamento espelhado em acetona</li>
+                      </ul>
+                    </div>
+
+                    <div className="mb-4">
+                      <span className="text-[11px] font-bold text-amber-700 block mb-1 uppercase tracking-wider font-mono">
+                        Vantagens:
+                      </span>
+                      <p className="text-xs text-zinc-600 leading-relaxed">
+                        Suporta calor contínuo até 100°C, absorve fortes impactos e permite vapor químico.
+                      </p>
+                    </div>
+
+                    <div>
+                      <span className="text-[11px] font-bold text-amber-700 block mb-1 uppercase tracking-wider font-mono">
+                        Pontos de atenção:
+                      </span>
+                      <p className="text-xs text-zinc-500 leading-relaxed">
+                        Mais difícil de imprimir, exige mesa aquecida e impressora com câmara fechada.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-zinc-100 flex items-center justify-between text-[11px]">
+                    <span className="text-zinc-500">Dificuldade:</span>
+                    <span className="font-bold text-amber-600 font-mono">⭐⭐⭐ Avançado</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Simple Decision Summary Box */}
+              <div className="mt-8 bg-zinc-900 text-white rounded-3xl p-6 sm:p-8">
+                <h4 className="text-lg font-bold font-['Space_Grotesk'] text-white mb-3">
+                  Resumindo de forma simples:
+                </h4>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs text-zinc-300">
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <span className="font-bold text-emerald-400 block mb-1 text-sm">Escolha PLA se:</span>
+                    Você quer facilidade máxima, qualidade visual impecável e praticidade para maquetes e cosméticos.
+                  </div>
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <span className="font-bold text-sky-400 block mb-1 text-sm">Escolha PETG se:</span>
+                    Você quer resistência física e à água sem abrir mão da facilidade de impressão no dia a dia.
+                  </div>
+                  <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
+                    <span className="font-bold text-amber-400 block mb-1 text-sm">Escolha ABS/ASA se:</span>
+                    Você precisa de resistência térmica (até 100°C), mecânica industrial e proteção UV para sol e chuva.
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-white/10 text-xs text-zinc-400 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <span>
+                    💡 <strong>Ainda está em dúvida?</strong> Comece com PLA ➔ Evolua para PETG ➔ Migre para ABS/CF conforme a necessidade do seu projeto.
+                  </span>
+                  <button
+                    onClick={() => {
+                      setFilamentFilter('PLA');
+                      document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="px-4 py-2 bg-emerald-500 text-black font-bold rounded-xl text-xs hover:bg-emerald-400 transition-colors shrink-0"
+                  >
+                    Começar com PLA
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* 3.2 FAQ: Perguntas Frequentes sobre Filamentos (Zyntria-style) */}
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-10">
+                <span className="text-[11px] font-mono uppercase tracking-widest text-zinc-400 font-bold block mb-1">
+                  FAQ Técnico
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black font-['Space_Grotesk'] text-zinc-900">
+                  Perguntas Frequentes sobre Filamentos
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-500 mt-2">
+                  Tire suas dúvidas técnicas sobre compatibilidade, armazenamento e sistemas AMS.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {[
+                  {
+                    q: 'Qual a diferença entre PLA, PETG e ABS?',
+                    a: 'São os três filamentos mais usados na impressão 3D, cada um com foco diferente. O PLA é o mais fácil de imprimir e ideal para iniciantes, peças decorativas e protótipos visuais. O PETG equilibra facilidade de impressão com resistência mecânica e à água, sendo ótimo para peças funcionais. O ABS é o mais resistente ao calor e ao impacto, indicado para peças técnicas, automotivas e industriais.'
+                  },
+                  {
+                    q: 'Qual filamento devo escolher para começar?',
+                    a: 'Se você está começando na impressão 3D, o PLA é a melhor escolha absoluta. Ele possui taxa mínima de erros, não exige impressora fechada, não solta cheiro e entrega um acabamento estético impecável já nas primeiras peças.'
+                  },
+                  {
+                    q: 'Os filamentos são compatíveis com qualquer impressora 3D?',
+                    a: 'Sim. Todos os filamentos com diâmetro padrão de 1,75mm são compatíveis com qualquer impressora FDM do mercado (Creality, Anycubic, Snapmaker, Prusa, etc.). Nas impressoras Bambu Lab, os carretéis oficiais possuem o benefício adicional do chip RFID para sincronização e calibração 100% automáticas.'
+                  },
+                  {
+                    q: 'O que significa o chip RFID no carretel Bambu Lab?',
+                    a: 'O chip RFID integrado permite que as impressoras Bambu Lab e o alimentador AMS reconheçam automaticamente o tipo de material, a cor exata e os parâmetros ideais de velocidade e temperatura assim que o carretel é colocado, eliminando ajustes manuais.'
+                  },
+                  {
+                    q: 'Preciso de impressora fechada para usar ABS?',
+                    a: 'Sim. O ABS é bastante sensível a correntes de ar e variações de temperatura ambiente, o que pode causar warping (empenamento da base) e delaminação das camadas em impressoras abertas. Para impressoras abertas como a Bambu A1 ou A1 Mini, utilize preferencialmente PLA ou PETG.'
+                  },
+                  {
+                    q: 'Qual filamento aguenta mais calor?',
+                    a: 'O ABS e o ASA possuem a maior resistência térmica entre os polímeros convencionais, suportando até 100°C contínuos sem amolecer. O PETG suporta até cerca de 70°C, enquanto o PLA começa a perder rigidez por volta de 55°C (não devendo ser deixado dentro de veículos fechados no sol).'
+                  },
+                  {
+                    q: 'Posso usar o filamento PETG para peças externas ou em contato com água?',
+                    a: 'Sim! O PETG possui excelente resistência à umidade, à água e ao desgaste natural do ambiente, sendo uma escolha de destaque para vasos, suportes de banheiro, organizadores de cozinha e peças utilitárias.'
+                  },
+                  {
+                    q: 'O filamento com Fibra de Carbono (CF) desgasta o bico da impressora?',
+                    a: 'Sim. Filamentos aditivados com fibra de carbono (como PLA-CF, PETG-CF e ASA-CF) são abrasivos e desgastam rapidamente bicos comuns de latão (brass). É indispensável utilizar bico de aço endurecido (Hardened Steel Nozzle), item que já vem instalado de série nas linhas P1S, P2S, X1C, H2S e H2D.'
+                  },
+                  {
+                    q: 'Como devo armazenar os filamentos para não estragar?',
+                    a: 'Filamentos absorvem umidade do ar ao longo do tempo (principalmente PETG, TPU e Nylon), o que gera estalos e falhas na extrusão. O ideal é mantê-los em sacos herméticos selados com sílica gel ou utilizar caixas secadoras dedicadas antes de imprimir.'
+                  }
+                ].map((faq, idx) => {
+                  const isOpen = openFaqIndex === idx;
+                  return (
+                    <div 
+                      key={idx}
+                      className="bg-white rounded-2xl border border-zinc-200/80 overflow-hidden transition-all duration-200"
+                    >
+                      <button
+                        onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                        className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-zinc-50/80 transition-colors"
+                      >
+                        <span className="text-sm font-bold text-zinc-900 font-['Space_Grotesk']">
+                          {faq.q}
+                        </span>
+                        <ChevronDown 
+                          className={`w-4 h-4 text-zinc-400 shrink-0 transition-transform duration-200 ${
+                            isOpen ? 'rotate-180 text-emerald-600' : ''
+                          }`}
+                        />
+                      </button>
+                      
+                      {isOpen && (
+                        <div className="px-6 pb-5 pt-1 text-xs text-zinc-600 leading-relaxed border-t border-zinc-100 bg-zinc-50/40">
+                          {faq.a}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
         )}
 
