@@ -681,602 +681,1183 @@ const BASE_PRODUCTS = [
   },
 
   // =========================================================================
-  // 2. FILAMENTOS TÉCNICOS & ESPECIAIS (TODAS AS FAMÍLIAS DO PDF)
+  // 2. FILAMENTOS TÉCNICOS & ESPECIAIS (ORGANIZADOS POR MATERIAL E EFEITO)
   // =========================================================================
   {
-    id: 'filament-bambu-pla-lite',
-    name: 'Filamento Bambu PLA Lite 1.75mm 1Kg (Carretel & Refil)',
-    category: 'Filamentos',
-    subCategory: 'PLA Lite (RFID)',
-    brand: 'Bambu Lab',
-    price: 119.00,
-    oldPrice: 139.00,
-    installments: 6,
-    installmentValue: 19.83,
-    pixDiscountPercent: 10,
-    pixPrice: 107.10,
-    image: '/images/filament-bambulab-pla-lite.png',
-    badge: '14 CORES • REFIL R$ 99',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 142,
-    inStock: true,
-    sku: 'BL-PLA-LITE',
-    specs: {
-      material: 'PLA Lite Original',
-      diameter: '1.75 mm (±0.02 mm)',
-      weight: '1.0 kg (Opção Spool R$ 119 / Refil R$ 99)',
-      temp: '190 - 220 °C',
-      rfid: 'Sim (Auto Reconhecido no AMS)'
+    "id": "filament-bambu-pla-lite",
+    "name": "Filamento Bambu PLA Lite 1.75mm 1Kg (Carretel & Refil)",
+    "category": "Filamentos",
+    "subCategory": "PLA Lite (RFID)",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 119,
+    "oldPrice": 139,
+    "installments": 6,
+    "installmentValue": 19.83,
+    "pixDiscountPercent": 10,
+    "pixPrice": 107.1,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "MAIS VENDIDO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 148,
+    "inStock": true,
+    "sku": "BL-PLA-LITE",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "material": "PLA Biodegradável de Alta Fluidez",
+      "diameter": "1.75 mm ± 0.03 mm",
+      "temp": "190 - 220 °C"
     },
-    colors: [
-      { name: 'Branco', hex: '#FFFFFF' },
-      { name: 'Preto', hex: '#111111' },
-      { name: 'Azul Marinho', hex: '#1B294B' },
-      { name: 'Amarelo', hex: '#F6D334' },
-      { name: 'Azul Cyan', hex: '#19B6EC' },
-      { name: 'Cinza', hex: '#7F8388' },
-      { name: 'Cinza Escuro', hex: '#4B4D52' },
-      { name: 'Laranja', hex: '#EE7B23' },
-      { name: 'Vermelho', hex: '#C62928' },
-      { name: 'Marrom Cacau', hex: '#4E3524' },
-      { name: 'Amarelo Girassol', hex: '#FFC107' },
-      { name: 'Bege Matte', hex: '#D2B48C' },
-      { name: 'Verde', hex: '#2E7D32' }
+    "colors": [
+      {
+        "name": "Branco White",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Preto Black",
+        "hex": "#111111"
+      },
+      {
+        "name": "Cinza Gray",
+        "hex": "#7F8388"
+      },
+      {
+        "name": "Azul Cyan",
+        "hex": "#19B6EC"
+      },
+      {
+        "name": "Azul Marinho",
+        "hex": "#1B294B"
+      },
+      {
+        "name": "Amarelo Yellow",
+        "hex": "#F6D334"
+      },
+      {
+        "name": "Laranja Orange",
+        "hex": "#EE7B23"
+      },
+      {
+        "name": "Vermelho Red",
+        "hex": "#D22630"
+      },
+      {
+        "name": "Verde Green",
+        "hex": "#008751"
+      },
+      {
+        "name": "Rosa Pink",
+        "hex": "#E75480"
+      },
+      {
+        "name": "Marrom Cocoa",
+        "hex": "#4B3621"
+      },
+      {
+        "name": "Roxo Purple",
+        "hex": "#6A0DAD"
+      },
+      {
+        "name": "Bege Skin",
+        "hex": "#F5DEB3"
+      }
     ],
-    description: 'Filamento Bambu PLA Lite original com chip RFID integrado. Enrolamento impecável, alta precisão geométrica e reconhecimento automático no sistema AMS.'
+    "description": "Filamento oficial Bambu Lab com chip RFID integrado. A impressora detecta a cor, temperatura e quantidade restante automaticamente no sistema AMS. Excelente fluidez para alta velocidade sem entupimentos."
   },
+
   {
-    id: 'filament-bambu-pla-basic',
-    name: 'Filamento Bambu PLA Basic 1.75mm 1Kg (30 Cores)',
-    category: 'Filamentos',
-    subCategory: 'PLA Basic (RFID)',
-    brand: 'Bambu Lab',
-    price: 152.10,
-    oldPrice: 169.00,
-    installments: 6,
-    installmentValue: 25.35,
-    pixDiscountPercent: 10,
-    pixPrice: 136.89,
-    image: '/images/filament-bambulab-pla-lite.png',
-    badge: 'BLACK NOVEMBER −10%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 98,
-    inStock: true,
-    sku: 'BL-PLA-BASIC',
-    specs: {
-      material: 'PLA Basic Original Premium',
-      diameter: '1.75 mm (±0.02 mm)',
-      weight: '1.0 kg Líquido (Refil R$ 137,61)',
-      temp: '190 - 220 °C',
-      rfid: 'Sim (Auto Reconhecido no AMS)'
+    "id": "filament-bambu-pla-basic",
+    "name": "Filamento Bambu PLA Basic 1.75mm 1Kg (30 Cores)",
+    "category": "Filamentos",
+    "subCategory": "PLA Basic (RFID)",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 152.1,
+    "oldPrice": 169,
+    "installments": 6,
+    "installmentValue": 25.35,
+    "pixDiscountPercent": 10,
+    "pixPrice": 136.89,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "CHIP RFID OFICIAL",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 162,
+    "inStock": true,
+    "sku": "BL-PLA-BASIC",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "material": "PLA Virgem Premium Alta Precisão",
+      "diameter": "1.75 mm ± 0.02 mm",
+      "temp": "190 - 230 °C"
     },
-    colors: [
-      { name: 'Bambu Green', hex: '#00A86B' },
-      { name: 'Branco Jade', hex: '#F8F9FA' },
-      { name: 'Preto', hex: '#111111' },
-      { name: 'Azul', hex: '#0D47A1' },
-      { name: 'Bronze', hex: '#CD7F32' },
-      { name: 'Ciano', hex: '#00BCD4' },
-      { name: 'Dourado', hex: '#FFD700' },
-      { name: 'Cinza', hex: '#9E9E9E' },
-      { name: 'Cinza Claro', hex: '#D6D6D6' },
-      { name: 'Rosa Hot Pink', hex: '#E91E63' },
-      { name: 'Roxo Indigo', hex: '#3F51B5' },
-      { name: 'Verde Visgo', hex: '#2E7D32' },
-      { name: 'Laranja', hex: '#FF9800' },
-      { name: 'Rosa', hex: '#F48FB1' },
-      { name: 'Vermelho', hex: '#D32F2F' },
-      { name: 'Prata', hex: '#C0C0C0' },
-      { name: 'Amarelo Girassol', hex: '#FBC02D' },
-      { name: 'Turquesa', hex: '#009688' },
-      { name: 'Amarelo', hex: '#FFEB3B' },
-      { name: 'Marrom Cacau', hex: '#4E3524' }
+    "colors": [
+      {
+        "name": "Jade White",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Black",
+        "hex": "#111111"
+      },
+      {
+        "name": "Bambu Green",
+        "hex": "#00AE42"
+      },
+      {
+        "name": "Blue",
+        "hex": "#0047AB"
+      },
+      {
+        "name": "Cyan",
+        "hex": "#00B7EB"
+      },
+      {
+        "name": "Red",
+        "hex": "#E32636"
+      },
+      {
+        "name": "Yellow",
+        "hex": "#FFD700"
+      },
+      {
+        "name": "Orange",
+        "hex": "#FF6600"
+      },
+      {
+        "name": "Silver",
+        "hex": "#C0C0C0"
+      },
+      {
+        "name": "Gold",
+        "hex": "#CFB53B"
+      },
+      {
+        "name": "Bronze",
+        "hex": "#CD7F32"
+      },
+      {
+        "name": "Pink",
+        "hex": "#FF69B4"
+      },
+      {
+        "name": "Magenta",
+        "hex": "#FF00FF"
+      },
+      {
+        "name": "Purple",
+        "hex": "#800080"
+      },
+      {
+        "name": "Brown",
+        "hex": "#5C4033"
+      },
+      {
+        "name": "Beige",
+        "hex": "#F5F5DC"
+      },
+      {
+        "name": "Dark Gray",
+        "hex": "#333333"
+      },
+      {
+        "name": "Light Gray",
+        "hex": "#A8A8A8"
+      },
+      {
+        "name": "Mistletoe Green",
+        "hex": "#2E5A36"
+      },
+      {
+        "name": "Cobalt Blue",
+        "hex": "#002060"
+      }
     ],
-    description: 'Filamento Bambu PLA Basic de acabamento brilhante premium com chip RFID integrado. Máxima facilidade de impressão e resistência mecânica superior.'
+    "description": "Filamento de referência global com a maior fidelidade dimensional da categoria. Calibrado para acelerações de até 20.000 mm/s² com acabamento acetinado de fábrica."
   },
+
   {
-    id: 'filament-bambu-pla-matte',
-    name: 'Filamento Bambu PLA Matte Fosco Acetinado 1.75mm 1Kg',
-    category: 'Filamentos',
-    subCategory: 'PLA Matte (RFID)',
-    brand: 'Bambu Lab',
-    price: 143.65,
-    oldPrice: 169.00,
-    installments: 6,
-    installmentValue: 23.94,
-    pixDiscountPercent: 10,
-    pixPrice: 129.28,
-    image: '/images/filament-panchroma-magenta.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 167,
-    inStock: true,
-    sku: 'BL-PLA-MATTE',
-    specs: {
-      material: 'Matte PLA Sem Linhas de Camada',
-      diameter: '1.75 mm (±0.02 mm)',
-      weight: '1.0 kg Líquido (Refil R$ 129,97)',
-      temp: '190 - 220 °C',
-      finish: 'Fosco Premium Aveludado'
+    "id": "filament-bambu-pla-matte",
+    "name": "Filamento Bambu PLA Matte Fosco Acetinado 1.75mm 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Matte (RFID)",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 143.65,
+    "oldPrice": 169,
+    "installments": 6,
+    "installmentValue": 23.94,
+    "pixDiscountPercent": 10,
+    "pixPrice": 129.28,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "ACABAMENTO FOSCO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 119,
+    "inStock": true,
+    "sku": "BL-PLA-MATTE",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "finish": "Fosco Anti-reflexo Aveludado",
+      "diameter": "1.75 mm",
+      "temp": "190 - 230 °C"
     },
-    colors: [
-      { name: 'Ash Gray', hex: '#B2BEB5' },
-      { name: 'Charcoal Preto', hex: '#222222' },
-      { name: 'Dark Blue', hex: '#002366' },
-      { name: 'Dark Brown', hex: '#3E2723' },
-      { name: 'Dark Green', hex: '#1B5E20' },
-      { name: 'Dark Red', hex: '#8B0000' },
-      { name: 'Ice Blue', hex: '#A5F2F3' },
-      { name: 'Ivory White', hex: '#FFFFF0' },
-      { name: 'Latte Brown', hex: '#C5A059' },
-      { name: 'Lemon Yellow', hex: '#FFF44F' },
-      { name: 'Lilac Purple', hex: '#C8A2C8' },
-      { name: 'Mandarin Orange', hex: '#FF7518' },
-      { name: 'Marine Blue', hex: '#013A63' },
-      { name: 'Nardo Gray', hex: '#686C70' },
-      { name: 'Sakura Pink', hex: '#FFB7C5' },
-      { name: 'Scarlet Red', hex: '#FF2400' },
-      { name: 'Sky Blue', hex: '#87CEEB' },
-      { name: 'Terracotta', hex: '#E2725B' }
+    "colors": [
+      {
+        "name": "Ivory White",
+        "hex": "#FFFFF0"
+      },
+      {
+        "name": "Charcoal Preto",
+        "hex": "#222222"
+      },
+      {
+        "name": "Ash Gray",
+        "hex": "#B2BEB5"
+      },
+      {
+        "name": "Nardo Gray",
+        "hex": "#686C70"
+      },
+      {
+        "name": "Marine Blue",
+        "hex": "#013A63"
+      },
+      {
+        "name": "Sky Blue",
+        "hex": "#87CEEB"
+      },
+      {
+        "name": "Ice Blue",
+        "hex": "#A5F2F3"
+      },
+      {
+        "name": "Dark Green",
+        "hex": "#1B5E20"
+      },
+      {
+        "name": "Scarlet Red",
+        "hex": "#FF2400"
+      },
+      {
+        "name": "Dark Red",
+        "hex": "#8B0000"
+      },
+      {
+        "name": "Lemon Yellow",
+        "hex": "#FFF44F"
+      },
+      {
+        "name": "Mandarin Orange",
+        "hex": "#FF7518"
+      },
+      {
+        "name": "Terracotta",
+        "hex": "#E2725B"
+      },
+      {
+        "name": "Sakura Pink",
+        "hex": "#FFB7C5"
+      },
+      {
+        "name": "Lilac Purple",
+        "hex": "#C8A2C8"
+      },
+      {
+        "name": "Latte Brown",
+        "hex": "#C5A059"
+      },
+      {
+        "name": "Dark Brown",
+        "hex": "#3E2723"
+      },
+      {
+        "name": "Dark Blue",
+        "hex": "#002366"
+      }
     ],
-    description: 'Acabamento acetinado fosco espetacular que mascara completamente as linhas de camada. Textura aveludada preferida por arquitetos, designers e colecionadores.'
+    "description": "Acabamento acetinado fosco espetacular que mascara completamente as linhas de camada. Textura aveludada preferida por arquitetos, designers e colecionadores."
   },
+
   {
-    id: 'filament-bambu-pla-silk',
-    name: 'Filamento Bambu PLA Silk & Silk+ Alto Brilho 1Kg',
-    category: 'Filamentos',
-    subCategory: 'PLA Silk Efeito Seda',
-    brand: 'Bambu Lab',
-    price: 143.65,
-    oldPrice: 169.00,
-    installments: 6,
-    installmentValue: 23.94,
-    pixDiscountPercent: 10,
-    pixPrice: 129.28,
-    image: '/images/filament-panchroma-magenta.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 84,
-    inStock: true,
-    sku: 'BL-PLA-SILK',
-    specs: {
-      material: 'PLA Seda com Reflexo Perolado',
-      diameter: '1.75 mm',
-      temp: '210 - 230 °C',
-      shine: 'Brilho Especular Intenso'
+    "id": "filament-bambu-pla-silk",
+    "name": "Filamento Bambu PLA Silk & Silk+ Alto Brilho 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Silk Efeito Seda",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 143.65,
+    "oldPrice": 169,
+    "installments": 6,
+    "installmentValue": 23.94,
+    "pixDiscountPercent": 10,
+    "pixPrice": 129.28,
+    "image": "/images/filament-panchroma-magenta.png",
+    "badge": "BRILHO ESPELHADO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 84,
+    "inStock": true,
+    "sku": "BL-PLA-SILK",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "material": "PLA Seda com Reflexo Perolado",
+      "diameter": "1.75 mm",
+      "temp": "210 - 230 °C"
     },
-    colors: [
-      { name: 'Dourado Gold', hex: '#FFD700' },
-      { name: 'Prata Silver', hex: '#E0E0E0' },
-      { name: 'Rose Gold', hex: '#B76E79' },
-      { name: 'Titan Gray', hex: '#708090' },
-      { name: 'Champagne', hex: '#F7E7CE' },
-      { name: 'Candy Red', hex: '#D2143A' },
-      { name: 'Blue Hawaii', hex: '#0077BE' },
-      { name: 'Aurora Purple', hex: '#7B1FA2' },
-      { name: 'Neon City', hex: '#00E5FF' },
-      { name: 'Velvet Eclipse', hex: '#4A0E17' }
+    "colors": [
+      {
+        "name": "Dourado Gold",
+        "hex": "#FFD700"
+      },
+      {
+        "name": "Prata Silver",
+        "hex": "#E0E0E0"
+      },
+      {
+        "name": "Rose Gold",
+        "hex": "#B76E79"
+      },
+      {
+        "name": "Titan Gray",
+        "hex": "#708090"
+      },
+      {
+        "name": "Champagne",
+        "hex": "#F7E7CE"
+      },
+      {
+        "name": "Candy Red",
+        "hex": "#D2143A"
+      },
+      {
+        "name": "Blue Hawaii",
+        "hex": "#0077BE"
+      },
+      {
+        "name": "Aurora Purple",
+        "hex": "#7B1FA2"
+      },
+      {
+        "name": "Neon City",
+        "hex": "#00E5FF"
+      },
+      {
+        "name": "Velvet Eclipse",
+        "hex": "#4A0E17"
+      }
     ],
-    description: 'Filamento de seda premium com reflexo perolado brilhante. Dá aspecto metálico nobre para troféus, esculturas e peças decorativas.'
+    "description": "Filamento de seda premium com reflexo perolado brilhante. Dá aspecto metálico nobre para troféus, esculturas e peças decorativas."
   },
+
   {
-    id: 'filament-bambu-pla-special-effects',
-    name: 'Filamento Bambu PLA Efeitos: Galaxy, Glow, Sparkle & Marble',
-    category: 'Filamentos',
-    subCategory: 'Efeitos Especiais',
-    brand: 'Bambu Lab',
-    price: 184.80,
-    oldPrice: 219.00,
-    installments: 6,
-    installmentValue: 30.80,
-    pixDiscountPercent: 10,
-    pixPrice: 166.32,
-    image: '/images/filament-bambulab-pla-lite.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 76,
-    inStock: true,
-    sku: 'BL-PLA-SPECIAL',
-    specs: {
-      effects: 'Glow (Brilha no Escuro), Galaxy (Glitter Cósmico), Marble (Mármore)',
-      diameter: '1.75 mm',
-      temp: '200 - 225 °C'
+    "id": "filament-bambu-pla-marble",
+    "name": "Filamento Bambu PLA Marble (Efeito Mármore & Granito) 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Marble Mármore",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 184.8,
+    "oldPrice": 219,
+    "installments": 6,
+    "installmentValue": 30.8,
+    "pixDiscountPercent": 10,
+    "pixPrice": 166.32,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "EFEITO ROCHA",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 62,
+    "inStock": true,
+    "sku": "A07-R5-1.75-1000-SPL",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "finish": "Cargas Minerais Simulam Rocha Polida",
+      "diameter": "1.75 mm",
+      "temp": "200 - 225 °C"
     },
-    colors: [
-      { name: 'Galaxy Roxo Nebulae', hex: '#4A154B' },
-      { name: 'Galaxy Verde', hex: '#1F4E38' },
-      { name: 'Glow Verde Fosforescente', hex: '#39FF14' },
-      { name: 'Glow Azul Fosforescente', hex: '#00FFFF' },
-      { name: 'Sparkle Onix Preto', hex: '#1C1C1C' },
-      { name: 'Sparkle Ouro Clássico', hex: '#CFB53B' },
-      { name: 'Marble Mármore Branco', hex: '#EAEAEA' },
-      { name: 'Marble Granito Vermelho', hex: '#8B3A3A' }
+    "colors": [
+      {
+        "name": "Mármore Branco Carrara",
+        "hex": "#F5F5F5"
+      },
+      {
+        "name": "Granito Cinza Rocha",
+        "hex": "#9E9E9E"
+      },
+      {
+        "name": "Granito Vermelho Terracota",
+        "hex": "#8B3A3A"
+      }
     ],
-    description: 'Coleção artística com partículas de glitter cósmico, pó fosforescente de alto brilho no escuro e cargas minerais com visual de mármore esculpido.'
+    "description": "Composto aditivado com micropartículas minerais que reproduzem com fidelidade visual a textura de mármore e granito polido. Ocre e manchas naturais sem necessidade de pós-processamento."
   },
+
   {
-    id: 'filament-bambu-pla-wood',
-    name: 'Filamento Bambu PLA Wood Madeira Real 1.75mm 1Kg',
-    category: 'Filamentos',
-    subCategory: 'Madeira Natural',
-    brand: 'Bambu Lab',
-    price: 175.20,
-    oldPrice: 219.00,
-    installments: 6,
-    installmentValue: 29.20,
-    pixDiscountPercent: 10,
-    pixPrice: 157.68,
-    image: '/images/filament-printalot-pla-preto.png',
-    badge: 'BLACK NOVEMBER −20%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 48,
-    inStock: true,
-    sku: 'BL-PLA-WOOD',
-    specs: {
-      material: 'Composto de Fibras de Madeira Real',
-      diameter: '1.75 mm',
-      temp: '190 - 220 °C',
-      scent: 'Cheiro e Textura Autêntica de Madeira'
+    "id": "filament-bambu-pla-galaxy",
+    "name": "Filamento Bambu PLA Galaxy & Sparkle (Efeito Cósmico) 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Galaxy Cósmico",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 184.8,
+    "oldPrice": 219,
+    "installments": 6,
+    "installmentValue": 30.8,
+    "pixDiscountPercent": 10,
+    "pixPrice": 166.32,
+    "image": "/images/filament-panchroma-magenta.png",
+    "badge": "GLITTER CÓSMICO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 57,
+    "inStock": true,
+    "sku": "A04-K0-1.75-1000-SPL",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "finish": "Glitter Reflexivo de Alta Dispersão",
+      "diameter": "1.75 mm",
+      "temp": "205 - 225 °C"
     },
-    colors: [
-      { name: 'Black Walnut (Nogueira)', hex: '#3B2219' },
-      { name: 'Classic Birch (Bétula)', hex: '#D8C3A5' },
-      { name: 'Clay Brown (Argila)', hex: '#8D5B4C' },
-      { name: 'Ochre Yellow (Ocre)', hex: '#CC7722' },
-      { name: 'Rosewood (Jacarandá)', hex: '#58111A' },
-      { name: 'White Oak (Carvalho)', hex: '#E6D2B5' }
+    "colors": [
+      {
+        "name": "Galaxy Black Ônix",
+        "hex": "#1A1A1A"
+      },
+      {
+        "name": "Galaxy Nebula Roxo",
+        "hex": "#4A154B"
+      },
+      {
+        "name": "Galaxy Pine Green",
+        "hex": "#1F4E38"
+      },
+      {
+        "name": "Sparkle Ouro Real",
+        "hex": "#CFB53B"
+      },
+      {
+        "name": "Sparkle Prata Estelar",
+        "hex": "#C0C0C0"
+      }
     ],
-    description: 'Contém fibras orgânicas de madeira natural. As peças impressas podem ser lixadas, envernizadas e têm cheiro real de marcenaria.'
+    "description": "Carga brilhante de glitter reflexivo que confere aspecto de céu estrelado profundo. Esconde imperfeições de camada e brilha intensamente sob a luz."
   },
+
   {
-    id: 'filament-bambu-petg-hf',
-    name: 'Filamento Bambu PETG Basic & PETG HF Alta Velocidade 1Kg',
-    category: 'Filamentos',
-    subCategory: 'PETG Técnico',
-    brand: 'Bambu Lab',
-    price: 135.20,
-    oldPrice: 169.00,
-    installments: 6,
-    installmentValue: 22.53,
-    pixDiscountPercent: 10,
-    pixPrice: 121.68,
-    image: '/images/filament-bambulab-pla-lite.png',
-    badge: 'BLACK NOVEMBER −20%',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 112,
-    inStock: true,
-    sku: 'BL-PETG-HF',
-    specs: {
-      material: 'PETG de Engenharia Alta Vazão',
-      diameter: '1.75 mm',
-      temp: '220 - 250 °C',
-      resistance: 'Resistente a Impacto, Clima e UV'
+    "id": "filament-bambu-pla-glow",
+    "name": "Filamento Bambu PLA Glow (Brilha no Escuro Fosforescente) 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Glow Fosforescente",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 189,
+    "oldPrice": 229,
+    "installments": 6,
+    "installmentValue": 31.5,
+    "pixDiscountPercent": 10,
+    "pixPrice": 170.1,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "FOSFORESCENTE",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 49,
+    "inStock": true,
+    "sku": "A05-G0-1.75-1000-SPL",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "glow": "Fosforescência Prolongada de Alta Intensidade",
+      "diameter": "1.75 mm",
+      "temp": "200 - 225 °C"
     },
-    colors: [
-      { name: 'Preto', hex: '#111111' },
-      { name: 'Branco', hex: '#FFFFFF' },
-      { name: 'Azul', hex: '#1565C0' },
-      { name: 'Verde Floresta', hex: '#1B5E20' },
-      { name: 'Cinza', hex: '#757575' },
-      { name: 'Laranja', hex: '#EF6C00' },
-      { name: 'Vermelho', hex: '#C62828' },
-      { name: 'Amarelo', hex: '#FDD835' },
-      { name: 'Transparente Clear', hex: '#E0F7FA' },
-      { name: 'Verde Limão', hex: '#76FF03' }
+    "colors": [
+      {
+        "name": "Glow Verde Neon",
+        "hex": "#39FF14"
+      },
+      {
+        "name": "Glow Azul Turquesa",
+        "hex": "#00FFFF"
+      },
+      {
+        "name": "Glow Laranja Fogo",
+        "hex": "#FF6700"
+      }
     ],
-    description: 'Versão High-Flow otimizada para impressoras CoreXY a até 500 mm/s. Zero delaminação de camada e resistência para peças industriais externas.'
+    "description": "Filamento fosforescente que absorve luz natural ou UV e brilha intensamente na escuridão por horas. Perfeito para brinquedos, decorações temáticas e sinalizações noturnas."
   },
+
   {
-    id: 'filament-bambu-abs-asa',
-    name: 'Filamento Bambu ABS & ASA Resistência Mecânica/UV 1Kg',
-    category: 'Filamentos',
-    subCategory: 'ABS & ASA',
-    brand: 'Bambu Lab',
-    price: 111.20,
-    oldPrice: 139.00,
-    installments: 6,
-    installmentValue: 18.53,
-    pixDiscountPercent: 10,
-    pixPrice: 100.08,
-    image: '/images/filament-printalot-pla-preto.png',
-    badge: 'BLACK NOVEMBER −20%',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 65,
-    inStock: true,
-    sku: 'BL-ABS-ASA',
-    specs: {
-      material: 'Acrilonitrila Butadieno Estireno / ASA',
-      bedTemp: '90 - 110 °C (Câmara Fechada Recomendada)',
-      temp: '240 - 270 °C'
+    "id": "filament-bambu-pla-wood",
+    "name": "Filamento Bambu PLA Wood Madeira Real 1.75mm 1Kg",
+    "category": "Filamentos",
+    "subCategory": "Madeira Natural",
+    "brand": "Bambu Lab",
+    "polymerType": "PLA",
+    "price": 175.2,
+    "oldPrice": 209,
+    "installments": 6,
+    "installmentValue": 29.2,
+    "pixDiscountPercent": 10,
+    "pixPrice": 157.68,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "MADEIRA REAL",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 46,
+    "inStock": true,
+    "sku": "A15-W0-1.75-1000-SPL",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "composition": "30% Pó de Madeira Natural Reciclada",
+      "diameter": "1.75 mm",
+      "temp": "200 - 225 °C"
     },
-    colors: [
-      { name: 'Preto', hex: '#111111' },
-      { name: 'Branco', hex: '#FFFFFF' },
-      { name: 'Azul Azure', hex: '#007FFF' },
-      { name: 'Verde Bambu', hex: '#00A86B' },
-      { name: 'Laranja', hex: '#FF6F00' },
-      { name: 'Vermelho', hex: '#D50000' },
-      { name: 'Prata', hex: '#BDBDBD' },
-      { name: 'ASA Aero Branco (R$ 390,15)', hex: '#FAFAFA' }
+    "colors": [
+      {
+        "name": "Carvalho Claro",
+        "hex": "#D2B48C"
+      },
+      {
+        "name": "Bambu Natural",
+        "hex": "#DEB887"
+      },
+      {
+        "name": "Nogueira Escura",
+        "hex": "#8B5A2B"
+      },
+      {
+        "name": "Mogno Avermelhado",
+        "hex": "#6E260E"
+      },
+      {
+        "name": "Ébano Rústico",
+        "hex": "#3B2F2F"
+      },
+      {
+        "name": "Cedro Nobre",
+        "hex": "#A0522D"
+      }
     ],
-    description: 'Material automotivo e técnico para peças resistentes a impactos térmicos e intempéries. Ideal para uso em gabinetes fechados como P2S, X2D e H2S.'
+    "description": "Contém pó de madeira natural na fórmula, permitindo lixar, envernizar e pintar com acabamento idêntico a madeira de verdade. Odor natural suave de serragem ao imprimir."
   },
+
   {
-    id: 'filament-bambu-carbon-fiber-engineering',
-    name: 'Filamentos Bambu Carbon Fiber (PLA-CF, PETG-CF, PA6-CF, PAHT-CF)',
-    category: 'Filamentos',
-    subCategory: 'Fibra de Carbono',
-    brand: 'Bambu Lab',
-    price: 203.15,
-    oldPrice: 239.00,
-    installments: 12,
-    installmentValue: 16.92,
-    pixDiscountPercent: 10,
-    pixPrice: 182.83,
-    image: '/images/filament-printalot-pla-preto.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 92,
-    inStock: true,
-    sku: 'BL-CF-SERIES',
-    specs: {
-      reinforcement: 'Fibras de Carbono Picadas de Alto Módulo',
-      models: 'PLA-CF R$ 203 | PETG-CF R$ 215 | PA6-CF R$ 369 | PAHT-CF R$ 551 | PPA-CF R$ 1.099',
-      rigidity: 'Rigidez Extrema e Zero Deformação Térmica'
+    "id": "filament-bambu-petg-hf",
+    "name": "Filamento Bambu PETG Basic & PETG HF Alta Velocidade 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PETG Técnico",
+    "brand": "Bambu Lab",
+    "polymerType": "PETG",
+    "price": 152.1,
+    "oldPrice": 179,
+    "installments": 6,
+    "installmentValue": 25.35,
+    "pixDiscountPercent": 10,
+    "pixPrice": 136.89,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "RESISTENTE",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 92,
+    "inStock": true,
+    "sku": "BL-PETG-BASIC",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "material": "Glicol Modificado Alta Tenacidade",
+      "tempResist": "Até 75 °C",
+      "diameter": "1.75 mm",
+      "temp": "230 - 250 °C"
     },
-    colors: [
-      { name: 'PLA-CF Preto', hex: '#151515' },
-      { name: 'PLA-CF Borgonha', hex: '#4A0E17' },
-      { name: 'PLA-CF Azul Jeans', hex: '#1C3144' },
-      { name: 'PLA-CF Cinza Lava', hex: '#3D3D3D' },
-      { name: 'PETG-CF Preto', hex: '#1A1A1A' },
-      { name: 'PETG-CF Vermelho Tijolo', hex: '#8B2500' },
-      { name: 'PA6-CF Preto Industrial', hex: '#0A0A0A' }
+    "colors": [
+      {
+        "name": "Preto",
+        "hex": "#111111"
+      },
+      {
+        "name": "Branco",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Cinza",
+        "hex": "#808080"
+      },
+      {
+        "name": "Vermelho",
+        "hex": "#C62928"
+      },
+      {
+        "name": "Azul Real",
+        "hex": "#0055A5"
+      },
+      {
+        "name": "Laranja Solar",
+        "hex": "#FF7518"
+      },
+      {
+        "name": "Amarelo Ouro",
+        "hex": "#FFD700"
+      },
+      {
+        "name": "Verde Floresta",
+        "hex": "#228B22"
+      }
     ],
-    description: 'Filamentos técnicos reforçados com fibra de carbono. Oferecem acabamento superficial acetinado sem linhas visíveis e resistência comparável a ligas de alumínio.'
+    "description": "Combina a facilidade do PLA com resistência mecânica e química muito superior. Ideal para peças funcionais, suportes mecânicos, carcaças e aplicações com contato com água."
   },
+
   {
-    id: 'filament-bambu-tpu-flexible',
-    name: 'Filamento Bambu TPU Flexível (85A, 90A, 95A HF & for AMS)',
-    category: 'Filamentos',
-    subCategory: 'TPU Flexível',
-    brand: 'Bambu Lab',
-    price: 313.65,
-    oldPrice: 369.00,
-    installments: 12,
-    installmentValue: 26.13,
-    pixDiscountPercent: 10,
-    pixPrice: 282.28,
-    image: '/images/filament-sunlu-white.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 57,
-    inStock: true,
-    sku: 'BL-TPU-SERIES',
-    specs: {
-      hardness: 'Shore 85A (Ultra Mole), 90A e 95A HF (Alta Velocidade)',
-      amsCompatibility: 'Versão especial TPU for AMS homologada',
-      elongation: 'Até 600% de alongamento sem ruptura'
+    "id": "filament-bambu-petg-translucent",
+    "name": "Filamento Bambu PETG Translucent (Translúcido Efeito Vidro) 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PETG Translúcido",
+    "brand": "Bambu Lab",
+    "polymerType": "PETG",
+    "price": 169,
+    "oldPrice": 199,
+    "installments": 6,
+    "installmentValue": 28.17,
+    "pixDiscountPercent": 10,
+    "pixPrice": 152.1,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "EFEITO VIDRO",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 51,
+    "inStock": true,
+    "sku": "G01-D0-1.75-1000-SPL",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "finish": "Transparência Alta & Difusão de Luz",
+      "diameter": "1.75 mm",
+      "temp": "230 - 255 °C"
     },
-    colors: [
-      { name: 'Preto TPU 95A', hex: '#111111' },
-      { name: 'Branco TPU 95A', hex: '#FFFFFF' },
-      { name: 'Azul TPU 90A', hex: '#0277BD' },
-      { name: 'TPU for AMS Preto (R$ 313)', hex: '#1A1A1A' },
-      { name: 'TPU for AMS Azul', hex: '#0288D1' },
-      { name: 'TPU for AMS Verde Neon', hex: '#76FF03' },
-      { name: 'TPU 85A Ciano Claro', hex: '#00E5FF' }
+    "colors": [
+      {
+        "name": "Cristal Transparente",
+        "hex": "#E8F4F8"
+      },
+      {
+        "name": "Azul Translúcido",
+        "hex": "#0077BE"
+      },
+      {
+        "name": "Laranja Translúcido",
+        "hex": "#FF7518"
+      },
+      {
+        "name": "Fumê Cinza",
+        "hex": "#4A4A4A"
+      },
+      {
+        "name": "Verde Esmeralda",
+        "hex": "#50C878"
+      }
     ],
-    description: 'Poliuretano termoplástico de altíssima absorção de choque e memória elástica. Ideal para pneus, juntas de vedação, calçados e protetores de drones.'
+    "description": "Alta transmitância de luz e resistência ao impacto. Perfeito para luminárias, abajures com difusores de LED, recipientes estanques e visores técnicos."
   },
+
   {
-    id: 'filament-bambu-support-pva',
-    name: 'Filamentos Bambu Suporte Removível & PVA Solúvel em Água',
-    category: 'Filamentos',
-    subCategory: 'Suporte & PVA',
-    brand: 'Bambu Lab',
-    price: 125.10,
-    oldPrice: 139.00,
-    installments: 6,
-    installmentValue: 20.85,
-    pixDiscountPercent: 10,
-    pixPrice: 112.59,
-    image: '/images/filament-sunlu-white.png',
-    badge: 'BLACK NOVEMBER −10%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 38,
-    inStock: true,
-    sku: 'BL-SUPPORT-SERIES',
-    specs: {
-      types: 'Support for PLA R$ 287 | Support for ABS R$ 125 | PVA Solúvel R$ 355',
-      finish: 'Destaque Perfeito com Superfície de Contato Espelhada'
+    "id": "filament-bambu-abs-asa",
+    "name": "Filamento Bambu ABS & ASA Resistência Mecânica/UV 1Kg",
+    "category": "Filamentos",
+    "subCategory": "ABS & ASA Engenharia",
+    "brand": "Bambu Lab",
+    "polymerType": "ABS",
+    "price": 111.2,
+    "oldPrice": 143.65,
+    "installments": 6,
+    "installmentValue": 18.53,
+    "pixDiscountPercent": 10,
+    "pixPrice": 100.08,
+    "image": "/images/filament-printalot-pla-preto.png",
+    "badge": "CALOR ATÉ 100°C",
+    "promoTag": "black-friday",
+    "rating": 4.9,
+    "reviewsCount": 67,
+    "inStock": true,
+    "sku": "BL-ABS-ASA",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "tempResist": "Até 100 °C contínuos",
+      "uvResist": "ASA com bloqueio UV total",
+      "diameter": "1.75 mm",
+      "temp": "240 - 270 °C"
     },
-    colors: [
-      { name: 'Support for ABS Branco', hex: '#FFFFFF' },
-      { name: 'Support for PLA Branco', hex: '#F5F5F5' },
-      { name: 'PVA Solúvel 100% em Água', hex: '#E0F2F1' },
-      { name: 'Support for PA/PET Verde', hex: '#81C784' }
+    "colors": [
+      {
+        "name": "Preto Puro",
+        "hex": "#111111"
+      },
+      {
+        "name": "Branco Neve",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Cinza Industrial",
+        "hex": "#666666"
+      },
+      {
+        "name": "Azul Marinho",
+        "hex": "#002060"
+      },
+      {
+        "name": "Vermelho Fogo",
+        "hex": "#CC0000"
+      },
+      {
+        "name": "Amarelo Tráfego",
+        "hex": "#FFCC00"
+      },
+      {
+        "name": "Verde Militar",
+        "hex": "#4B5320"
+      },
+      {
+        "name": "Laranja Segurança",
+        "hex": "#FF5F1F"
+      }
     ],
-    description: 'Materiais dedicados exclusivamente para suportes de impressão. O PVA dissolve totalmente em água e o Support for PLA se destaca como casca com zero esforço.'
+    "description": "Materiais de engenharia pura para peças técnicas sujeitas a calor e atrito. O ASA oferece bloqueio UV total para componentes externos automotivos e de aviação."
   },
+
   {
-    id: 'filament-polymaker-panchroma',
-    name: 'Filamento Polymaker Panchroma (Matte, Silk, Galaxy & Gradient)',
-    category: 'Filamentos',
-    subCategory: 'Polymaker Criativo',
-    brand: 'Polymaker',
-    price: 99.59,
-    oldPrice: 117.17,
-    installments: 6,
-    installmentValue: 16.59,
-    pixDiscountPercent: 10,
-    pixPrice: 89.63,
-    image: '/images/filament-panchroma-magenta.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 78,
-    inStock: true,
-    sku: 'PM-PANCHROMA',
-    specs: {
-      line: 'Panchroma Matte R$ 99,59 | Starlight R$ 184,80 | Gradient R$ 223,54',
-      diameter: '1.75 mm',
-      origin: 'Qualidade Suíça Certificada'
+    "id": "filament-bambu-carbon-fiber-engineering",
+    "name": "Filamentos Bambu Carbon Fiber (PLA-CF, PETG-CF, PA6-CF, PAHT-CF)",
+    "category": "Filamentos",
+    "subCategory": "Fibra de Carbono",
+    "brand": "Bambu Lab",
+    "polymerType": "CARBON_FIBER",
+    "price": 203.15,
+    "oldPrice": 249,
+    "installments": 6,
+    "installmentValue": 33.86,
+    "pixDiscountPercent": 10,
+    "pixPrice": 182.84,
+    "image": "/images/filament-printalot-pla-preto.png",
+    "badge": "RIGIDEZ MÁXIMA",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 94,
+    "inStock": true,
+    "sku": "BL-CF-SERIES",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "fiber": "Reforço com Fibras Curtas de Carbono",
+      "finish": "Matte Acetinado Técnico Texturizado",
+      "diameter": "1.75 mm",
+      "nozzle": "Requer Bico de Aço Endurecido"
     },
-    colors: [
-      { name: 'Matte Arctic Teal', hex: '#008080' },
-      { name: 'Matte Ash Grey', hex: '#B2BEB5' },
-      { name: 'Matte Electric Indigo', hex: '#4B0082' },
-      { name: 'Matte Forest Green', hex: '#228B22' },
-      { name: 'Matte Muted Purple', hex: '#800080' },
-      { name: 'Starlight Aurora', hex: '#FF007F' },
-      { name: 'Gradient Arco-Íris R$ 223', hex: '#FF4081' }
+    "colors": [
+      {
+        "name": "Preto Grafite Carbono",
+        "hex": "#1C1C1C"
+      },
+      {
+        "name": "Cinza Ardósia",
+        "hex": "#474747"
+      },
+      {
+        "name": "Azul Denim Escuro",
+        "hex": "#1E2D42"
+      },
+      {
+        "name": "Verde Tático",
+        "hex": "#2A3428"
+      },
+      {
+        "name": "Borgonha Escuro",
+        "hex": "#3B1720"
+      },
+      {
+        "name": "Laranja Queimado",
+        "hex": "#8B4000"
+      },
+      {
+        "name": "Lavanda Cinzento",
+        "hex": "#5D536B"
+      }
     ],
-    description: 'A aclamada linha criativa da Polymaker. Acabamento fosco ultrassuave e variações com partículas estelares ou degradê contínuo multicolorido.'
+    "description": "Filamentos reforçados com fibra de carbono real. Garantem rigidez estrutural incomparável, mínima retração térmica e acabamento superficial fosco com camuflagem perfeita de linhas."
   },
+
   {
-    id: 'filament-polymaker-fiberon-industrial',
-    name: 'Filamento Polymaker Fiberon (ASA-CF, PA-CF, PET-CF, PPS-CF)',
-    category: 'Filamentos',
-    subCategory: 'Engenharia Industrial',
-    brand: 'Polymaker',
-    price: 130.45,
-    oldPrice: 153.47,
-    installments: 12,
-    installmentValue: 10.87,
-    pixDiscountPercent: 10,
-    pixPrice: 117.40,
-    image: '/images/filament-printalot-pla-preto.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 5.0,
-    reviewsCount: 45,
-    inStock: true,
-    sku: 'PM-FIBERON',
-    specs: {
-      grades: 'Fiberon ASA-CF08 R$ 130 | PA6-CF20 R$ 299 | PA12-CF10 R$ 502 | PPS-CF10 R$ 657',
-      thermalResistance: 'Até 230°C de deflexão térmica contínua'
+    "id": "filament-bambu-tpu-flexible",
+    "name": "Filamento Bambu TPU Flexível (85A, 90A, 95A HF & for AMS)",
+    "category": "Filamentos",
+    "subCategory": "TPU Flexível Emborrachado",
+    "brand": "Bambu Lab",
+    "polymerType": "ESPECIAIS",
+    "price": 313.65,
+    "oldPrice": 359,
+    "installments": 6,
+    "installmentValue": 52.28,
+    "pixDiscountPercent": 10,
+    "pixPrice": 282.28,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "EMBORRACHADO",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 38,
+    "inStock": true,
+    "sku": "BL-TPU-SERIES",
+    "specs": {
+      "hardness": "Dureza Shore 85A / 90A / 95A HF",
+      "elongation": "Alongamento até a ruptura > 450%",
+      "diameter": "1.75 mm",
+      "temp": "220 - 240 °C"
     },
-    colors: [
-      { name: 'Fiberon ASA-CF08 Preto', hex: '#1C1C1C' },
-      { name: 'Fiberon ASA-CF08 Cinza', hex: '#4A4A4A' },
-      { name: 'Fiberon PA6-CF20 Preto', hex: '#0F0F0F' },
-      { name: 'Fiberon PA12-CF10 Preto', hex: '#050505' },
-      { name: 'Fiberon PPS-CF10 Industrial', hex: '#000000' }
+    "colors": [
+      {
+        "name": "Preto Emborrachado",
+        "hex": "#111111"
+      },
+      {
+        "name": "Branco Puro",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Cinza Espacial",
+        "hex": "#555555"
+      },
+      {
+        "name": "Azul Elétrico",
+        "hex": "#0066FF"
+      },
+      {
+        "name": "Vermelho Vivo",
+        "hex": "#FF0033"
+      },
+      {
+        "name": "Amarelo Neon",
+        "hex": "#FFFF00"
+      },
+      {
+        "name": "Laranja Vibrante",
+        "hex": "#FF6600"
+      }
     ],
-    description: 'Linha automotiva e aeroespacial da Polymaker para substituição direta de peças metálicas. Resistência química incomparável e precisão dimensional milimétrica.'
+    "description": "Poliuretano termoplástico de alta elasticidade e absorção de choques. Ideal para pneus de robótica, gaxetas vedantes, capas de proteção e solados flexíveis."
   },
+
   {
-    id: 'filament-sunlu-high-speed-matte',
-    name: 'Filamento SUNLU PLA High Speed, PLA Matte & PLA+ Silk',
-    category: 'Filamentos',
-    subCategory: 'Alta Velocidade & Silk',
-    brand: 'SUNLU',
-    price: 91.13,
-    oldPrice: 107.21,
-    installments: 6,
-    installmentValue: 15.18,
-    pixDiscountPercent: 10,
-    pixPrice: 82.01,
-    image: '/images/filament-sunlu-white.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 134,
-    inStock: true,
-    sku: 'SL-FULL-SERIES',
-    specs: {
-      speed: 'High Speed até 600 mm/s',
-      prices: 'PLA Classic R$ 75,32 | PLA+ Silk R$ 91,13 | PLA Matte R$ 92,66 | High Speed R$ 93,58'
+    "id": "filament-bambu-support-pva",
+    "name": "Filamentos Bambu Suporte Removível & PVA Solúvel em Água",
+    "category": "Filamentos",
+    "subCategory": "Suporte & PVA",
+    "brand": "Bambu Lab",
+    "polymerType": "ESPECIAIS",
+    "price": 125.1,
+    "oldPrice": 149,
+    "installments": 6,
+    "installmentValue": 20.85,
+    "pixDiscountPercent": 10,
+    "pixPrice": 112.59,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "SOLÚVEL & DESCOLÁVEL",
+    "promoTag": "black-november",
+    "rating": 5,
+    "reviewsCount": 33,
+    "inStock": true,
+    "sku": "BL-SUPPORT-SERIES",
+    "specs": {
+      "rfid": "Sim (Auto-identificação AMS)",
+      "removal": "PVA (Dissolve em água morna) ou Support for PLA (Destaque manual)",
+      "diameter": "1.75 mm",
+      "temp": "190 - 220 °C"
     },
-    colors: [
-      { name: 'High Speed Preto R$ 93', hex: '#111111' },
-      { name: 'High Speed Cinza', hex: '#9E9E9E' },
-      { name: 'PLA+ Silk Ouro Real R$ 91', hex: '#D4AF37' },
-      { name: 'PLA+ Silk Cobre Metálico', hex: '#B87333' },
-      { name: 'PLA+ Silk Prata', hex: '#C0C0C0' },
-      { name: 'PLA Matte Verde Folha R$ 92', hex: '#388E3C' },
-      { name: 'PLA Matte Roxo Lavanda', hex: '#9C27B0' },
-      { name: 'PLA Classic Refil R$ 75', hex: '#EEEEEE' }
+    "colors": [
+      {
+        "name": "Support for PLA (Branco Destaque Fácil)",
+        "hex": "#F8F9FA"
+      },
+      {
+        "name": "Support for PA/PET (Cinza Claro)",
+        "hex": "#D6D8DB"
+      },
+      {
+        "name": "PVA Solúvel em Água Natural",
+        "hex": "#FFFDD0"
+      },
+      {
+        "name": "Support for ABS (Verde Menta)",
+        "hex": "#98FF98"
+      }
     ],
-    description: 'Um dos filamentos mais populares do mundo. Alta fluidez térmica para impressões rápidas com carretel anti-travamento e enrolamento de precisão.'
+    "description": "Interface de suporte que se desprende com facilidade milimétrica da peça ou dissolve totalmente em água (PVA), eliminando cicatrizes de contato em pontes e saliências."
   },
+
   {
-    id: 'filament-esun-special',
-    name: 'Filamento eSun (PLA HS, PLA-Silk Magic Bicolor & TPU Termocromático)',
-    category: 'Filamentos',
-    subCategory: 'eSun Especiais',
-    brand: 'eSun',
-    price: 124.93,
-    oldPrice: 146.98,
-    installments: 6,
-    installmentValue: 20.82,
-    pixDiscountPercent: 10,
-    pixPrice: 112.43,
-    image: '/images/filament-bambulab-pla-lite.png',
-    badge: 'BLACK NOVEMBER −15%',
-    promoTag: 'black-november',
-    rating: 4.8,
-    reviewsCount: 41,
-    inStock: true,
-    sku: 'ESUN-SPECIAL',
-    specs: {
-      types: 'PLA HS Branco R$ 124,93 | PLA-Silk Magic Prata/Vermelho R$ 157 | TPU Termocromático R$ 302',
-      thermalEffect: 'Muda de tonalidade de acordo com a temperatura do ambiente!'
+    "id": "filament-polymaker-panchroma",
+    "name": "Filamento Polymaker Panchroma (Matte, Silk, Galaxy & Gradient)",
+    "category": "Filamentos",
+    "subCategory": "Polymaker Criativo",
+    "brand": "Polymaker",
+    "polymerType": "PLA",
+    "price": 99.59,
+    "oldPrice": 117.17,
+    "installments": 6,
+    "installmentValue": 16.6,
+    "pixDiscountPercent": 10,
+    "pixPrice": 89.63,
+    "image": "/images/filament-panchroma-magenta.png",
+    "badge": "PROMOÇÃO IMPERDÍVEL",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 71,
+    "inStock": true,
+    "sku": "POLY-PANCHROMA",
+    "specs": {
+      "brand": "Polymaker Oficial",
+      "jamFree": "Tecnologia patenteada Jam-Free",
+      "diameter": "1.75 mm ± 0.02 mm",
+      "temp": "190 - 225 °C"
     },
-    colors: [
-      { name: 'PLA HS Branco', hex: '#FFFFFF' },
-      { name: 'PLA-Silk Magic Prata/Vermelho', hex: '#B71C1C' },
-      { name: 'TPU Termocromático (Muda de Cor)', hex: '#FF5722' },
-      { name: 'TPU Amarelo Fluorescente', hex: '#EEFF41' }
+    "colors": [
+      {
+        "name": "Electric Magenta",
+        "hex": "#FF007F"
+      },
+      {
+        "name": "Ash Grey Fosco",
+        "hex": "#708090"
+      },
+      {
+        "name": "Starlight Comet",
+        "hex": "#4B0082"
+      },
+      {
+        "name": "Silk Bronze Metálico",
+        "hex": "#CD7F32"
+      },
+      {
+        "name": "Pastel Peanut",
+        "hex": "#D2B48C"
+      },
+      {
+        "name": "Teal Oceano",
+        "hex": "#008080"
+      },
+      {
+        "name": "Gradient Sunset",
+        "hex": "#FF4500"
+      }
     ],
-    description: 'Destaque especial para o filamento TPU Termocromático que altera sua coloração sob calor e para o PLA-Silk Magic bicolor que produz efeito óptico fascinante.'
+    "description": "Linha artística conceituada da Polymaker com fórmulas patenteadas que evitam entupimento e conferem cores exóticas e gradientes bicolores cinematográficos."
   },
+
   {
-    id: 'filament-printalot-pla',
-    name: 'Filamento Printalot PLA Premium 1.75mm 1Kg',
-    category: 'Filamentos',
-    subCategory: 'PLA Premium',
-    brand: 'Printalot',
-    price: 129.90,
-    oldPrice: 145.00,
-    installments: 6,
-    installmentValue: 21.65,
-    pixDiscountPercent: 10,
-    pixPrice: 116.91,
-    image: '/images/filament-printalot-pla-preto.png',
-    badge: 'BLACK NOVEMBER −10%',
-    promoTag: 'black-november',
-    rating: 4.9,
-    reviewsCount: 88,
-    inStock: true,
-    sku: 'PL-PLA-PREMIUM',
-    specs: {
-      material: 'PLA Virgem Grau Ingeo',
-      diameter: '1.75 mm (±0.02 mm)',
-      weight: '1.0 kg Líquido',
-      temp: '195 - 225 °C',
-      spool: 'Carretel de Papelão Reciclável'
+    "id": "filament-polymaker-fiberon-industrial",
+    "name": "Filamento Polymaker Fiberon (ASA-CF, PA-CF, PET-CF, PPS-CF)",
+    "category": "Filamentos",
+    "subCategory": "Engenharia Industrial",
+    "brand": "Polymaker",
+    "polymerType": "CARBON_FIBER",
+    "price": 130.45,
+    "oldPrice": 159,
+    "installments": 6,
+    "installmentValue": 21.74,
+    "pixDiscountPercent": 10,
+    "pixPrice": 117.41,
+    "image": "/images/filament-printalot-pla-preto.png",
+    "badge": "AEROESPACIAL",
+    "promoTag": "black-friday",
+    "rating": 5,
+    "reviewsCount": 39,
+    "inStock": true,
+    "sku": "POLY-FIBERON",
+    "specs": {
+      "strength": "Resistência à Tração Superior a 105 MPa",
+      "hdt": "Resistência Térmica até 180 °C",
+      "diameter": "1.75 mm",
+      "nozzle": "Bico de Aço Endurecido Mandatório"
     },
-    colors: [
-      { name: 'Vermelho', hex: '#C62928' },
-      { name: 'Chocolate', hex: '#4E3524' },
-      { name: 'Amarelo', hex: '#F6D334' },
-      { name: 'Verde Militar', hex: '#4D5932' }
+    "colors": [
+      {
+        "name": "Preto Carbono Industrial",
+        "hex": "#111111"
+      },
+      {
+        "name": "Cinza Aço Titânio",
+        "hex": "#43464B"
+      },
+      {
+        "name": "Azul Marinho Tático",
+        "hex": "#1B263B"
+      },
+      {
+        "name": "Verde Oliva Profundo",
+        "hex": "#354230"
+      },
+      {
+        "name": "Terracota Estrutural",
+        "hex": "#7A3828"
+      }
     ],
-    description: 'Polímero 100% virgem NatureWorks Ingeo de alta estabilidade geométrica, excelente aderência à mesa e carretel ecológico sustentável.'
-  }
+    "description": "Projetado para substituir alumínio e ligas metálicas em gabaritos de usinagem, drones de alta velocidade e componentes automotivos de alta carga."
+  },
+
+  {
+    "id": "filament-sunlu-high-speed-matte",
+    "name": "Filamento SUNLU PLA High Speed, PLA Matte & PLA+ Silk",
+    "category": "Filamentos",
+    "subCategory": "Alta Velocidade & Silk",
+    "brand": "SUNLU",
+    "polymerType": "PLA",
+    "price": 93.58,
+    "oldPrice": 110.09,
+    "installments": 6,
+    "installmentValue": 15.6,
+    "pixDiscountPercent": 10,
+    "pixPrice": 84.22,
+    "image": "/images/filament-sunlu-white.png",
+    "badge": "MELHOR CUSTO-BENEFÍCIO",
+    "promoTag": "black-friday",
+    "rating": 4.9,
+    "reviewsCount": 153,
+    "inStock": true,
+    "sku": "SL-HS-SERIES",
+    "specs": {
+      "speed": "Testado até 600 mm/s em CoreXY",
+      "fluidity": "Alta vazão volumétrica (até 32 mm³/s)",
+      "diameter": "1.75 mm ± 0.02 mm",
+      "temp": "200 - 230 °C"
+    },
+    "colors": [
+      {
+        "name": "Branco Neve",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "Preto Profundo",
+        "hex": "#111111"
+      },
+      {
+        "name": "Cinza Prata",
+        "hex": "#A9A9A9"
+      },
+      {
+        "name": "Vermelho Ferrari",
+        "hex": "#FF2800"
+      },
+      {
+        "name": "Azul Cobalto",
+        "hex": "#0047AB"
+      },
+      {
+        "name": "Amarelo Canário",
+        "hex": "#FFEF00"
+      },
+      {
+        "name": "Verde Neon",
+        "hex": "#39FF14"
+      },
+      {
+        "name": "Laranja Solar",
+        "hex": "#FF7900"
+      }
+    ],
+    "description": "Filamento de altíssima vazão volumétrica perfeito para impressoras de alta aceleração. Excelente aderência entre camadas com valor altamente competitivo."
+  },
+
+  {
+    "id": "filament-esun-special",
+    "name": "Filamento eSun (PLA HS, PLA-Silk Magic Bicolor & TPU)",
+    "category": "Filamentos",
+    "subCategory": "eSun Especiais",
+    "brand": "eSun",
+    "polymerType": "ESPECIAIS",
+    "price": 124.93,
+    "oldPrice": 149,
+    "installments": 6,
+    "installmentValue": 20.82,
+    "pixDiscountPercent": 10,
+    "pixPrice": 112.44,
+    "image": "/images/filament-bambulab-pla-lite.png",
+    "badge": "BICOLOR & HS",
+    "promoTag": "black-november",
+    "rating": 4.9,
+    "reviewsCount": 42,
+    "inStock": true,
+    "sku": "ESUN-SPECIAL",
+    "specs": {
+      "brand": "eSun Oficial",
+      "effect": "Fórmula High-Speed & Coextrusão Bicolor",
+      "diameter": "1.75 mm",
+      "temp": "210 - 230 °C"
+    },
+    "colors": [
+      {
+        "name": "PLA HS Branco",
+        "hex": "#FFFFFF"
+      },
+      {
+        "name": "PLA HS Preto",
+        "hex": "#111111"
+      },
+      {
+        "name": "Silk Magic Ouro-Vermelho",
+        "hex": "#B8860B"
+      },
+      {
+        "name": "eTPU-95A Translúcido",
+        "hex": "#E0FFFF"
+      }
+    ],
+    "description": "Linha consagrada globalmente da eSun trazendo os novos compostos ePLA-HS para alta velocidade e filamentos coextrusados bicolores com transição de cor em 360°."
+  },
+
+  {
+    "id": "filament-printalot-pla",
+    "name": "Filamento Printalot PLA Premium 1.75mm 1Kg",
+    "category": "Filamentos",
+    "subCategory": "PLA Premium",
+    "brand": "Printalot",
+    "polymerType": "PLA",
+    "price": 129.9,
+    "oldPrice": 145,
+    "installments": 6,
+    "installmentValue": 21.65,
+    "pixDiscountPercent": 10,
+    "pixPrice": 116.91,
+    "image": "/images/filament-printalot-pla-preto.png",
+    "badge": "QUALIDADE VIRGEM",
+    "promoTag": "black-friday",
+    "rating": 4.8,
+    "reviewsCount": 57,
+    "inStock": true,
+    "sku": "PRT-PLA-1KG",
+    "specs": {
+      "resin": "100% Ingeo NatureWorks USA",
+      "diameter": "1.75 mm ± 0.02 mm",
+      "temp": "195 - 220 °C"
+    },
+    "colors": [
+      {
+        "name": "Preto Puro",
+        "hex": "#111111"
+      },
+      {
+        "name": "Vermelho Fogo",
+        "hex": "#C62928"
+      },
+      {
+        "name": "Chocolate Marrom",
+        "hex": "#4E3524"
+      },
+      {
+        "name": "Amarelo Ouro",
+        "hex": "#F6D334"
+      },
+      {
+        "name": "Verde Militar",
+        "hex": "#4D5932"
+      }
+    ],
+    "description": "Polímero 100% virgem NatureWorks Ingeo de alta estabilidade geométrica, excelente aderência à mesa e carretel ecológico sustentável."
+  },
+
 ];
 
 export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
@@ -1300,3 +1881,5 @@ export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
 
 export const FILAMENTS = ALL_PRODUCTS.filter(p => p.category === 'Filamentos');
 export const PRINTERS = ALL_PRODUCTS.filter(p => p.category === 'Impressoras 3D');
+
+export default ALL_PRODUCTS;

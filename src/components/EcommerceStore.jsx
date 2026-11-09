@@ -12,11 +12,13 @@ import {
 export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', activeCategory = 'all' }) {
   const [selectedCategory, setSelectedCategory] = useState(activeCategory);
   const [selectedVoltages, setSelectedVoltages] = useState({});
+  const [filamentFilter, setFilamentFilter] = useState('all');
   const products = useLiveProducts();
 
   // Sync when activeCategory changes from header navigation
   useEffect(() => {
     setSelectedCategory(activeCategory);
+    setFilamentFilter('all');
   }, [activeCategory]);
 
   // Filter products cleanly without cluttered sidebar
@@ -77,14 +79,17 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
       if (selectedCategory !== 'all') {
         if (selectedCategory === 'black-friday' && !product.badge?.includes('BLACK') && !product.promoTag && !product.badge?.includes('PROMO') && !product.badge?.includes('OFERTA')) return false;
         if (selectedCategory === 'Impressoras 3D' && product.category !== 'Impressoras 3D' && !product.category?.includes('Combo')) return false;
-        if (selectedCategory === 'Filamentos' && product.category !== 'Filamentos') return false;
+        if (selectedCategory === 'Filamentos') {
+          if (product.category !== 'Filamentos') return false;
+          if (filamentFilter !== 'all' && product.polymerType !== filamentFilter) return false;
+        }
         if (selectedCategory === 'Combos' && !product.name.toLowerCase().includes('combo') && !product.category?.toLowerCase().includes('combo')) return false;
         if (selectedCategory === 'Peças e Acessórios' && product.category !== 'Peças e Acessórios' && product.category !== 'Acessórios') return false;
       }
 
       return true;
     });
-  }, [products, searchQuery, selectedCategory]);
+  }, [products, searchQuery, selectedCategory, filamentFilter]);
 
   // Helper to extract clean model and 3 spec metrics
   const getProductDisplayData = (product, currentVoltage) => {
@@ -244,6 +249,102 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
               </button>
             ))}
           </div>
+
+          {/* Filament Polymer Sub-Filters Bar (When Filamentos is selected) */}
+          {selectedCategory === 'Filamentos' && (
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-1.5 animate-fade-in">
+              {[
+                { id: 'all', label: 'Todos os Filamentos (19)' },
+                { id: 'PLA', label: '🟢 PLA (Fácil & Visual)' },
+                { id: 'PETG', label: '🔵 PETG (Resistente & Água)' },
+                { id: 'ABS', label: '🟠 ABS & ASA (Calor & Sol)' },
+                { id: 'CARBON_FIBER', label: '⚫ Fibra de Carbono' },
+                { id: 'ESPECIAIS', label: '🟣 Flexíveis (TPU) & Suporte' }
+              ].map(sub => (
+                <button
+                  key={sub.id}
+                  onClick={() => setFilamentFilter(sub.id)}
+                  className={`px-3.5 py-1.5 rounded-full text-[11px] font-bold font-mono transition-all cursor-pointer ${
+                    filamentFilter === sub.id
+                      ? 'bg-amber-400 text-black shadow-sm ring-1 ring-amber-400'
+                      : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 border border-zinc-200'
+                  }`}
+                >
+                  {sub.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Educational Guide Card: "Qual Filamento Escolher?" */}
+          {selectedCategory === 'Filamentos' && (
+            <div className="mt-8 mb-4 max-w-5xl mx-auto bg-gradient-to-br from-zinc-900 to-black text-white rounded-3xl p-6 sm:p-8 border border-white/10 shadow-xl text-left">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 border-b border-white/10 pb-4">
+                <div>
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-amber-400 font-bold block mb-1">
+                    Guia Didático Maker
+                  </span>
+                  <h3 className="text-xl sm:text-2xl font-bold font-['Space_Grotesk'] text-white">
+                    Qual filamento escolher para o seu projeto?
+                  </h3>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-zinc-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/10 w-fit">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Chip RFID: Leitura automática no AMS</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {/* PLA */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">PLA (Iniciantes & Visual)</h4>
+                    </div>
+                    <p className="text-xs text-zinc-300 leading-relaxed">
+                      O filamento mais fácil de imprimir e sem odor. Perfeito para miniaturas, action figures, vasos, maquetes e acabamentos com textura fosca, seda, mármore ou madeira real.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-emerald-400 font-mono font-semibold">
+                    ✔ Zero empenamento • Fácil de imprimir
+                  </div>
+                </div>
+
+                {/* PETG */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-cyan-400"></span>
+                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">PETG (Resistência & Utilidades)</h4>
+                    </div>
+                    <p className="text-xs text-zinc-300 leading-relaxed">
+                      Une a facilidade do PLA com resistência ao impacto e à umidade. Ideal para suportes de parede, potes, peças do dia a dia, recipientes estanques e peças mecânicas moderadas.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-cyan-400 font-mono font-semibold">
+                    ✔ Resistente a água • Não racha com impacto
+                  </div>
+                </div>
+
+                {/* ABS & ASA */}
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                      <h4 className="font-bold text-sm text-white font-['Space_Grotesk']">ABS & ASA (Calor & Uso Externo)</h4>
+                    </div>
+                    <p className="text-xs text-zinc-300 leading-relaxed">
+                      Suporta temperaturas de até 100°C. O ASA oferece proteção total contra raios UV (sol e chuva). Essencial para peças automotivas, maquinários e áreas externas.
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-white/10 text-[11px] text-amber-400 font-mono font-semibold">
+                    ✔ Calor até 100°C • Proteção solar UV
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* ================= 2. MINIMALIST PRODUCT GRID (EXACT REFERENCE DESIGN) ================= */}
