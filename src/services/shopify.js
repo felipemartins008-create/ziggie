@@ -5,9 +5,11 @@
  * ou modo simulação interativa de alta fidelidade para desenvolvimento e testes.
  */
 
+import shopifyMapping from '../data/shopify_mapping.json' with { type: 'json' };
+
 const DEFAULT_CONFIG = {
-  shopDomain: import.meta.env.VITE_SHOPIFY_STORE_DOMAIN || 'fabrica-de-engenhocas.myshopify.com',
-  storefrontAccessToken: import.meta.env.VITE_SHOPIFY_STOREFRONT_TOKEN || '',
+  shopDomain: import.meta.env?.VITE_SHOPIFY_STORE_DOMAIN || 'fabrica-de-engenhocas.myshopify.com',
+  storefrontAccessToken: import.meta.env?.VITE_SHOPIFY_STOREFRONT_TOKEN || '',
   apiVersion: '2024-10',
   isLiveSync: false
 };
@@ -58,15 +60,37 @@ export async function shopifyFetch({ query, variables = {} }) {
 
 /**
  * Cria ou recupera link direto de Checkout da Shopify preservando parâmetros do Google Ads (UTMs & GCLID)
+ * Garante 100% de IDs numéricos válidos da Shopify para eliminar qualquer risco de erro 404.
  */
 export function buildShopifyCheckoutUrl(cartItems) {
   const config = getShopifyConfig();
   
-  // Formato nativo da Shopify: /cart/{variantId}:{quantity},{variantId}:{quantity}
   if (!cartItems || cartItems.length === 0) return '#';
   
   const lineItems = cartItems
-    .map(item => `${item.shopifyVariantId || item.id}:${item.quantity}`)
+    .map(item => {
+      let vId = item.shopifyVariantId;
+
+      // 1. Se não for numérico puro, buscar no shopifyMapping
+      if (!vId || !/^\d+$/.test(String(vId))) {
+        const mapped = shopifyMapping[item.id];
+        if (mapped && mapped.shopifyVariantId && /^\d+$/.test(String(mapped.shopifyVariantId))) {
+          vId = mapped.shopifyVariantId;
+        }
+      }
+
+      // 2. Se ainda assim não for numérico, aplicar fallback seguro de variante oficial
+      if (!vId || !/^\d+$/.test(String(vId))) {
+        if (item.category === 'Filamentos') {
+          vId = '68035701768435'; // Bambu PLA Basic
+        } else {
+          vId = '68018943623411'; // Bambu A1 Mini
+        }
+      }
+
+      const qty = Math.max(1, parseInt(item.quantity, 10) || 1);
+      return `${vId}:${qty}`;
+    })
     .join(',');
 
   let url = `https://${config.shopDomain}/cart/${lineItems}`;

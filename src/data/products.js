@@ -1865,6 +1865,19 @@ export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
   const realPrice = mapData?.price ? parseFloat(mapData.price) : p.price;
   const realOldPrice = mapData?.oldPrice ? parseFloat(mapData.oldPrice) : (p.oldPrice || null);
   const pixPrice = +(realPrice * 0.90).toFixed(2);
+  const finalVariantId = (mapData && mapData.shopifyVariantId) 
+    ? String(mapData.shopifyVariantId) 
+    : (p.shopifyVariantId ? String(p.shopifyVariantId) : undefined);
+  const finalProductId = (mapData && mapData.shopifyProductId) 
+    ? String(mapData.shopifyProductId) 
+    : (p.shopifyProductId ? String(p.shopifyProductId) : undefined);
+
+  // Propaga o shopifyVariantId nas variantes de voltagem se não houver um específico
+  const voltageVariants = (p.voltageVariants || []).map(vv => ({
+    ...vv,
+    shopifyVariantId: vv.shopifyVariantId ? String(vv.shopifyVariantId) : finalVariantId
+  }));
+
   return {
     ...p,
     price: realPrice,
@@ -1872,10 +1885,13 @@ export const ALL_PRODUCTS = BASE_PRODUCTS.map(p => {
     installmentValue: p.installments ? +(realPrice / p.installments).toFixed(2) : 0,
     pixDiscountPercent: 10,
     pixPrice: pixPrice,
-    shopifyVariantId: mapData ? String(mapData.shopifyVariantId) : undefined,
-    shopifyProductId: mapData ? String(mapData.shopifyProductId) : undefined,
-    colorVariants: mapData?.colorVariants || [],
-    handle: mapData ? mapData.handle : undefined
+    shopifyVariantId: finalVariantId,
+    shopifyProductId: finalProductId,
+    voltageVariants,
+    colorVariants: (mapData?.colorVariants && mapData.colorVariants.length > 0) 
+      ? mapData.colorVariants 
+      : (p.colorVariants || []),
+    handle: mapData ? mapData.handle : (p.handle || undefined)
   };
 });
 

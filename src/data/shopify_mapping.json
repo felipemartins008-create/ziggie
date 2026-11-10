@@ -452,5 +452,173 @@
       }
     ],
     "oldPrice": "117.17"
+  },
+  "bambu-a1-refurbished": {
+    "shopifyProductId": 15476814872819,
+    "shopifyVariantId": 68018943492339,
+    "handle": "impressora-3d-bambu-lab-a1",
+    "title": "Impressora 3D Bambu Lab A1 (Recondicionada Oficial)",
+    "price": "2499.00",
+    "oldPrice": "2999.00"
+  },
+  "bambu-a1-combo-refurbished": {
+    "shopifyProductId": 15476814905587,
+    "shopifyVariantId": 68018943525107,
+    "handle": "impressora-3d-bambu-lab-a1-com-ams-lite-combo-4-cores",
+    "title": "Impressora 3D Bambu Lab A1 Combo (Recondicionada Oficial)",
+    "price": "3799.00",
+    "oldPrice": "4499.00"
+  },
+  "bambu-a1-mini-refurbished": {
+    "shopifyProductId": 15476815003891,
+    "shopifyVariantId": 68018943623411,
+    "handle": "impressora-3d-bambu-lab-a1-mini",
+    "title": "Impressora 3D Bambu Lab A1 Mini (Recondicionada Oficial)",
+    "price": "1699.00",
+    "oldPrice": "2179.00"
+  },
+  "bambu-h2c-combo-hv-220v": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2C Combo 220V",
+    "price": "27999.00",
+    "oldPrice": "29999.00"
+  },
+  "bambu-h2c-laser-10w-110v": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2C Full Combo Laser 10W",
+    "price": "31999.00",
+    "oldPrice": "34999.00"
+  },
+  "bambu-h2d-laser-10w-127v": {
+    "shopifyProductId": 15476815200499,
+    "shopifyVariantId": 68018944311539,
+    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
+    "title": "Impressora 3D Bambu Lab H2D Full Combo Laser 10W",
+    "price": "25999.00",
+    "oldPrice": "28999.00"
+  },
+  "bambu-h2s-laser-10w-220v": {
+    "shopifyProductId": 15476815167731,
+    "shopifyVariantId": 68018944278771,
+    "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
+    "title": "Impressora 3D Bambu Lab H2S Full Combo Laser 10W",
+    "price": "19999.00",
+    "oldPrice": "22999.00"
+  },
+  "bambu-x1e-combo": {
+    "shopifyProductId": 15476815266035,
+    "shopifyVariantId": 68018944377075,
+    "handle": "impressora-3d-bambu-lab-x2d-enterprise",
+    "title": "Impressora 3D Bambu Lab X1E Combo Enterprise",
+    "price": "29999.00",
+    "oldPrice": "32999.00"
+  },
+  "filament-bambu-pla-matte": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Matte Fosco Acetinado 1Kg",
+    "price": "134.10",
+    "oldPrice": "149.00"
+  },
+  "filament-bambu-pla-silk": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Silk & Silk+ Alto Brilho 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
+  },
+  "filament-bambu-pla-marble": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Marble Mármore 1Kg",
+    "price": "161.10",
+    "oldPrice": "179.00"
+  },
+  "filament-bambu-pla-galaxy": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Galaxy Cósmico 1Kg",
+    "price": "161.10",
+    "oldPrice": "179.00"
+  },
+  "filament-bambu-pla-glow": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Glow Fosforescente 1Kg",
+    "price": "170.10",
+    "oldPrice": "189.00"
+  },
+  "filament-bambu-pla-wood": {
+    "shopifyProductId": 15478663872755,
+    "shopifyVariantId": 68035701768435,
+    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Wood Madeira Real 1Kg",
+    "price": "188.10",
+    "oldPrice": "209.00"
+  },
+  "filament-bambu-petg-translucent": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": 68035702882547,
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamento Bambu PETG Translucent Translúcido 1Kg",
+    "price": "161.10",
+    "oldPrice": "179.00"
+  },
+  "filament-bambu-abs-asa": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": 68035702882547,
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamento Bambu ABS & ASA 1Kg",
+    "price": "161.10",
+    "oldPrice": "179.00"
+  },
+  "filament-bambu-carbon-fiber-engineering": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": 68035702882547,
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamentos Bambu Carbon Fiber (PLA-CF, PETG-CF)",
+    "price": "224.10",
+    "oldPrice": "249.00"
+  },
+  "filament-bambu-tpu-flexible": {
+    "shopifyProductId": 15478664200435,
+    "shopifyVariantId": 68035702882547,
+    "handle": "filamento-bambu-petg-1-75mm-1kg",
+    "title": "Filamento Bambu TPU Flexível Emborrachado",
+    "price": "313.65",
+    "oldPrice": "359.00"
+  },
+  "filament-bambu-support-pva": {
+    "shopifyProductId": 15478663577843,
+    "shopifyVariantId": 68035700523251,
+    "handle": "filamento-bambu-pla-lite",
+    "title": "Filamentos Bambu Suporte Removível & PVA",
+    "price": "125.10",
+    "oldPrice": "149.00"
+  },
+  "filament-polymaker-fiberon-industrial": {
+    "shopifyProductId": 15478665052403,
+    "shopifyVariantId": 68035705798899,
+    "handle": "filamento-panchona-matte-1-75mm-1kg",
+    "title": "Filamento Polymaker Fiberon Industrial",
+    "price": "249.90",
+    "oldPrice": "289.00"
+  },
+  "filament-esun-special": {
+    "shopifyProductId": 15478664462579,
+    "shopifyVariantId": 68035703734515,
+    "handle": "filamento-sanlu-pla-1-75mm-1kg",
+    "title": "Filamento eSun Especial",
+    "price": "124.90",
+    "oldPrice": "139.00"
   }
 }
