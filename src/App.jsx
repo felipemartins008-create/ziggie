@@ -9,16 +9,24 @@ import { CartDrawer } from './components/CartDrawer';
 import { ShopifySettingsModal } from './components/ShopifySettingsModal';
 import { getShopifyConfig } from './services/shopify';
 import { useLiveProducts } from './services/livePrices';
+import { ALL_PRODUCTS } from './data/products';
 import { trackAddToCart, trackViewItem } from './utils/analytics';
 import { CheckCircle2 } from 'lucide-react';
 
 export function App() {
   const products = useLiveProducts();
-  // Cart state persisted to localStorage
+  // Cart state persisted to localStorage with automatic ID sanitization
   const [cart, setCart] = useState(() => {
     try {
       const saved = localStorage.getItem('ziggie_cart');
-      return saved ? JSON.parse(saved) : [];
+      const parsed = saved ? JSON.parse(saved) : [];
+      return parsed.map(item => {
+        const prod = ALL_PRODUCTS.find(p => p.id === item.id);
+        if (prod && (!item.shopifyVariantId || !/^\d+$/.test(String(item.shopifyVariantId)))) {
+          return { ...item, shopifyVariantId: prod.shopifyVariantId };
+        }
+        return item;
+      });
     } catch {
       return [];
     }
