@@ -37,6 +37,10 @@ export function EcommerceHeader({
   const handleSelectModel = (modelKeyword) => {
     onSearchChange(modelKeyword);
     setModelosDropdownOpen(false);
+    setTimeout(() => {
+      const el = document.getElementById('ofertas');
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 100);
   };
 
   return (
@@ -52,6 +56,7 @@ export function EcommerceHeader({
                 e.preventDefault();
                 onSelectCategory('all');
                 onSearchChange('');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
               title="Ziggie 3D Printing - Página Inicial"
               aria-label="Ziggie 3D Printing"

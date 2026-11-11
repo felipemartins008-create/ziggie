@@ -219,7 +219,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
   };
 
   return (
-    <section id="ofertas" className="bg-white text-zinc-900 py-8 sm:py-24 font-sans min-h-screen">
+    <section id="ofertas" className="bg-white text-zinc-900 py-8 sm:py-24 font-sans min-h-screen scroll-mt-16 sm:scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================= 1. MINIMALIST CENTERED HEADER ================= */}

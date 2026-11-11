@@ -40,6 +40,19 @@ export function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [toastMessage, setToastMessage] = useState(null);
 
+  const handleSelectCategory = (category) => {
+    setActiveCategory(category);
+    // Smoothly scroll to the catalog section so mobile and desktop users immediately see the new category
+    setTimeout(() => {
+      const el = document.getElementById('ofertas');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
   // Sync cart to localStorage
   useEffect(() => {
     localStorage.setItem('ziggie_cart', JSON.stringify(cart));
@@ -129,7 +142,7 @@ export function App() {
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
         activeCategory={activeCategory}
-        onSelectCategory={setActiveCategory}
+        onSelectCategory={handleSelectCategory}
       />
 
       {/* 2. Official Black Friday & Black November Banner (Directly below header) */}
