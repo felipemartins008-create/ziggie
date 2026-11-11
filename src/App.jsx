@@ -42,11 +42,13 @@ export function App() {
 
   const handleSelectCategory = (category) => {
     setActiveCategory(category);
-    // Smoothly scroll to the catalog section so mobile and desktop users immediately see the new category
+    // Smoothly scroll to the catalog section with proper header offset so the full title is never clipped
     setTimeout(() => {
       const el = document.getElementById('ofertas');
       if (el) {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const yOffset = -85;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }

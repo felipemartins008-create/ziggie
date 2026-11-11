@@ -253,7 +253,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
         {/* ================= 1.1 ZYNTRIA-STYLE CATEGORY SHOWCASE CARDS (When Filamentos is active) ================= */}
         {selectedCategory === 'Filamentos' && (
-          <div className="mb-12 animate-fade-in">
+          <div className="hidden sm:block mb-12 animate-fade-in">
             <div className="flex items-center justify-between mb-6">
               <div>
                 <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-400 font-semibold block">
@@ -268,14 +268,14 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
               </span>
             </div>
 
-            <div className="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 pb-3 sm:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {/* Card 1: PLA */}
               <div 
                 onClick={() => {
                   setFilamentFilter('PLA');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   filamentFilter === 'PLA' 
                     ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-emerald-300'
@@ -289,9 +289,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Iniciantes & Visual</span>
                   </div>
                   
-                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
-                      src="/images/filaments/bambu-pla-basic.png" 
+                      src="/images/filaments/bambu-pla-matte.webp" 
                       alt="Filamento PLA" 
                       className="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md"
                     />
@@ -324,7 +324,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('PETG');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   filamentFilter === 'PETG' 
                     ? 'border-sky-500 ring-2 ring-sky-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-sky-300'
@@ -338,7 +338,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Equilíbrio & Resistência</span>
                   </div>
                   
-                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-petg-translucent.webp" 
                       alt="Filamento PETG" 
@@ -346,7 +346,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Filamentos PETG
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -354,10 +354,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
+                <div className="mt-5 pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 152,10</span>
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 152,10</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 136,89 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-sky-600 transition-colors flex items-center justify-center gap-1.5">
@@ -373,7 +373,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('ABS');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   filamentFilter === 'ABS' 
                     ? 'border-amber-500 ring-2 ring-amber-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-amber-300'
@@ -387,7 +387,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Calor 100°C & UV</span>
                   </div>
                   
-                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-abs.webp" 
                       alt="Filamento ABS" 
@@ -395,7 +395,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Filamentos ABS & ASA
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -403,10 +403,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
+                <div className="mt-5 pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 111,20</span>
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 111,20</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 100,08 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-amber-600 transition-colors flex items-center justify-center gap-1.5">
@@ -422,7 +422,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('CARBON_FIBER');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
+                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
                   filamentFilter === 'CARBON_FIBER' || filamentFilter === 'ESPECIAIS'
                     ? 'border-purple-500 ring-2 ring-purple-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-purple-300'
@@ -436,7 +436,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">CF, TPU & Solúvel</span>
                   </div>
                   
-                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-pla-cf.webp" 
                       alt="Filamentos Especiais" 
@@ -444,7 +444,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Fibra de Carbono & Especiais
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -452,10 +452,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
+                <div className="mt-5 pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 124,93</span>
+                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 124,93</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 112,43 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-purple-600 transition-colors flex items-center justify-center gap-1.5">
