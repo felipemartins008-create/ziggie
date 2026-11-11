@@ -54,24 +54,25 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
     <div className="fixed inset-0 z-50 overflow-hidden bg-black/80 backdrop-blur-sm animate-fade-in">
       <div className="absolute inset-0" onClick={onClose}></div>
 
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-[#0a0a0c] border-l border-white/[0.08] shadow-2xl flex flex-col justify-between z-10">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-0 sm:pl-10">
+        <div className="w-screen max-w-full sm:max-w-md bg-[#0a0a0c] border-l border-white/[0.08] shadow-2xl flex flex-col justify-between z-10">
           
           {/* Header */}
-          <div className="p-6 border-b border-white/[0.06] flex items-center justify-between">
+          <div className="p-4 sm:p-6 border-b border-white/[0.06] flex items-center justify-between">
             <h3 className="text-base font-bold text-white font-['Space_Grotesk']">
               Carrinho ({items.reduce((acc, i) => acc + i.quantity, 0)})
             </h3>
             <button
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-white/[0.08] text-zinc-400 hover:text-white transition-colors cursor-pointer"
+              className="min-w-[40px] min-h-[40px] flex items-center justify-center p-2 rounded-full hover:bg-white/[0.08] text-zinc-400 hover:text-white transition-colors cursor-pointer"
+              aria-label="Fechar carrinho"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
           {/* Minimalist Free Shipping Notification */}
-          <div className="bg-[#101014] px-6 py-3 border-b border-white/[0.05] text-xs text-zinc-300">
+          <div className="bg-[#101014] px-4 sm:px-6 py-2.5 sm:py-3 border-b border-white/[0.05] text-xs text-zinc-300">
             {missingForFreeShipping === 0 ? (
               <span className="text-emerald-400 font-medium">Frete Grátis ativado para este pedido.</span>
             ) : (
@@ -80,7 +81,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
           </div>
 
           {/* Items List */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4">
             {items.length === 0 ? (
               <div className="text-center py-20 text-zinc-500 text-xs">
                 Seu carrinho está vazio no momento.
@@ -129,10 +130,11 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                     </div>
 
                     <div className="flex items-center gap-3 mt-2">
-                      <div className="flex items-center bg-black/60 border border-white/[0.08] rounded-full px-2 py-0.5">
+                      <div className="flex items-center bg-black/60 border border-white/[0.08] rounded-full px-1.5 sm:px-2 py-0.5">
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity - 1, item.selectedColor, item.selectedVoltage)}
-                          className="text-zinc-400 hover:text-white px-1 text-xs"
+                          className="text-zinc-400 hover:text-white w-7 h-7 sm:w-6 sm:h-6 flex items-center justify-center text-xs active:bg-white/10 rounded-full transition-colors cursor-pointer"
+                          aria-label="Diminuir quantidade"
                         >
                           -
                         </button>
@@ -141,7 +143,8 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
                         </span>
                         <button
                           onClick={() => onUpdateQuantity(item.id, item.quantity + 1, item.selectedColor, item.selectedVoltage)}
-                          className="text-zinc-400 hover:text-white px-1 text-xs"
+                          className="text-zinc-400 hover:text-white w-7 h-7 sm:w-6 sm:h-6 flex items-center justify-center text-xs active:bg-white/10 rounded-full transition-colors cursor-pointer"
+                          aria-label="Aumentar quantidade"
                         >
                           +
                         </button>
@@ -149,9 +152,11 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
 
                       <button
                         onClick={() => onRemoveItem(item.id, item.selectedColor, item.selectedVoltage)}
-                        className="text-zinc-500 hover:text-red-400 p-1 ml-auto"
+                        className="text-zinc-500 hover:text-red-400 p-2 min-w-[36px] min-h-[36px] flex items-center justify-center rounded-lg active:bg-red-500/10 transition-colors ml-auto cursor-pointer"
+                        title="Remover item"
+                        aria-label="Remover item"
                       >
-                        <Trash2 className="w-3.5 h-3.5" />
+                        <Trash2 className="w-4 h-4 sm:w-3.5 sm:h-3.5" />
                       </button>
                     </div>
                   </div>
@@ -162,7 +167,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
 
           {/* Footer Summary */}
           {items.length > 0 && (
-            <div className="p-6 border-t border-white/[0.06] bg-[#0c0c0e] space-y-4">
+            <div className="p-4 sm:p-6 pb-6 sm:pb-6 border-t border-white/[0.06] bg-[#0c0c0e] space-y-3 sm:space-y-4">
               
               {/* Coupon */}
               <form onSubmit={handleApplyCoupon} className="flex gap-2">
@@ -206,7 +211,7 @@ export function CartDrawer({ isOpen, onClose, items = [], onUpdateQuantity, onRe
               {/* Checkout Button */}
               <button
                 onClick={handleCheckout}
-                className="w-full py-3.5 rounded-full bg-[#ff5500] hover:bg-[#e64c00] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#ff5500]/20"
+                className="w-full py-3.5 min-h-[48px] rounded-full bg-[#ff5500] hover:bg-[#e64c00] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-[#ff5500]/20 active:scale-95"
               >
                 <span>Finalizar Compra Segura</span>
                 <ArrowRight className="w-3.5 h-3.5" />

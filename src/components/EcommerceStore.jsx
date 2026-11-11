@@ -219,32 +219,32 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
   };
 
   return (
-    <section id="ofertas" className="bg-white text-zinc-900 py-16 sm:py-24 font-sans min-h-screen">
+    <section id="ofertas" className="bg-white text-zinc-900 py-8 sm:py-24 font-sans min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================= 1. MINIMALIST CENTERED HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
           {selectedCategory === 'Filamentos' ? (
             <>
               <span className="text-xs sm:text-sm font-bold tracking-wider text-emerald-600 uppercase block mb-2 font-mono">
                 ✦ Linha Oficial Bambu Lab, Polymaker & Sunlu
               </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
                 Filamentos para Impressoras 3D
               </h1>
-              <p className="text-xs sm:text-sm text-zinc-500 mt-3 font-normal max-w-xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm text-zinc-500 mt-2.5 sm:mt-3 font-normal max-w-xl mx-auto leading-relaxed">
                 Confira aqui todos os modelos com chip RFID oficial, alta velocidade e envio imediato com pronta entrega para todo o Brasil.
               </p>
             </>
           ) : (
             <>
-              <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-3 font-sans">
+              <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#ff5500] uppercase block mb-2 sm:mb-3 font-sans">
                 🔥 Especial Black Friday & Black November
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl font-black text-zinc-900 tracking-tight leading-[1.15] font-['Space_Grotesk']">
                 Os Favoritos da Comunidade Maker
               </h2>
-              <p className="text-xs sm:text-sm text-zinc-400 mt-3 font-normal max-w-xl mx-auto">
+              <p className="text-xs sm:text-sm text-zinc-400 mt-2 sm:mt-3 font-normal max-w-xl mx-auto">
                 Ofertas oficiais com até 20% de desconto e 10% adicional no pagamento via PIX à vista.
               </p>
             </>
@@ -268,14 +268,14 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
               </span>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="flex overflow-x-auto snap-x snap-mandatory sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5 pb-3 sm:pb-0 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
               {/* Card 1: PLA */}
               <div 
                 onClick={() => {
                   setFilamentFilter('PLA');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
                   filamentFilter === 'PLA' 
                     ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-emerald-300'
@@ -289,7 +289,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Iniciantes & Visual</span>
                   </div>
                   
-                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-pla-basic.png" 
                       alt="Filamento PLA" 
@@ -297,7 +297,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Filamentos PLA
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -305,10 +305,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-zinc-100">
+                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 93,58</span>
+                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 93,58</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 84,22 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-emerald-600 transition-colors flex items-center justify-center gap-1.5">
@@ -324,7 +324,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('PETG');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
                   filamentFilter === 'PETG' 
                     ? 'border-sky-500 ring-2 ring-sky-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-sky-300'
@@ -338,7 +338,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Equilíbrio & Resistência</span>
                   </div>
                   
-                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-petg-translucent.webp" 
                       alt="Filamento PETG" 
@@ -346,7 +346,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Filamentos PETG
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -354,10 +354,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-zinc-100">
+                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 152,10</span>
+                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 152,10</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 136,89 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-sky-600 transition-colors flex items-center justify-center gap-1.5">
@@ -373,7 +373,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('ABS');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
                   filamentFilter === 'ABS' 
                     ? 'border-amber-500 ring-2 ring-amber-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-amber-300'
@@ -387,7 +387,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">Calor 100°C & UV</span>
                   </div>
                   
-                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-abs.webp" 
                       alt="Filamento ABS" 
@@ -395,7 +395,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Filamentos ABS & ASA
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -403,10 +403,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-zinc-100">
+                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 111,20</span>
+                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 111,20</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 100,08 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-amber-600 transition-colors flex items-center justify-center gap-1.5">
@@ -422,7 +422,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   setFilamentFilter('CARBON_FIBER');
                   document.getElementById('produtos-grid')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className={`group relative bg-white rounded-3xl p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between ${
+                className={`group relative bg-white rounded-3xl p-5 sm:p-6 border transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 flex flex-col justify-between min-w-[260px] sm:min-w-0 flex-shrink-0 sm:flex-shrink snap-center ${
                   filamentFilter === 'CARBON_FIBER' || filamentFilter === 'ESPECIAIS'
                     ? 'border-purple-500 ring-2 ring-purple-500/20 shadow-md' 
                     : 'border-zinc-200/80 hover:border-purple-300'
@@ -436,7 +436,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     <span className="text-[11px] text-zinc-400 font-medium">CF, TPU & Solúvel</span>
                   </div>
                   
-                  <div className="h-40 flex items-center justify-center my-2 p-2">
+                  <div className="h-36 sm:h-40 flex items-center justify-center my-2 p-2">
                     <img 
                       src="/images/filaments/bambu-pla-cf.webp" 
                       alt="Filamentos Especiais" 
@@ -444,7 +444,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     />
                   </div>
 
-                  <h4 className="text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
+                  <h4 className="text-base sm:text-lg font-bold text-zinc-900 font-['Space_Grotesk'] mt-2">
                     Fibra de Carbono & Especiais
                   </h4>
                   <p className="text-xs text-zinc-500 mt-1 line-clamp-2">
@@ -452,10 +452,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   </p>
                 </div>
 
-                <div className="mt-5 pt-4 border-t border-zinc-100">
+                <div className="mt-4 sm:mt-5 pt-3 sm:pt-4 border-t border-zinc-100">
                   <span className="text-[11px] text-zinc-400 block font-medium">A Partir de</span>
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 124,93</span>
+                    <span className="text-base sm:text-lg font-black text-zinc-900 font-['Space_Grotesk']">R$ 124,93</span>
                     <span className="text-[11px] text-emerald-600 font-bold font-mono">R$ 112,43 no PIX</span>
                   </div>
                   <button className="w-full mt-3 py-2 px-3 rounded-xl bg-zinc-900 text-white text-xs font-bold group-hover:bg-purple-600 transition-colors flex items-center justify-center gap-1.5">
@@ -470,8 +470,8 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
         {/* ================= 1.2 SEGMENTED FILTER BAR ================= */}
         {selectedCategory === 'Filamentos' && (
-          <div id="produtos-grid" className="mb-10 text-center animate-fade-in scroll-mt-24">
-            <div className="inline-flex flex-wrap items-center justify-center gap-1.5 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-xs max-w-full">
+          <div id="produtos-grid" className="mb-8 sm:mb-10 text-center animate-fade-in scroll-mt-24">
+            <div className="flex sm:inline-flex overflow-x-auto sm:flex-wrap items-center sm:justify-center gap-1.5 p-1.5 bg-zinc-100/90 rounded-2xl border border-zinc-200/80 shadow-xs max-w-full scrollbar-none whitespace-nowrap -mx-4 px-4 sm:mx-0">
               {[
                 { id: 'all', label: 'Todos os Filamentos', count: 19 },
                 { id: 'PLA', label: 'PLA', dot: 'bg-emerald-500 ring-emerald-500/30', count: 11 },
@@ -485,7 +485,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                   <button
                     key={sub.id}
                     onClick={() => setFilamentFilter(sub.id)}
-                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer ${
+                    className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-all duration-200 cursor-pointer shrink-0 sm:shrink ${
                       isActive
                         ? 'bg-zinc-950 text-white shadow-sm ring-1 ring-zinc-900'
                         : 'text-zinc-600 hover:text-zinc-950 hover:bg-white/80'
@@ -533,7 +533,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-10 items-stretch">
             {filteredProducts.map((product) => {
               const currentVoltage = selectedVoltages[product.id] || product.defaultVoltage || product.voltageVariants?.[0]?.voltage || 'Bivolt';
               const activeVoltageVariant = product.voltageVariants?.find(v => v.voltage === currentVoltage);
@@ -558,11 +558,11 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                 <div
                   key={product.id}
                   onClick={() => onOpenDetail(productWithSelected)}
-                  className="bg-[#F8FAFC] rounded-[32px] p-6 sm:p-7 border border-zinc-100/90 hover:border-zinc-200 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group cursor-pointer relative"
+                  className="bg-[#F8FAFC] rounded-[28px] sm:rounded-[32px] p-5 sm:p-7 border border-zinc-100/90 hover:border-zinc-200 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group cursor-pointer relative"
                 >
                   
                   {/* Inner White Product Canvas Card (Reference card-within-card) */}
-                  <div className="bg-white rounded-2xl p-6 mb-4 h-64 sm:h-72 flex items-center justify-center shadow-xs group-hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden">
+                  <div className="bg-white rounded-2xl p-4 sm:p-6 mb-3 sm:mb-4 h-56 sm:h-72 flex items-center justify-center shadow-xs group-hover:scale-[1.03] transition-transform duration-300 relative overflow-hidden">
                     {/* Promo Badge Tag */}
                     {product.badge && (
                       <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-red-600 text-white shadow-xs z-10 font-mono">
@@ -577,13 +577,13 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                       loading="lazy"
                     />
 
-                    {/* Quick Add To Cart Button (Floating on hover) */}
+                    {/* Quick Add To Cart Button (Always visible on mobile touch screens, floating on hover on desktop) */}
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         onAddToCart(productWithSelected);
                       }}
-                      className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-zinc-900 hover:bg-[#ff5500] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-md transform translate-y-2 group-hover:translate-y-0 cursor-pointer"
+                      className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-zinc-900 hover:bg-[#ff5500] text-white flex items-center justify-center opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-200 shadow-md sm:transform sm:translate-y-2 sm:group-hover:translate-y-0 cursor-pointer active:scale-90"
                       title="Adicionar ao carrinho"
                     >
                       <ShoppingCart className="w-4 h-4" />
@@ -605,10 +605,10 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                               e.stopPropagation();
                               setSelectedVoltages(prev => ({ ...prev, [product.id]: v.voltage }));
                             }}
-                            className={`px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold tracking-tight border transition-all cursor-pointer ${
+                            className={`px-3 py-1 sm:px-2.5 sm:py-0.5 rounded-full text-[11px] font-mono font-bold tracking-tight border transition-all cursor-pointer min-h-[32px] sm:min-h-0 flex items-center justify-center ${
                               isSel
                                 ? 'bg-zinc-900 text-white border-zinc-900 shadow-xs scale-105 ring-1 ring-zinc-900/20'
-                                : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50'
+                                : 'bg-white text-zinc-600 border-zinc-200 hover:border-zinc-400 hover:bg-zinc-50 active:bg-zinc-100'
                             }`}
                           >
                             {label}
@@ -680,26 +680,26 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
 
         {/* ================= 3. ZYNTRIA-STYLE EDUCATIONAL GUIDE & FAQ (When Filamentos is active) ================= */}
         {selectedCategory === 'Filamentos' && (
-          <div className="mt-20 border-t border-zinc-200/80 pt-16">
+          <div className="mt-12 sm:mt-20 border-t border-zinc-200/80 pt-8 sm:pt-16">
             
             {/* 3.1 Educational Guide: "Qual Filamento Escolher?" */}
-            <div className="max-w-5xl mx-auto mb-20">
-              <div className="text-center max-w-2xl mx-auto mb-12">
+            <div className="max-w-5xl mx-auto mb-12 sm:mb-20">
+              <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
                 <span className="text-[11px] font-mono uppercase tracking-widest text-emerald-600 font-bold block mb-2">
                   Guia Didático Maker
                 </span>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-black font-['Space_Grotesk'] text-zinc-900 tracking-tight">
                   Qual Filamento Escolher?
                 </h3>
-                <p className="text-xs sm:text-sm text-zinc-500 mt-3 leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-500 mt-2 sm:mt-3 leading-relaxed">
                   Escolher o filamento ideal depende diretamente do tipo de peça que você deseja imprimir. Abaixo você entende de forma simples qual filamento faz mais sentido para o seu projeto.
                 </p>
               </div>
 
               {/* 3 Cards Comparison */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
                 {/* PLA */}
-                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-3xl p-5 sm:p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-emerald-500/20"></span>
@@ -749,7 +749,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                 </div>
 
                 {/* PETG */}
-                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-3xl p-5 sm:p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-sky-500 ring-4 ring-sky-500/20"></span>
@@ -799,7 +799,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                 </div>
 
                 {/* ABS & ASA */}
-                <div className="bg-white rounded-3xl p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <div className="bg-white rounded-3xl p-5 sm:p-6 border border-zinc-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="w-3 h-3 rounded-full bg-amber-500 ring-4 ring-amber-500/20"></span>
@@ -947,9 +947,9 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                     >
                       <button
                         onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                        className="w-full py-4 px-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-zinc-50/80 transition-colors"
+                        className="w-full py-3.5 sm:py-4 px-4 sm:px-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-zinc-50/80 transition-colors min-h-[48px]"
                       >
-                        <span className="text-sm font-bold text-zinc-900 font-['Space_Grotesk']">
+                        <span className="text-xs sm:text-sm font-bold text-zinc-900 font-['Space_Grotesk']">
                           {faq.q}
                         </span>
                         <ChevronDown 
@@ -960,7 +960,7 @@ export function EcommerceStore({ onAddToCart, onOpenDetail, searchQuery = '', ac
                       </button>
                       
                       {isOpen && (
-                        <div className="px-6 pb-5 pt-1 text-xs text-zinc-600 leading-relaxed border-t border-zinc-100 bg-zinc-50/40">
+                        <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 text-xs text-zinc-600 leading-relaxed border-t border-zinc-100 bg-zinc-50/40">
                           {faq.a}
                         </div>
                       )}

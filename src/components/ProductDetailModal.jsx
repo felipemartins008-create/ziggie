@@ -81,28 +81,29 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-fade-in">
       <div 
-        className="relative w-full max-w-3xl bg-[#0d0d10] border border-white/[0.1] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+        className="relative w-full max-w-3xl bg-[#0d0d10] border border-white/[0.1] rounded-3xl shadow-2xl overflow-hidden flex flex-col max-h-[92vh] sm:max-h-[90vh]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 z-20 p-2 rounded-full bg-black/60 hover:bg-white text-zinc-400 hover:text-black transition-colors cursor-pointer"
+          className="absolute top-3.5 right-3.5 sm:top-5 sm:right-5 z-20 min-w-[40px] min-h-[40px] flex items-center justify-center rounded-full bg-black/60 hover:bg-white text-zinc-400 hover:text-black transition-colors cursor-pointer"
+          aria-label="Fechar detalhes"
         >
           <X className="w-4 h-4" />
         </button>
 
-        <div className="overflow-y-auto p-6 sm:p-10">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        <div className="overflow-y-auto p-4 sm:p-10">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
             
             {/* Left: Product Image */}
-            <div className="md:col-span-5 bg-white rounded-2xl p-6 flex items-center justify-center min-h-[280px]">
+            <div className="md:col-span-5 bg-white rounded-2xl p-4 sm:p-6 flex items-center justify-center min-h-[220px] sm:min-h-[280px]">
               <img
                 src={product.image}
                 alt={product.name}
-                className="max-h-64 w-full object-contain"
+                className="max-h-56 sm:max-h-64 w-full object-contain"
               />
             </div>
 
@@ -145,13 +146,14 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
                       <button
                         key={i}
                         onClick={() => setSelectedColor(c.hex)}
-                        className={`w-7 h-7 rounded-full border transition-all cursor-pointer flex items-center justify-center relative ${
+                        className={`w-8 h-8 sm:w-7 sm:h-7 rounded-full border transition-all cursor-pointer flex items-center justify-center relative ${
                           selectedColor === c.hex 
                             ? 'border-[#ff5500] scale-110 shadow-md ring-2 ring-[#ff5500]/40' 
-                            : 'border-white/20 hover:border-white/60'
+                            : 'border-white/20 hover:border-white/60 active:scale-95'
                         }`}
                         style={{ backgroundColor: c.hex }}
                         title={c.name}
+                        aria-label={c.name}
                       >
                         {selectedColor === c.hex && (
                           <Check className={`w-3.5 h-3.5 ${c.hex === '#FFFFFF' || c.hex === '#FAFAFA' || c.hex === '#F6D334' ? 'text-black' : 'text-white'}`} />
@@ -238,51 +240,55 @@ export function ProductDetailModal({ product, onClose, onAddToCart }) {
               </div>
 
               {/* Actions */}
-              <div className="flex items-center gap-3 pt-2">
-                <div className="flex items-center bg-[#151518] border border-white/[0.08] rounded-full px-2 py-1">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 pt-2">
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center bg-[#151518] border border-white/[0.08] rounded-full px-2 py-1 shrink-0">
+                    <button
+                      onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                      className="w-8 h-8 sm:w-7 sm:h-7 flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer active:bg-white/10 rounded-full"
+                      aria-label="Diminuir quantidade"
+                    >
+                      -
+                    </button>
+                    <span className="w-8 text-center text-xs font-mono font-bold text-white">
+                      {quantity}
+                    </span>
+                    <button
+                      onClick={() => setQuantity(quantity + 1)}
+                      className="w-8 h-8 sm:w-7 sm:h-7 flex items-center justify-center text-zinc-400 hover:text-white cursor-pointer active:bg-white/10 rounded-full"
+                      aria-label="Aumentar quantidade"
+                    >
+                      +
+                    </button>
+                  </div>
+
                   <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="w-7 h-7 flex items-center justify-center text-zinc-400 hover:text-white"
+                    onClick={() => {
+                      const variantId = getCurrentVariantId();
+                      const colorName = product.colors?.find(c => c.hex === selectedColor)?.name;
+                      onAddToCart({ 
+                        ...product, 
+                        price: activePrice,
+                        oldPrice: activeOldPrice,
+                        pixPrice: activePixPrice,
+                        quantity, 
+                        selectedColor, 
+                        selectedColorName: colorName,
+                        selectedVoltage,
+                        sku: activeVoltageVariant?.sku || product.sku,
+                        shopifyVariantId: variantId 
+                      });
+                      onClose();
+                    }}
+                    className="flex-1 py-3.5 sm:py-3 px-4 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-xs border border-white/[0.1] transition-colors cursor-pointer text-center active:scale-98 min-h-[44px] flex items-center justify-center"
                   >
-                    -
-                  </button>
-                  <span className="w-8 text-center text-xs font-mono font-bold text-white">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="w-7 h-7 flex items-center justify-center text-zinc-400 hover:text-white"
-                  >
-                    +
+                    Adicionar ao Carrinho
                   </button>
                 </div>
 
                 <button
-                  onClick={() => {
-                    const variantId = getCurrentVariantId();
-                    const colorName = product.colors?.find(c => c.hex === selectedColor)?.name;
-                    onAddToCart({ 
-                      ...product, 
-                      price: activePrice,
-                      oldPrice: activeOldPrice,
-                      pixPrice: activePixPrice,
-                      quantity, 
-                      selectedColor, 
-                      selectedColorName: colorName,
-                      selectedVoltage,
-                      sku: activeVoltageVariant?.sku || product.sku,
-                      shopifyVariantId: variantId 
-                    });
-                    onClose();
-                  }}
-                  className="flex-1 py-3 px-5 rounded-full bg-white/[0.08] hover:bg-white/[0.14] text-white font-semibold text-xs border border-white/[0.1] transition-colors cursor-pointer"
-                >
-                  Adicionar ao Carrinho
-                </button>
-
-                <button
                   onClick={handleBuyNow}
-                  className="flex-1 py-3 px-5 rounded-full bg-[#ff5500] hover:bg-[#e64c00] text-white font-semibold text-xs transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full sm:flex-1 py-3.5 sm:py-3 px-5 rounded-full bg-[#ff5500] hover:bg-[#e64c00] text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-lg shadow-[#ff5500]/25 active:scale-98 min-h-[44px]"
                 >
                   <span>Comprar Agora</span>
                   <ArrowRight className="w-3.5 h-3.5" />

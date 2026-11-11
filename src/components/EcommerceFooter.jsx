@@ -19,46 +19,46 @@ export function EcommerceFooter({ onOpenShopifyConfig }) {
     <footer className="bg-white text-zinc-700 border-t border-zinc-200 font-sans text-xs pt-12 pb-8">
       
       {/* 1. Value Propositions Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10 border-b border-zinc-200">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 sm:pb-10 border-b border-zinc-200">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           
-          <div className="flex items-center gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
-            <div className="w-10 h-10 rounded-xl bg-orange-100 text-[#ff5500] flex items-center justify-center flex-shrink-0">
-              <Truck className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-orange-100 text-[#ff5500] flex items-center justify-center flex-shrink-0">
+              <Truck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk']">Frete Grátis Sul & Sudeste</h3>
-              <p className="text-[11px] text-zinc-500">Em compras a partir de R$ 400 em filamentos</p>
+              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk'] leading-tight">Frete Grátis Sul & Sudeste</h3>
+              <p className="text-[10px] sm:text-[11px] text-zinc-500 mt-0.5">A partir de R$ 400</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
-            <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
-              <CreditCard className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+              <CreditCard className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk']">Até 12x Sem Juros</h3>
-              <p className="text-[11px] text-zinc-500">Ou 10% de desconto à vista via Pix imediato</p>
+              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk'] leading-tight">Até 12x Sem Juros</h3>
+              <p className="text-[10px] sm:text-[11px] text-zinc-500 mt-0.5">Ou -10% via Pix à vista</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
-            <div className="w-10 h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0">
-              <ShieldCheck className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center flex-shrink-0">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk']">Garantia Nacional 1 Ano</h3>
-              <p className="text-[11px] text-zinc-500">Suporte técnico especializado em Bambu & Snapmaker</p>
+              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk'] leading-tight">Garantia 1 Ano</h3>
+              <p className="text-[10px] sm:text-[11px] text-zinc-500 mt-0.5">Suporte oficial nacional</p>
             </div>
           </div>
 
-          <div className="flex items-center gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
-            <div className="w-10 h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0">
-              <Clock className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3.5 p-3 rounded-xl bg-zinc-50 border border-zinc-100">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0">
+              <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
             <div>
-              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk']">Envio Rápido 24h</h3>
-              <p className="text-[11px] text-zinc-500">Estoque no Brasil com NF-e e pronta entrega</p>
+              <h3 className="font-bold text-zinc-900 text-xs font-['Space_Grotesk'] leading-tight">Envio Rápido 24h</h3>
+              <p className="text-[10px] sm:text-[11px] text-zinc-500 mt-0.5">Estoque Brasil com NF-e</p>
             </div>
           </div>
 

@@ -138,7 +138,7 @@ export function BlackFridayBanner({ onBannerClick }) {
             <div className="mt-3 font-['Space_Grotesk'] font-black tracking-tight leading-[0.88] select-none">
               {/* BLACK (Red Neon Glow) */}
               <div 
-                className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight text-transparent font-black"
+                className="text-4xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight text-transparent font-black"
                 style={{
                   WebkitTextStroke: '2.5px #ff2a4b',
                   filter: 'drop-shadow(0 0 16px rgba(255, 42, 75, 0.85)) drop-shadow(0 0 35px rgba(255, 42, 75, 0.35))'
@@ -148,7 +148,7 @@ export function BlackFridayBanner({ onBannerClick }) {
               </div>
               {/* FRIDAY (Violet/Purple Neon Glow) */}
               <div 
-                className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight text-transparent font-black mt-1"
+                className="text-4xl sm:text-6xl md:text-7xl xl:text-8xl tracking-tight text-transparent font-black mt-1"
                 style={{
                   WebkitTextStroke: '2.5px #a855f7',
                   filter: 'drop-shadow(0 0 16px rgba(168, 85, 247, 0.85)) drop-shadow(0 0 35px rgba(168, 85, 247, 0.35))'
@@ -257,7 +257,7 @@ export function BlackFridayBanner({ onBannerClick }) {
             </div>
 
             {/* Quick Feature Strip Below Machines */}
-            <div className="mt-5 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] sm:text-xs text-zinc-400 font-medium">
+            <div className="mt-4 sm:mt-5 pt-3 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1.5 sm:gap-0 text-[11px] sm:text-xs text-zinc-400 font-medium">
               <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
                 <span>Garantia Oficial no Brasil</span>

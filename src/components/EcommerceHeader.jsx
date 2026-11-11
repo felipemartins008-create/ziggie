@@ -230,15 +230,16 @@ export function EcommerceHeader({
           </div>
 
           {/* ================= MOBILE CONTROLS ================= */}
-          <div className="flex lg:hidden items-center gap-3">
+          <div className="flex lg:hidden items-center gap-2">
             <button
               onClick={onOpenCart}
-              className="relative p-2 text-white"
+              className="relative min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-white active:bg-white/10 transition-colors cursor-pointer"
               title="Carrinho"
+              aria-label="Abrir carrinho"
             >
               <ShoppingCart className="w-5 h-5 text-[#ff5500]" />
               {cartCount > 0 && (
-                <span className="absolute top-0 right-0 w-4 h-4 rounded-full bg-[#ff5500] text-white text-[9px] font-bold flex items-center justify-center font-mono">
+                <span className="absolute top-1 right-1 w-4 h-4 rounded-full bg-[#ff5500] text-white text-[9px] font-bold flex items-center justify-center font-mono shadow-xs">
                   {cartCount}
                 </span>
               )}
@@ -246,7 +247,8 @@ export function EcommerceHeader({
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-white"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center p-2 rounded-xl text-white active:bg-white/10 transition-colors cursor-pointer"
+              aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu"}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -257,42 +259,62 @@ export function EcommerceHeader({
 
       {/* ================= MOBILE EXPANDED MENU ================= */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0d0e12] border-t border-white/[0.08] px-6 py-6 space-y-4">
-          <div className="relative mb-4">
+        <div className="lg:hidden bg-[#0d0e12] border-t border-white/[0.08] px-4 sm:px-6 py-5 space-y-4 animate-fade-in">
+          <div className="relative mb-3">
             <input
               type="text"
               placeholder="Buscar impressoras, filamentos..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full bg-white/[0.08] text-white text-xs px-4 py-2.5 rounded-xl border border-white/[0.15] focus:outline-none"
+              className="w-full bg-white/[0.08] text-white text-base sm:text-xs px-4 py-3 sm:py-2.5 rounded-xl border border-white/[0.15] focus:outline-none focus:border-[#ff5500]"
             />
-            <Search className="w-4 h-4 absolute right-3 top-3 text-zinc-400" />
+            <Search className="w-4 h-4 absolute right-3.5 top-3.5 text-zinc-400" />
           </div>
 
-          <div className="flex flex-col space-y-3 text-sm font-bold tracking-wider uppercase">
+          <div className="flex flex-col space-y-1.5 text-xs sm:text-sm font-bold tracking-wider uppercase">
             <button 
               onClick={() => { onSelectCategory('all'); setMobileMenuOpen(false); }} 
-              className="text-left py-1 text-white hover:text-[#ff5500]"
+              className={`text-left py-3 px-3.5 rounded-xl transition-colors cursor-pointer flex items-center justify-between ${
+                activeCategory === 'all' 
+                  ? 'bg-white/10 text-[#ff5500] font-extrabold' 
+                  : 'text-zinc-200 active:bg-white/[0.06]'
+              }`}
             >
-              TODOS OS PRODUTOS
+              <span>TODOS OS PRODUTOS</span>
+              <span className="text-[10px] text-zinc-500 font-mono">37 itens</span>
             </button>
             <button 
               onClick={() => { onSelectCategory('Impressoras 3D'); setMobileMenuOpen(false); }} 
-              className="text-left py-1 text-white hover:text-[#ff5500]"
+              className={`text-left py-3 px-3.5 rounded-xl transition-colors cursor-pointer flex items-center justify-between ${
+                activeCategory === 'Impressoras 3D' 
+                  ? 'bg-white/10 text-[#ff5500] font-extrabold' 
+                  : 'text-zinc-200 active:bg-white/[0.06]'
+              }`}
             >
-              IMPRESSORAS
+              <span>IMPRESSORAS 3D</span>
+              <span className="text-[10px] text-zinc-500 font-mono">Bambu & Snapmaker</span>
             </button>
             <button 
               onClick={() => { onSelectCategory('Filamentos'); setMobileMenuOpen(false); }} 
-              className="text-left py-1 text-white hover:text-[#ff5500]"
+              className={`text-left py-3 px-3.5 rounded-xl transition-colors cursor-pointer flex items-center justify-between ${
+                activeCategory === 'Filamentos' 
+                  ? 'bg-white/10 text-[#ff5500] font-extrabold' 
+                  : 'text-zinc-200 active:bg-white/[0.06]'
+              }`}
             >
-              FILAMENTOS
+              <span>FILAMENTOS</span>
+              <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-mono text-[9px]">RFID</span>
             </button>
             <button 
               onClick={() => { onSelectCategory('Combos'); setMobileMenuOpen(false); }} 
-              className="text-left py-1 text-white hover:text-[#ff5500]"
+              className={`text-left py-3 px-3.5 rounded-xl transition-colors cursor-pointer flex items-center justify-between ${
+                activeCategory === 'Combos' 
+                  ? 'bg-white/10 text-[#ff5500] font-extrabold' 
+                  : 'text-zinc-200 active:bg-white/[0.06]'
+              }`}
             >
-              COMBOS MULTICOLOR
+              <span>COMBOS MULTICOLOR</span>
+              <span className="text-[10px] text-[#ff5500] font-mono font-bold">AMS</span>
             </button>
           </div>
         </div>
