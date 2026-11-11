@@ -294,12 +294,6 @@ export function EcommerceHeader({
             >
               COMBOS MULTICOLOR
             </button>
-            <button 
-              onClick={() => { onOpenShopifyConfig(); setMobileMenuOpen(false); }} 
-              className="text-left py-1 text-[#ff5500] text-xs font-mono"
-            >
-              SHOPIFY STOREFRONT {isShopifyConnected ? '● CONECTADO' : '○ CONFIGURAR'}
-            </button>
           </div>
         </div>
       )}
