@@ -76,58 +76,51 @@
     "handle": "filamento-bambu-pla-lite-1-75mm-1kg",
     "title": "Filamento Bambu PLA Lite 1.75mm 1Kg",
     "price": "119.00",
+    "oldPrice": "139.00",
     "colorVariants": [
       {
         "name": "Branco",
-        "hex": "#FFFFFF",
         "shopifyVariantId": "68035700523251",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Preto",
-        "hex": "#111111",
         "shopifyVariantId": "68035700556019",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Azul Marinho",
-        "hex": "#1B294B",
         "shopifyVariantId": "68035700588787",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Amarelo",
-        "hex": "#F6D334",
         "shopifyVariantId": "68035700621555",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Azul Cyan",
-        "hex": "#19B6EC",
         "shopifyVariantId": "68035700654323",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Cinza",
-        "hex": "#7F8388",
         "shopifyVariantId": "68035700687091",
         "price": "119.00",
         "oldPrice": "139.00"
       },
       {
         "name": "Laranja",
-        "hex": "#EE7B23",
         "shopifyVariantId": "68035700719859",
         "price": "119.00",
         "oldPrice": "139.00"
       }
-    ],
-    "oldPrice": "139.00"
+    ]
   },
   "filament-printalot-pla-preto": {
     "shopifyProductId": 15476815429875,
@@ -156,30 +149,27 @@
     "handle": "filamento-bambu-pla-basic-1-75mm-1kg",
     "title": "Filamento Bambu PLA Basic 1.75mm 1Kg",
     "price": "152.10",
+    "oldPrice": "169.00",
     "colorVariants": [
       {
         "name": "Marrom Cacau",
-        "hex": "#4E3524",
         "shopifyVariantId": "68035701768435",
         "price": "152.10",
         "oldPrice": "169.00"
       },
       {
         "name": "Pink",
-        "hex": "#E13988",
         "shopifyVariantId": "68035701801203",
         "price": "152.10",
         "oldPrice": "169.00"
       },
       {
         "name": "Verde Milestone",
-        "hex": "#3C8349",
         "shopifyVariantId": "68035701833971",
         "price": "152.10",
         "oldPrice": "169.00"
       }
-    ],
-    "oldPrice": "169.00"
+    ]
   },
   "filament-bambu-petg": {
     "shopifyProductId": 15478664200435,
@@ -187,15 +177,6 @@
     "handle": "filamento-bambu-petg-1-75mm-1kg",
     "title": "Filamento Bambu PETG 1.75mm 1Kg",
     "price": "152.10",
-    "colorVariants": [
-      {
-        "name": "Vermelho",
-        "hex": "#C62928",
-        "shopifyVariantId": "68035702882547",
-        "price": "152.10",
-        "oldPrice": "169.00"
-      }
-    ],
     "oldPrice": "169.00"
   },
   "filament-sanlu-pla-plus": {
@@ -204,23 +185,21 @@
     "handle": "filamento-sanlu-pla-1-75mm-1kg",
     "title": "Filamento Sanlu PLA+ 1.75mm 1Kg",
     "price": "93.58",
+    "oldPrice": "110.09",
     "colorVariants": [
       {
         "name": "Amarelo",
-        "hex": "#F6D334",
         "shopifyVariantId": "68035703734515",
         "price": "93.58",
         "oldPrice": "110.09"
       },
       {
         "name": "Preto",
-        "hex": "#111111",
         "shopifyVariantId": "68035703767283",
         "price": "93.58",
         "oldPrice": "110.09"
       }
-    ],
-    "oldPrice": "110.09"
+    ]
   },
   "filament-printalot-pla": {
     "shopifyProductId": 15478664790259,
@@ -228,37 +207,33 @@
     "handle": "filamento-printalot-pla-premium-1-75mm-1kg",
     "title": "Filamento Printalot PLA Premium 1.75mm 1Kg",
     "price": "129.90",
+    "oldPrice": "145.00",
     "colorVariants": [
       {
         "name": "Vermelho",
-        "hex": "#C62928",
         "shopifyVariantId": "68035704848627",
         "price": "129.90",
         "oldPrice": "145.00"
       },
       {
         "name": "Chocolate",
-        "hex": "#4E3524",
         "shopifyVariantId": "68035704881395",
         "price": "129.90",
         "oldPrice": "145.00"
       },
       {
         "name": "Amarelo",
-        "hex": "#F6D334",
         "shopifyVariantId": "68035704914163",
         "price": "129.90",
         "oldPrice": "145.00"
       },
       {
         "name": "Verde Militar",
-        "hex": "#4D5932",
         "shopifyVariantId": "68035704946931",
         "price": "129.90",
         "oldPrice": "145.00"
       }
-    ],
-    "oldPrice": "145.00"
+    ]
   },
   "filament-panchona-matte": {
     "shopifyProductId": 15478665052403,
@@ -266,23 +241,21 @@
     "handle": "filamento-panchona-matte-1-75mm-1kg",
     "title": "Filamento Panchona Matte 1.75mm 1Kg",
     "price": "99.59",
+    "oldPrice": "117.17",
     "colorVariants": [
       {
         "name": "Vermelho Mate",
-        "hex": "#9D3333",
         "shopifyVariantId": "68035705798899",
         "price": "99.59",
         "oldPrice": "117.17"
       },
       {
         "name": "Verde Mate",
-        "hex": "#3D624A",
         "shopifyVariantId": "68035705831667",
         "price": "99.59",
         "oldPrice": "117.17"
       }
-    ],
-    "oldPrice": "117.17"
+    ]
   },
   "bambu-a2l": {
     "shopifyProductId": 15488231932147,
@@ -301,10 +274,10 @@
     "oldPrice": "12990.00"
   },
   "bambu-h2s-combo-hv-220v": {
-    "shopifyProductId": 15476815167731,
-    "shopifyVariantId": 68018944278771,
-    "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
-    "title": "Impressora 3D Bambu Lab H2S Gabinete Fechado",
+    "shopifyProductId": 15580400845043,
+    "shopifyVariantId": 69108410482931,
+    "handle": "bambu-h2s-combo",
+    "title": "BAMBU H2S COMBO",
     "price": "16999.00",
     "oldPrice": "19299.00"
   },
@@ -317,10 +290,10 @@
     "oldPrice": "19299.00"
   },
   "bambu-h2d-combo-hv-220v": {
-    "shopifyProductId": 15476815200499,
-    "shopifyVariantId": 68018944311539,
-    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
-    "title": "Impressora 3D Bambu Lab H2D Duplo Cabeçote Pro",
+    "shopifyProductId": 15580400713971,
+    "shopifyVariantId": 69108410188019,
+    "handle": "bambu-h2d-combo",
+    "title": "BAMBU H2D COMBO",
     "price": "22999.00",
     "oldPrice": "25899.00"
   },
@@ -389,236 +362,177 @@
     "oldPrice": null
   },
   "filament-bambu-petg-hf": {
-    "shopifyProductId": 15478664200435,
-    "shopifyVariantId": 68035702882547,
-    "handle": "filamento-bambu-petg-1-75mm-1kg",
-    "title": "Filamento Bambu PETG 1.75mm 1Kg",
+    "shopifyProductId": 15580401631475,
+    "shopifyVariantId": 69108413694195,
+    "handle": "filamento-bambu-petg-basic-petg-hf-alta-velocidade-1kg",
+    "title": "Filamento Bambu PETG Basic & PETG HF Alta Velocidade 1Kg",
     "price": "152.10",
-    "colorVariants": [
-      {
-        "name": "Vermelho",
-        "hex": "#C62928",
-        "shopifyVariantId": "68035702882547",
-        "price": "152.10",
-        "oldPrice": "169.00"
-      }
-    ],
     "oldPrice": "169.00"
   },
   "filament-sunlu-high-speed-matte": {
-    "shopifyProductId": 15478664462579,
-    "shopifyVariantId": 68035703734515,
-    "handle": "filamento-sanlu-pla-1-75mm-1kg",
-    "title": "Filamento Sanlu PLA+ 1.75mm 1Kg",
+    "shopifyProductId": 15580402024691,
+    "shopifyVariantId": 69108415201523,
+    "handle": "filamento-sunlu-pla-high-speed-pla-matte-pla-silk",
+    "title": "Filamento SUNLU PLA High Speed, PLA Matte & PLA+ Silk",
     "price": "93.58",
-    "colorVariants": [
-      {
-        "name": "Amarelo",
-        "hex": "#F6D334",
-        "shopifyVariantId": "68035703734515",
-        "price": "93.58",
-        "oldPrice": "110.09"
-      },
-      {
-        "name": "Preto",
-        "hex": "#111111",
-        "shopifyVariantId": "68035703767283",
-        "price": "93.58",
-        "oldPrice": "110.09"
-      }
-    ],
     "oldPrice": "110.09"
   },
   "filament-polymaker-panchroma": {
     "shopifyProductId": 15478665052403,
     "shopifyVariantId": 68035705798899,
     "handle": "filamento-panchona-matte-1-75mm-1kg",
-    "title": "Filamento Panchona Matte 1.75mm 1Kg",
-    "price": "99.59",
-    "colorVariants": [
-      {
-        "name": "Vermelho Mate",
-        "hex": "#9D3333",
-        "shopifyVariantId": "68035705798899",
-        "price": "99.59",
-        "oldPrice": "117.17"
-      },
-      {
-        "name": "Verde Mate",
-        "hex": "#3D624A",
-        "shopifyVariantId": "68035705831667",
-        "price": "99.59",
-        "oldPrice": "117.17"
-      }
-    ],
-    "oldPrice": "117.17"
+    "title": "Filamento Panchona Matte 1.75mm 1Kg"
   },
   "bambu-a1-refurbished": {
-    "shopifyProductId": 15476814872819,
-    "shopifyVariantId": 68018943492339,
-    "handle": "impressora-3d-bambu-lab-a1",
-    "title": "Impressora 3D Bambu Lab A1 (Recondicionada Oficial)",
-    "price": "2499.00",
-    "oldPrice": "2999.00"
+    "shopifyProductId": 15580400451827,
+    "shopifyVariantId": 69108409794803,
+    "handle": "bambu-a1-bra-100-240v",
+    "title": "BAMBU A1 100-240V (RECONDICIONADA)"
   },
   "bambu-a1-combo-refurbished": {
-    "shopifyProductId": 15476814905587,
-    "shopifyVariantId": 68018943525107,
-    "handle": "impressora-3d-bambu-lab-a1-com-ams-lite-combo-4-cores",
-    "title": "Impressora 3D Bambu Lab A1 Combo (Recondicionada Oficial)",
-    "price": "3799.00",
-    "oldPrice": "4499.00"
+    "shopifyProductId": 15580400484595,
+    "shopifyVariantId": 69108409827571,
+    "handle": "bambu-a1-combo-eu-100-240v",
+    "title": "BAMBU A1 COMBO 100-240V (RECONDICIONADA)"
   },
   "bambu-a1-mini-refurbished": {
-    "shopifyProductId": 15476815003891,
-    "shopifyVariantId": 68018943623411,
-    "handle": "impressora-3d-bambu-lab-a1-mini",
-    "title": "Impressora 3D Bambu Lab A1 Mini (Recondicionada Oficial)",
-    "price": "1699.00",
-    "oldPrice": "2179.00"
+    "shopifyProductId": 15580395733235,
+    "shopifyVariantId": 69108409860339,
+    "handle": "bambu-a1-mini-100-240v-recondicionada-oficial",
+    "title": "BAMBU A1 MINI (RECONDICIONADA OFICIAL)"
   },
   "bambu-h2c-combo-hv-220v": {
-    "shopifyProductId": 15476815200499,
-    "shopifyVariantId": 68018944311539,
-    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
-    "title": "Impressora 3D Bambu Lab H2C Combo 220V",
-    "price": "27999.00",
-    "oldPrice": "29999.00"
+    "shopifyProductId": 15580400582899,
+    "shopifyVariantId": 69108409991411,
+    "handle": "bambu-h2c-combo",
+    "title": "BAMBU H2C COMBO",
+    "price": "22999.00",
+    "oldPrice": "25899.00"
   },
   "bambu-h2c-laser-10w-110v": {
-    "shopifyProductId": 15476815200499,
-    "shopifyVariantId": 68018944311539,
-    "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
-    "title": "Impressora 3D Bambu Lab H2C Full Combo Laser 10W",
-    "price": "31999.00",
-    "oldPrice": "34999.00"
+    "shopifyProductId": 15580400648435,
+    "shopifyVariantId": 69108410089715,
+    "handle": "bambu-h2c-full-combo-laser-10w-40w",
+    "title": "BAMBU H2C FULL COMBO LASER (10W / 40W)",
+    "price": "36999.00",
+    "oldPrice": "25899.00"
   },
   "bambu-h2d-laser-10w-127v": {
     "shopifyProductId": 15476815200499,
     "shopifyVariantId": 68018944311539,
     "handle": "impressora-3d-bambu-lab-h2d-duplo-cabecote-pro",
-    "title": "Impressora 3D Bambu Lab H2D Full Combo Laser 10W",
-    "price": "25999.00",
-    "oldPrice": "28999.00"
+    "title": "Impressora 3D Bambu Lab H2D Duplo Cabeçote Pro",
+    "price": "22999.00",
+    "oldPrice": "25899.00"
   },
   "bambu-h2s-laser-10w-220v": {
     "shopifyProductId": 15476815167731,
     "shopifyVariantId": 68018944278771,
     "handle": "impressora-3d-bambu-lab-h2s-gabinete-fechado",
-    "title": "Impressora 3D Bambu Lab H2S Full Combo Laser 10W",
-    "price": "19999.00",
-    "oldPrice": "22999.00"
+    "title": "Impressora 3D Bambu Lab H2S Gabinete Fechado",
+    "price": "16999.00",
+    "oldPrice": "19299.00"
   },
   "bambu-x1e-combo": {
-    "shopifyProductId": 15476815266035,
-    "shopifyVariantId": 68018944377075,
-    "handle": "impressora-3d-bambu-lab-x2d-enterprise",
-    "title": "Impressora 3D Bambu Lab X1E Combo Enterprise",
-    "price": "29999.00",
-    "oldPrice": "32999.00"
+    "shopifyProductId": 15580400910579,
+    "shopifyVariantId": 69108410581235,
+    "handle": "bambu-x1e-combo-enterprise",
+    "title": "BAMBU X1E COMBO ENTERPRISE",
+    "price": "11699.00",
+    "oldPrice": "13999.00"
   },
   "filament-bambu-pla-matte": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
-    "title": "Filamento Bambu PLA Matte Fosco Acetinado 1Kg",
-    "price": "134.10",
-    "oldPrice": "149.00"
+    "shopifyProductId": 15580401172723,
+    "shopifyVariantId": 69108411859187,
+    "handle": "filamento-bambu-pla-matte-fosco-acetinado-1-75mm-1kg",
+    "title": "Filamento Bambu PLA Matte Fosco Acetinado 1.75mm 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-pla-silk": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
+    "shopifyProductId": 15580401271027,
+    "shopifyVariantId": 69108412514547,
+    "handle": "filamento-bambu-pla-silk-silk-alto-brilho-1kg",
     "title": "Filamento Bambu PLA Silk & Silk+ Alto Brilho 1Kg",
     "price": "152.10",
     "oldPrice": "169.00"
   },
   "filament-bambu-pla-marble": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
-    "title": "Filamento Bambu PLA Marble Mármore 1Kg",
-    "price": "161.10",
-    "oldPrice": "179.00"
+    "shopifyProductId": 15580401336563,
+    "shopifyVariantId": 69108412874995,
+    "handle": "filamento-bambu-pla-marble-efeito-marmore-granito-1kg",
+    "title": "Filamento Bambu PLA Marble (Efeito Mármore & Granito) 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-pla-galaxy": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
-    "title": "Filamento Bambu PLA Galaxy Cósmico 1Kg",
-    "price": "161.10",
-    "oldPrice": "179.00"
+    "shopifyProductId": 15580401467635,
+    "shopifyVariantId": 69108413333747,
+    "handle": "filamento-bambu-pla-galaxy-sparkle-efeito-cosmico-1kg",
+    "title": "Filamento Bambu PLA Galaxy & Sparkle (Efeito Cósmico) 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-pla-glow": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
-    "title": "Filamento Bambu PLA Glow Fosforescente 1Kg",
-    "price": "170.10",
-    "oldPrice": "189.00"
+    "shopifyProductId": 15580401533171,
+    "shopifyVariantId": 69108413530355,
+    "handle": "filamento-bambu-pla-glow-brilha-no-escuro-fosforescente-1kg",
+    "title": "Filamento Bambu PLA Glow (Brilha no Escuro Fosforescente) 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-pla-wood": {
-    "shopifyProductId": 15478663872755,
-    "shopifyVariantId": 68035701768435,
-    "handle": "filamento-bambu-pla-1-75mm-1kg",
-    "title": "Filamento Bambu PLA Wood Madeira Real 1Kg",
-    "price": "188.10",
-    "oldPrice": "209.00"
+    "shopifyProductId": 15580401336563,
+    "shopifyVariantId": 69108412842163,
+    "handle": "filamento-bambu-pla-marble-efeito-marmore-granito-1kg",
+    "title": "Filamento Bambu PLA Wood Madeira Real 1Kg"
   },
   "filament-bambu-petg-translucent": {
-    "shopifyProductId": 15478664200435,
-    "shopifyVariantId": 68035702882547,
-    "handle": "filamento-bambu-petg-1-75mm-1kg",
-    "title": "Filamento Bambu PETG Translucent Translúcido 1Kg",
-    "price": "161.10",
-    "oldPrice": "179.00"
+    "shopifyProductId": 15580401729779,
+    "shopifyVariantId": 69108414021875,
+    "handle": "filamento-bambu-petg-translucent-translucido-efeito-vidro-1kg",
+    "title": "Filamento Bambu PETG Translucent (Translúcido Efeito Vidro) 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-abs-asa": {
-    "shopifyProductId": 15478664200435,
-    "shopifyVariantId": 68035702882547,
-    "handle": "filamento-bambu-petg-1-75mm-1kg",
-    "title": "Filamento Bambu ABS & ASA 1Kg",
-    "price": "161.10",
-    "oldPrice": "179.00"
+    "shopifyProductId": 15580401795315,
+    "shopifyVariantId": 69108414218483,
+    "handle": "filamento-bambu-abs-asa-resistencia-mecanica-uv-1kg",
+    "title": "Filamento Bambu ABS & ASA Resistência Mecânica/UV 1Kg",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-carbon-fiber-engineering": {
-    "shopifyProductId": 15478664200435,
-    "shopifyVariantId": 68035702882547,
-    "handle": "filamento-bambu-petg-1-75mm-1kg",
-    "title": "Filamentos Bambu Carbon Fiber (PLA-CF, PETG-CF)",
-    "price": "224.10",
-    "oldPrice": "249.00"
+    "shopifyProductId": 15580401893619,
+    "shopifyVariantId": 69108414578931,
+    "handle": "filamentos-bambu-carbon-fiber-pla-cf-petg-cf-pa6-cf-paht-cf",
+    "title": "Filamentos Bambu Carbon Fiber (PLA-CF, PETG-CF, PA6-CF, PAHT-CF)",
+    "price": "152.10",
+    "oldPrice": "169.00"
   },
   "filament-bambu-tpu-flexible": {
-    "shopifyProductId": 15478664200435,
-    "shopifyVariantId": 68035702882547,
-    "handle": "filamento-bambu-petg-1-75mm-1kg",
-    "title": "Filamento Bambu TPU Flexível Emborrachado",
-    "price": "313.65",
-    "oldPrice": "359.00"
+    "shopifyProductId": 15580401729779,
+    "shopifyVariantId": 69108414021875,
+    "handle": "filamento-bambu-petg-translucent-translucido-efeito-vidro-1kg",
+    "title": "Filamento Bambu TPU Flexível Emborrachado"
   },
   "filament-bambu-support-pva": {
-    "shopifyProductId": 15478663577843,
-    "shopifyVariantId": 68035700523251,
-    "handle": "filamento-bambu-pla-lite",
-    "title": "Filamentos Bambu Suporte Removível & PVA",
-    "price": "125.10",
-    "oldPrice": "149.00"
+    "shopifyProductId": 15580401041651,
+    "shopifyVariantId": 69108410712307,
+    "handle": "filamento-bambu-pla-lite-1-75mm-1kg-carretel-refil",
+    "title": "Filamentos Bambu Suporte Removível & PVA"
   },
   "filament-polymaker-fiberon-industrial": {
-    "shopifyProductId": 15478665052403,
-    "shopifyVariantId": 68035705798899,
-    "handle": "filamento-panchona-matte-1-75mm-1kg",
-    "title": "Filamento Polymaker Fiberon Industrial",
-    "price": "249.90",
-    "oldPrice": "289.00"
+    "shopifyProductId": 15580401959155,
+    "shopifyVariantId": 69108414841075,
+    "handle": "filamento-polymaker-panchroma-matte-silk-galaxy-gradient",
+    "title": "Filamento Polymaker Fiberon Industrial"
   },
   "filament-esun-special": {
-    "shopifyProductId": 15478664462579,
-    "shopifyVariantId": 68035703734515,
-    "handle": "filamento-sanlu-pla-1-75mm-1kg",
-    "title": "Filamento eSun Especial",
-    "price": "124.90",
-    "oldPrice": "139.00"
+    "shopifyProductId": 15580402024691,
+    "shopifyVariantId": 69108415201459,
+    "handle": "filamento-sunlu-pla-high-speed-pla-matte-pla-silk",
+    "title": "Filamento eSun Especial"
   }
 }
